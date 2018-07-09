@@ -1,0 +1,35 @@
+@import "/static/css/vendor.wxss";
+
+.photo-browse-container.data-v-435a0dac {
+  background: #000;
+  height: 100%;
+  padding-bottom: 90rpx;
+}
+.img-box.data-v-435a0dac {
+  margin-bottom: 30rpx;
+}
+.img-box .bir-img.data-v-435a0dac {
+  width: 100%;
+}
+.img-desc.data-v-435a0dac {
+  font-size: 28rpx;
+  color: #FFFFFF;
+  letter-spacing: 0;
+  margin: 0 50rpx;
+}
+.img-info-box.data-v-435a0dac {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 650rpx;
+  margin: 0 50rpx;
+  height: 90rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 24rpx;
+  color: #B6B7BE;
+  letter-spacing: 0;
+  line-height: 33rpx;
+  border-top: 1rpx solid #656060;
+}

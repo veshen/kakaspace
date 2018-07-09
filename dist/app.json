@@ -1,0 +1,22 @@
+{
+  "pages": [
+    "pages/find/main",
+    "pages/about/main",
+    "pages/counter/main",
+    "pages/depth/main",
+    "pages/index/main",
+    "pages/logs/main",
+    "pages/my/main",
+    "pages/photobrowse/main",
+    "pages/photoinfo/main",
+    "pages/test/main",
+    "pages/themeinfo/main",
+    "pages/videoinfo/main"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  }
+}

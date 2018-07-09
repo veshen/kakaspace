@@ -1,0 +1,26 @@
+<import src="card$63db50d3" />
+<import src="moreInfo$a8bfaf34" />
+<template name="index$ce088618">
+  <view class="_div data-v-807b40fc container index index-container">
+    <view class="_div data-v-807b40fc index-top-box" bindtap="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}">
+      <view class="_div data-v-807b40fc title">KIKYO SPACE</view>
+      <view class="_div data-v-807b40fc city-name">上海</view>
+      <view class="_div data-v-807b40fc description">有人说，我喜欢你们的光影，尽致淋漓有人说，我喜欢你们的人物氛围，情感细腻</view>
+      <view class="_div data-v-807b40fc about-button">关于KIKYO</view>
+    </view>
+    <view class="_div data-v-807b40fc content">
+      <view class="_div data-v-807b40fc list-title">
+        <view class="_div data-v-807b40fc line-box"></view>
+        <view class="_div data-v-807b40fc text-box">主题场馆</view>
+      </view>
+      <view class="_div data-v-807b40fc list-content">
+        <view class="_div data-v-807b40fc list-item" wx:key="{index}" bindtap="handleProxy" data-eventid="{{'1-'+index}}" data-comkey="{{$k}}" wx:for="{{listData}}" wx:for-index="index" wx:for-item="data" style=" {{(  'background:' +  ('url(' + data.imgUrl + ') no-repeat top center') +  ';' +  'background-size:' +  '100% 100%' +  ';')}}">
+          <view class="_div data-v-807b40fc title">{{data.title}}</view>
+          <view class="_div data-v-807b40fc desc">{{data.desc}}</view>
+        </view>
+      </view>
+    </view>
+    <template data="{{...$root[$kk+'0'], $root}}" is="card$63db50d3"></template>
+    <template data="{{...$root[$kk+'1'], $root}}" is="moreInfo$a8bfaf34"></template>
+  </view>
+</template>

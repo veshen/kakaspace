@@ -1,0 +1,1 @@
+<import src="../../components/photobrowse$803fe4c4" /><template is="photobrowse$803fe4c4" data="{{ ...$root['0'], $root }}"/>

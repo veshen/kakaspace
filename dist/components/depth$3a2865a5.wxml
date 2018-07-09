@@ -1,0 +1,30 @@
+<import src="card$63db50d3" />
+<import src="moreInfo$a8bfaf34" />
+<template name="depth$3a2865a5">
+  <view class="_div data-v-60ef0833 index depth-container">
+    <view class="_div data-v-60ef0833 index-top-box" style=" {{(  'background:' +  ('url(' +    'https://resource.sa-green.cn/image/jpg/kaka/%E9%A1%B6%E5%9B%BE.png' +    ') no-repeat top center') +  ';' +  'background-size:' +  '100% 100%' +  ';')}}">
+      <view class="_div data-v-60ef0833 title">KIKYO SPACE 123123</view>
+      <view class="_div data-v-60ef0833 sub-title">有人说，我喜欢你们的光影，尽致淋漓</view>
+      <view class="_div data-v-60ef0833 sub-title">有人说，我喜欢你们的人物氛围，情感细腻</view>
+    </view>
+    <view class="_div data-v-60ef0833 content">
+      <view class="_div data-v-60ef0833 list-title">
+        <view class="_div data-v-60ef0833 line-box"></view>
+        <view class="_div data-v-60ef0833 text-box">视频示意</view>
+      </view>
+      <view class="_div data-v-60ef0833 list-content">
+        <view class="_div data-v-60ef0833 list-item" wx:key="{index}" wx:for="{{videoData}}" wx:for-index="index" wx:for-item="data">
+          <view class="_div data-v-60ef0833 video-box">
+            <video class="_video data-v-60ef0833 v-box" poster="{{data.poster}}" src="{{data.videoUrl}}"></video>
+          </view>
+          <view class="_div data-v-60ef0833 video-desc" bindtap="handleProxy" data-eventid="{{'0-'+index}}" data-comkey="{{$k}}">
+            <view class="_div data-v-60ef0833 title">你是所有美好的起因你是所有美好的起因</view>
+            <view class="_div data-v-60ef0833 sub-title">闺蜜就是西瓜分你一半闺蜜就是西瓜分你一半闺蜜就是西瓜分你一半</view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <template data="{{...$root[$kk+'0'], $root}}" is="card$63db50d3"></template>
+    <template data="{{...$root[$kk+'1'], $root}}" is="moreInfo$a8bfaf34"></template>
+  </view>
+</template>

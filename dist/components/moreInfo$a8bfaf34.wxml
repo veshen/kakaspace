@@ -1,0 +1,6 @@
+<template name="moreInfo$a8bfaf34">
+  <view class="_div data-v-3b485f74 more-info">
+    <view class="_h3 data-v-3b485f74">KIKYO SPACE · SHANGHAI</view>
+    <view class="_p data-v-3b485f74">更多场馆敬请期待</view>
+  </view>
+</template>

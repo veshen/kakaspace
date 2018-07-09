@@ -1,0 +1,35 @@
+
+.nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 750rpx;
+  height: 98rpx;
+  background: #100F0F;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.nav-item {
+  width: 56rpx;
+  text-align: center;
+}
+.nav-item ._a {
+  color: #fff;
+  font-size: 22rpx;
+}
+.more-info {
+  text-align: center;
+  height: 163rpx;
+  background: rgb(241,241,241);
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.more-info ._p {
+  font-size: 22rpx;
+  color: #100F0F;
+  letter-spacing: 0;
+  text-align: center;
+  line-height: 22rpx;
+}

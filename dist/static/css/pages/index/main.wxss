@@ -1,0 +1,104 @@
+@import "/static/css/vendor.wxss";
+
+.index-container.data-v-807b40fc {
+  padding-bottom: 150rpx;
+}
+.index-container .index-top-box.data-v-807b40fc {
+  position: relative;
+  width: 750rpx;
+  height: 860rpx;
+  background: url("https://resource.sa-green.cn/image/jpg/kaka/%E9%A6%96%E9%A1%B5%E5%A4%B4%E5%9B%BE.png") no-repeat left center;
+  background-size: 100% 100%;
+  overflow: hidden;
+  text-align: center;
+  color: #FFFFFF;
+  margin-bottom: 30rpx;
+}
+.index-container .index-top-box .title.data-v-807b40fc {
+  font-size: 34rpx;
+  line-height: 48rpx;
+  height: 48rpx;
+  margin-top: 49rpx;
+  margin-bottom: 13rpx;
+}
+.index-container .index-top-box .city-name.data-v-807b40fc {
+  font-size: 60rpx;
+  line-height: 84rpx;
+  height: 84rpx;
+  margin-bottom: 15rpx;
+}
+.index-container .index-top-box .description.data-v-807b40fc {
+  font-size: 24rpx;
+  color: #FFFFFF;
+  width: 456rpx;
+  margin: 0 auto 33rpx;
+}
+.index-container .index-top-box .about-button.data-v-807b40fc {
+  width: 212rpx;
+  height: 60rpx;
+  margin: 0 auto;
+  background: rgba(255, 230, 49, 0.75);
+  border-radius: 30rpx;
+  font-size: 28rpx;
+  color: #100F0F;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.index-container .content .list-title.data-v-807b40fc {
+  height: 42rpx;
+  font-size: 30rpx;
+  color: #100F0F;
+  letter-spacing: 0;
+  text-align: center;
+  text-shadow: 1rpx 1rpx 0 #FFE631;
+  position: relative;
+  margin-bottom: 20rpx;
+}
+.index-container .content .list-title .line-box.data-v-807b40fc {
+  height: 8rpx;
+  width: 260rpx;
+  border-top: 1rpx solid #100F0F;
+  border-bottom: 1rpx solid #100F0F;
+  position: absolute;
+  top: 18rpx;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.index-container .content .list-title .text-box.data-v-807b40fc {
+  background: #fff;
+  position: relative;
+  z-index: 6;
+  width: 120rpx;
+  margin: 0 auto;
+  padding: 0 14rpx;
+}
+.index-container .content .list-content.data-v-807b40fc {
+  margin: 0 30rpx;
+}
+.index-container .content .list-content .list-item.data-v-807b40fc {
+  height: 240rpx;
+  border-radius: 12rpx;
+  margin-bottom: 20rpx;
+}
+.index-container .content .list-content .list-item .title.data-v-807b40fc {
+  height: 42rpx;
+  line-height: 42rpx;
+  font-size: 30rpx;
+  color: #FFFFFF;
+  padding-top: 50rpx;
+  padding-left: 20rpx;
+  padding-bottom: 20rpx;
+}
+.index-container .content .list-content .list-item .desc.data-v-807b40fc {
+  width: 367rpx;
+  padding-left: 20rpx;
+  line-height: 33rpx;
+  height: 66rpx;
+  font-size: 24rpx;
+  color: #FFFFFF;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}

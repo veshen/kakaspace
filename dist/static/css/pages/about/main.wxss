@@ -1,0 +1,82 @@
+@import "/static/css/vendor.wxss";
+
+.about-container.data-v-7cab2706 {
+  padding-bottom: 110rpx;
+}
+.about-container .header.data-v-7cab2706 {
+  height: 1110rpx;
+  background: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.about-container .header .content.data-v-7cab2706 {
+  width: 650rpx;
+  height: 1010rpx;
+  border: 2rpx solid #fff;
+  border-radius: 2rpx;
+}
+.about-container .header .content .img-box.data-v-7cab2706 {
+  width: 100%;
+  height: 840rpx;
+}
+.about-container .header .content .img-box .image.data-v-7cab2706 {
+  width: 650rpx;
+  height: 840rpx;
+}
+.about-container .header .content .img-desc.data-v-7cab2706 {
+  padding-top: 40rpx;
+  margin: 0 30rpx;
+}
+.about-container .header .content .img-desc .title.data-v-7cab2706 {
+  font-size: 40rpx;
+  color: #FFFFFF;
+  letter-spacing: 0;
+  line-height: 40rpx;
+  margin-bottom: 10rpx;
+}
+.about-container .header .content .img-desc .desc.data-v-7cab2706 {
+  display: flex;
+  justify-content: space-between;
+}
+.about-container .header .content .img-desc .desc .left-box.data-v-7cab2706 {
+  font-size: 32rpx;
+  color: #FFFFFF;
+  letter-spacing: 0;
+  line-height: 40rpx;
+}
+.about-container .header .content .img-desc .desc .right-box.data-v-7cab2706 {
+  font-size: 28rpx;
+  color: #FFFFFF;
+  letter-spacing: 0;
+  line-height: 40rpx;
+  padding-left: 10rpx;
+  border-left: 8rpx solid #fff;
+}
+.about-container .main.data-v-7cab2706 {
+  border-radius: 20rpx 20rpx 0 0;
+  overflow: hidden;
+  padding: 0 40rpx;
+}
+.about-space.data-v-7cab2706 {
+  border-radius: 20rpx 20rpx 0 0;
+  overflow: hidden;
+  border-bottom: 1rpx solid #656060;
+  padding-bottom: 40rpx;
+}
+.about-container .main .title.data-v-7cab2706 {
+  font-size: 36rpx;
+  color: #100F0F;
+  letter-spacing: 0;
+  line-height: 36rpx;
+  margin-bottom: 40rpx;
+}
+.about-container .main .desc.data-v-7cab2706 {
+  font-size: 28rpx;
+  color: #656060;
+  letter-spacing: 0;
+}
+.about-space.data-v-7cab2706,
+.address-box.data-v-7cab2706 {
+  padding-top: 60rpx;
+}

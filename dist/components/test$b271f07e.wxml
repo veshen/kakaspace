@@ -1,0 +1,18 @@
+<import src="card$ad1efb10" />
+<template name="test$b271f07e">
+  <view class="_div data-v-0969d878 container" bindtap="handleProxy" data-eventid="{{'3'}}" data-comkey="{{$k}}">
+    <view class="_div data-v-0969d878 userinfo" bindtap="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}">
+      <image class="_img data-v-0969d878 userinfo-avatar" wx:if="{{userInfo.avatarUrl}}" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+      <view class="_div data-v-0969d878 userinfo-nickname"></view>
+    </view>
+    <view class="_div data-v-0969d878 usermotto">
+      <view class="_div data-v-0969d878 user-motto"></view>
+    </view>
+    <form class="_form data-v-0969d878 form-container">
+      <input type="text" class="_input data-v-0969d878 form-control" value="{{motto}}" bindinput="handleProxy" placeholder="v-model" data-eventid="{{'1'}}" data-comkey="{{$k}}" />
+      <input type="text" class="_input data-v-0969d878 form-control" value="{{motto}}" bindblur="handleProxy" placeholder="v-model.lazy" data-eventid="{{'2'}}" data-comkey="{{$k}}" />
+    </form>
+    <navigator url="/pages/counter/main" class="_a data-v-0969d878 counter">去往Vuex示例页面</navigator>
+    <template data="{{...$root[$kk+'0'], $root}}" is="card$ad1efb10"></template>
+  </view>
+</template>

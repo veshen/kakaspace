@@ -1,0 +1,28 @@
+<import src="card$ad1efb10" />
+<template name="depth$6f37c20a">
+  <view class="_div data-v-60ef0833 index depth-container">
+    <view class="_div data-v-60ef0833 index-top-box">
+      <view class="_div data-v-60ef0833 title">KIKYO SPACE 123123</view>
+      <view class="_div data-v-60ef0833 sub-title">有人说，我喜欢你们的光影，尽致淋漓</view>
+      <view class="_div data-v-60ef0833 sub-title">有人说，我喜欢你们的人物氛围，情感细腻</view>
+    </view>
+    <view class="_div data-v-60ef0833 content">
+      <view class="_div data-v-60ef0833 list-title">
+        <view class="_div data-v-60ef0833 line-box"></view>
+        <view class="_div data-v-60ef0833 text-box">视频示意</view>
+      </view>
+      <view class="_div data-v-60ef0833 list-content">
+        <view class="_div data-v-60ef0833 list-item">
+          <view class="_div data-v-60ef0833 video-box">
+            <video class="_video data-v-60ef0833 v-box" src="http://wxsnsdy.tc.qq.com/105/20210/snsdyvideodownload?filekey=30280201010421301f0201690402534804102ca905ce620b1241b726bc41dcff44e00204012882540400&bizid=1023&hy=SH&fileparam=302c020101042530230204136ffd93020457e3c4ff02024ef202031e8d7f02030f42400204045a320a0201000400"></video>
+          </view>
+          <view class="_div data-v-60ef0833 video-desc">
+            <view class="_div data-v-60ef0833 title">你是所有美好的起因你是所有美好的起因</view>
+            <view class="_div data-v-60ef0833 sub-title">闺蜜就是西瓜分你一半闺蜜就是西瓜分你一半闺蜜就是西瓜分你一半</view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <template data="{{...$root[$kk+'0'], $root}}" is="card$ad1efb10"></template>
+  </view>
+</template>
