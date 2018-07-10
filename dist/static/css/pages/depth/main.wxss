@@ -1,10 +1,10 @@
 @import "/static/css/vendor.wxss";
 
-.depth-container.data-v-60ef0833 {
+.depth-container.data-v-2aee11bd {
   padding-bottom: 150rpx;
   background: rgb(241,241,241);
 }
-.depth-container .index-top-box.data-v-60ef0833 {
+.depth-container .index-top-box.data-v-2aee11bd {
   position: relative;
   width: 750rpx;
   height: 380rpx;
@@ -12,16 +12,16 @@
   color: #FFFFFF;
   margin-bottom: 30rpx;
 }
-.depth-container .index-top-box .title.data-v-60ef0833 {
+.depth-container .index-top-box .title.data-v-2aee11bd {
   font-size: 60rpx;
   line-height: 60rpx;
   margin: 52rpx 0 20rpx 50rpx;
 }
-.depth-container .index-top-box .sub-title.data-v-60ef0833 {
+.depth-container .index-top-box .sub-title.data-v-2aee11bd {
   font-size: 24rpx;
   margin: 20rpx 0 0 50rpx;
 }
-.depth-container .content .list-title.data-v-60ef0833 {
+.depth-container .content .list-title.data-v-2aee11bd {
   height: 42rpx;
   font-size: 30rpx;
   color: #100F0F;
@@ -31,7 +31,7 @@
   position: relative;
   margin-bottom: 20rpx;
 }
-.depth-container .content .list-title .line-box.data-v-60ef0833 {
+.depth-container .content .list-title .line-box.data-v-2aee11bd {
   height: 8rpx;
   width: 260rpx;
   border-top: 1rpx solid #100F0F;
@@ -41,7 +41,7 @@
   left: 50%;
   transform: translateX(-50%);
 }
-.depth-container .content .list-title .text-box.data-v-60ef0833 {
+.depth-container .content .list-title .text-box.data-v-2aee11bd {
   background: #fff;
   position: relative;
   z-index: 6;
@@ -49,34 +49,34 @@
   margin: 0 auto;
   padding: 0 14rpx;
 }
-.depth-container .content .list-content.data-v-60ef0833 {
+.depth-container .content .list-content.data-v-2aee11bd {
   margin: 0 30rpx;
 }
-.depth-container .content .list-content .list-item.data-v-60ef0833 {
+.depth-container .content .list-content .list-item.data-v-2aee11bd {
   border-radius: 12rpx;
   overflow: hidden;
   margin-bottom: 20rpx;
 }
-.depth-container .content .list-content .list-item .video-box.data-v-60ef0833 {
+.depth-container .content .list-content .list-item .video-box.data-v-2aee11bd {
   background: yellow;
   height: 250rpx;
 }
-.depth-container .content .list-content .list-item .video-box .v-box.data-v-60ef0833 {
+.depth-container .content .list-content .list-item .video-box .v-box.data-v-2aee11bd {
   height: 250rpx;
   width: 100%;
 }
-.depth-container .content .list-content .list-item .video-desc.data-v-60ef0833 {
+.depth-container .content .list-content .list-item .video-desc.data-v-2aee11bd {
   background: rgb(229,229,229);
   padding: 30rpx 20rpx 18rpx;
 }
-.depth-container .content .list-content .list-item .video-desc .title.data-v-60ef0833 {
+.depth-container .content .list-content .list-item .video-desc .title.data-v-2aee11bd {
   font-size: 30rpx;
   color: #100F0F;
   letter-spacing: 0;
   line-height: 30rpx;
   margin-bottom: 16rpx;
 }
-.depth-container .content .list-content .list-item .video-desc .sub-title.data-v-60ef0833 {
+.depth-container .content .list-content .list-item .video-desc .sub-title.data-v-2aee11bd {
   font-size: 24rpx;
   line-height: 33rpx;
   color: #100F0F;

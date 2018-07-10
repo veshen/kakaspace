@@ -1,23 +1,23 @@
 @import "/static/css/vendor.wxss";
 
-.photo-browse-container.data-v-435a0dac {
+.photo-browse-container.data-v-236b7094 {
   background: #000;
   height: 100%;
   padding-bottom: 90rpx;
 }
-.img-box.data-v-435a0dac {
+.img-box.data-v-236b7094 {
   margin-bottom: 30rpx;
 }
-.img-box .bir-img.data-v-435a0dac {
+.img-box .bir-img.data-v-236b7094 {
   width: 100%;
 }
-.img-desc.data-v-435a0dac {
+.img-desc.data-v-236b7094 {
   font-size: 28rpx;
   color: #FFFFFF;
   letter-spacing: 0;
   margin: 0 50rpx;
 }
-.img-info-box.data-v-435a0dac {
+.img-info-box.data-v-236b7094 {
   position: fixed;
   bottom: 0;
   left: 0;

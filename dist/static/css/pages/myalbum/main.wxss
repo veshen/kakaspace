@@ -1,0 +1,16 @@
+@import "/static/css/vendor.wxss";
+
+.ilike-container.data-v-693dd106 {
+  min-height: 100%;
+  background: #000;
+}
+.like-list.data-v-693dd106 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.like-list .like-item.data-v-693dd106 {
+  width: 248rpx;
+  height: 248rpx;
+  margin-bottom: 3rxp;
+}

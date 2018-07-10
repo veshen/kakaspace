@@ -12,8 +12,8 @@
               <div class="text-box">主题场馆</div>
           </div>
           <div class="list-content">
-              <div  class="list-item" 
-                    v-for="(data, index) in listData" 
+              <div  class="list-item"
+                    v-for="(data, index) in listData"
                     wx:key={index}
                     v-bind:style="{background: 'url('+data.imgUrl+') no-repeat top center',backgroundSize:'100% 100%'}"
                     @click="toPage('../themeinfo/main')"
@@ -32,7 +32,7 @@
 <script>
 import card from '@/components/card'
 import moreInfo from '@/components/moreInfo'
-
+import { get } from './../../utils/index'
 export default {
   data () {
     return {
@@ -62,9 +62,13 @@ export default {
     getUserInfo () {
       // 调用登录接口
       wx.login({
-        success: () => {
+        success: (re) => {
+            console.log(re);
+            const code = re.code;
+            get('/base/wechant/login',{code})
           wx.getUserInfo({
             success: (res) => {
+                // console.log(res);
               this.userInfo = res.userInfo
             }
           })

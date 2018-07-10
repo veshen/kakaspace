@@ -1,15 +1,15 @@
 @import "/static/css/vendor.wxss";
 
-.mine-container .index-top-box.data-v-ee7a405c {
+.mine-container .index-top-box.data-v-51295288 {
   height: 340rpx;
   background: url('https://resource.sa-green.cn/static/jpg/%E6%88%91%E7%9A%84_%E9%A1%B6%E5%9B%BE.png') no-repeat top center;
   background-size: 100% 100%;
   margin-bottom: 30rpx;
 }
-.mine-container .index-top-box .login-box.data-v-ee7a405c {
+.mine-container .index-top-box .login-box.data-v-51295288 {
   overflow: hidden;
 }
-.mine-container .index-top-box .login-box .head.data-v-ee7a405c {
+.mine-container .index-top-box .login-box .head.data-v-51295288 {
   display: block;
   width: 160rpx;
   height: 160rpx;
@@ -17,16 +17,16 @@
   border-radius: 50%;
   border: 1rpx solid rgba(255, 255, 255, 0.7);
 }
-.mine-container .index-top-box .login-box .user-name.data-v-ee7a405c {
+.mine-container .index-top-box .login-box .user-name.data-v-51295288 {
   font-size: 32rpx;
   color: #FFFFFF;
   text-align: center;
 }
-.mine-container .content.data-v-ee7a405c {
+.mine-container .content.data-v-51295288 {
   padding: 40rpx 60rpx 80rpx;
   background: #fff;
 }
-.mine-container .content .list-content .list-item.data-v-ee7a405c {
+.mine-container .content .list-content .list-item.data-v-51295288 {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -34,7 +34,7 @@
   height: 120rpx;
   border-bottom: 1rpx solid #D9D3CB;
 }
-.mine-container .content .list-content .list-item .content-text.data-v-ee7a405c {
+.mine-container .content .list-content .list-item .content-text.data-v-51295288 {
   flex-grow: 1;
   padding-left: 40rpx;
   font-size: 30rpx;

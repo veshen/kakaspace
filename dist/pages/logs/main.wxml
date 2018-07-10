@@ -1,1 +1,1 @@
-<import src="../../components/logs$eaa4f4ba" /><template is="logs$eaa4f4ba" data="{{ ...$root['0'], $root }}"/>
+<import src="../../components/logs$6a70f76f" /><template is="logs$6a70f76f" data="{{ ...$root['0'], $root }}"/>

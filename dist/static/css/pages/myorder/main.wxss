@@ -1,0 +1,98 @@
+@import "/static/css/vendor.wxss";
+
+.my-order-container.data-v-4af6d59c {
+  min-height: 100%;
+  background: #000;
+  overflow: hidden;
+}
+.title-box.data-v-4af6d59c {
+  padding: 0 30rpx;
+  height: 110rpx;
+  background: #1B1B1B;
+  display: flex;
+  align-items: center;
+  margin: 30rpx 0;
+}
+.title-box .text.data-v-4af6d59c {
+  height: 30rpx;
+  line-height: 30rpx;
+  font-size: 30rpx;
+  color: #FFFFFF;
+  letter-spacing: 0;
+  padding-left: 20rpx;
+  border-left: 4rpx solid #FFE631;
+}
+.order-list-box.data-v-4af6d59c {
+  padding: 60rpx 30rpx;
+  background: #1B1B1B;
+}
+.order-item.data-v-4af6d59c {
+  padding: 30rpx 20rpx 30rpx 30rpx;
+  height: 130rpx;
+  margin-bottom: 20rpx;
+  background: #fff;
+  border-radius: 12rpx;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+}
+.order-item .line-left.data-v-4af6d59c {
+  width: 8rpx;
+  height: 90rpx;
+  background: #FFE631;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.order-item .img-box.data-v-4af6d59c {
+  width: 130rpx;
+  height: 130rpx;
+  border-radius: 8rpx;
+  margin-right: 20rpx;
+}
+.order-item .img-box .image.data-v-4af6d59c {
+  width: 130rpx;
+  height: 130rpx;
+  border-radius: 8rpx;
+}
+.order-item .order-info-box.data-v-4af6d59c {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.order-item .order-info-box .sub-content.data-v-4af6d59c {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.order-item .order-info-box .order-info-top .order-no.data-v-4af6d59c {
+  font-size: 28rpx;
+  color: #100F0F;
+  letter-spacing: 0;
+  line-height: 28rpx;
+}
+.order-item .order-info-box .order-info-top .order-status.data-v-4af6d59c {
+  font-size: 24rpx;
+  color: #656060;
+  letter-spacing: 0;
+}
+.order-item .order-info-box .order-info-center .shop-time.data-v-4af6d59c {
+  font-size: 24rpx;
+  color: #7A7B84;
+  letter-spacing: 0;
+  line-height: 24rpx;
+}
+.order-item .order-info-box .order-info-bottom .head-count.data-v-4af6d59c {
+  font-size: 24rpx;
+  color: #7A7B84;
+  letter-spacing: 0;
+  line-height: 24rpx;
+}
+.order-item .order-info-box .order-info-bottom .order-price.data-v-4af6d59c {
+  font-size: 28rpx;
+  color: #100F0F;
+  letter-spacing: 0;
+  line-height: 28rpx;
+}

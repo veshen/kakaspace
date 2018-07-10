@@ -9,8 +9,8 @@
 	},
 	"miniprogramRoot": "./dist/",
 	"compileType": "miniprogram",
-	"appid": "wxdafa107ea6da29c3",
-	"projectname": "kakaspace-mpvue",
+	"appid": "wxa79683778caf8fef",
+	"projectname": "kakaspace",
 	"condition": {
 		"search": {
 			"current": -1,

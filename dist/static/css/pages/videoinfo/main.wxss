@@ -1,20 +1,20 @@
 @import "/static/css/vendor.wxss";
 
-.video-info-container .content .video-box .v-box.data-v-a382f1ce {
+.video-info-container .content .video-box .v-box.data-v-31ac88ba {
   width: 100%;
   height: 420rpx;
 }
-.video-info-container .content .video-desc.data-v-a382f1ce {
+.video-info-container .content .video-desc.data-v-31ac88ba {
   padding: 40rpx;
 }
-.video-info-container .content .video-desc .title.data-v-a382f1ce {
+.video-info-container .content .video-desc .title.data-v-31ac88ba {
   font-size: 36rpx;
   color: #100F0F;
   letter-spacing: 0;
   line-height: 36rpx;
   margin-bottom: 43rpx;
 }
-.video-info-container .content .video-desc .time-box.data-v-a382f1ce {
+.video-info-container .content .video-desc .time-box.data-v-31ac88ba {
   font-size: 26rpx;
   color: #656060;
   letter-spacing: 0;
@@ -23,7 +23,7 @@
   border-bottom: 1rpx solid #656060;
   margin-bottom: 70rpx;
 }
-.video-info-container .content .video-desc .content-text.data-v-a382f1ce {
+.video-info-container .content .video-desc .content-text.data-v-31ac88ba {
   font-size: 28rpx;
   color: #656060;
   letter-spacing: 0;

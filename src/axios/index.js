@@ -10,20 +10,20 @@ import * as config from './config';
 axios.defaults.withCredentials = true;
 axios.defaults.adapter = function (config) {
     return new Promise((resolve, reject) => {
-        console.log(config)
+        // console.log(config)
         // TODO wx.request(...)
-		wx.request({
-			url: config.url,
-			method: config.method,
-			data: config.params,    //参数为键值对字符串
-			header: config.headers,
-			success: function (res) {
-				console.log(res.data)
-				// that.setData({
-				// 	items: res.data
-				// })
-			}
-		})
+		// wx.request({
+		// 	url: config.url,
+		// 	method: config.method,
+		// 	data: config.params,    //参数为键值对字符串
+		// 	header: config.headers,
+		// 	success: function (res) {
+		// 		console.log(res.data)
+		// 		// that.setData({
+		// 		// 	items: res.data
+		// 		// })
+		// 	}
+		// })
     })
 }
 /*

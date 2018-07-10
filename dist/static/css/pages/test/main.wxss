@@ -1,29 +1,29 @@
 @import "/static/css/vendor.wxss";
 
-.userinfo.data-v-0969d878 {
+.userinfo.data-v-51fe75ae {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.userinfo-avatar.data-v-0969d878 {
+.userinfo-avatar.data-v-51fe75ae {
   width: 128rpx;
   height: 128rpx;
   margin: 20rpx;
   border-radius: 50%;
 }
-.userinfo-nickname.data-v-0969d878 {
+.userinfo-nickname.data-v-51fe75ae {
   color: #aaa;
 }
-.usermotto.data-v-0969d878 {
+.usermotto.data-v-51fe75ae {
   margin-top: 300rpx;
 }
-.form-control.data-v-0969d878 {
+.form-control.data-v-51fe75ae {
   display: block;
   padding: 0 24rpx;
   margin-bottom: 10rpx;
   border: 2rpx solid #ccc;
 }
-.counter.data-v-0969d878 {
+.counter.data-v-51fe75ae {
   display: inline-block;
   margin: 20rpx auto;
   padding: 10rpx 20rpx;

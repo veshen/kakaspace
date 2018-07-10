@@ -1,1 +1,1 @@
-<import src="../../components/about$ca386c22" /><template is="about$ca386c22" data="{{ ...$root['0'], $root }}"/>
+<import src="../../components/about$98e2dcba" /><template is="about$98e2dcba" data="{{ ...$root['0'], $root }}"/>

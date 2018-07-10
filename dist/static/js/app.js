@@ -1,13 +1,13 @@
 global.webpackJsonp([1],{
 
-/***/ 108:
+/***/ 109:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return get; });
 /* unused harmony export post */
 /* unused harmony export postExport */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_promise__ = __webpack_require__(28);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_promise__ = __webpack_require__(19);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_promise___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_promise__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios__ = __webpack_require__(42);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_axios__);
@@ -114,7 +114,7 @@ function markUrl(link, data) {
 
 /***/ }),
 
-/***/ 109:
+/***/ 110:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -263,15 +263,15 @@ var SSP_SUBMIT_RECEIVR_ORDER = PRODUCTION + 'site/order/receive/submitReceiveOrd
 
 /***/ }),
 
-/***/ 48:
+/***/ 49:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__App__ = __webpack_require__(50);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__axios_index_js__ = __webpack_require__(53);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__App__ = __webpack_require__(51);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__axios_index_js__ = __webpack_require__(54);
 
 
 
@@ -286,7 +286,7 @@ Object(__WEBPACK_IMPORTED_MODULE_2__axios_index_js__["a" /* getCode */])();
   // 这个字段走 app.json
   config: {
     // 页面前带有 ^ 符号的，会被编译成首页，其他页面可以选填，我们会自动把 webpack entry 里面的入口页面加进去
-    pages: ['pages/my/main', 'pages/themeinfo/main', 'pages/videoinfo/main', '^pages/find/main', 'pages/photoinfo/main', 'pages/photobrowse/main', 'pages/depth/main', 'pages/index/main', 'pages/about/main'],
+    pages: ['pages/my/main', 'pages/themeinfo/main', 'pages/videoinfo/main', 'pages/find/main', 'pages/photoinfo/main', 'pages/photobrowse/main', 'pages/depth/main', '^pages/index/main', 'pages/myorder/main', 'pages/ilike/main', 'pages/myalbum/main', 'pages/about/main'],
     window: {
       backgroundTextStyle: 'light',
       navigationBarBackgroundColor: '#fff',
@@ -298,15 +298,15 @@ Object(__WEBPACK_IMPORTED_MODULE_2__axios_index_js__["a" /* getCode */])();
 
 /***/ }),
 
-/***/ 50:
+/***/ 51:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_lib_selector_type_script_index_0_App_vue__ = __webpack_require__(52);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_lib_selector_type_script_index_0_App_vue__ = __webpack_require__(53);
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(51)
+  __webpack_require__(52)
 }
 var normalizeComponent = __webpack_require__(0)
 /* script */
@@ -336,9 +336,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-2cb27e79", Component.options)
+    hotAPI.createRecord("data-v-c1cebcfa", Component.options)
   } else {
-    hotAPI.reload("data-v-2cb27e79", Component.options)
+    hotAPI.reload("data-v-c1cebcfa", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -350,14 +350,14 @@ if (false) {(function () {
 
 /***/ }),
 
-/***/ 51:
+/***/ 52:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
 
-/***/ 52:
+/***/ 53:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -368,24 +368,23 @@ if (false) {(function () {
     var logs = wx.getStorageSync('logs') || [];
     logs.unshift(Date.now());
     wx.setStorageSync('logs', logs);
-
     console.log('app created and cache logs by setStorageSync');
   }
 });
 
 /***/ }),
 
-/***/ 53:
+/***/ 54:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return getCode; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_promise__ = __webpack_require__(28);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_promise__ = __webpack_require__(19);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_promise___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_promise__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios__ = __webpack_require__(42);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_axios__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__tools__ = __webpack_require__(108);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__config__ = __webpack_require__(109);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__tools__ = __webpack_require__(109);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__config__ = __webpack_require__(110);
 
 
 
@@ -395,20 +394,20 @@ if (false) {(function () {
 __WEBPACK_IMPORTED_MODULE_1_axios___default.a.defaults.withCredentials = true;
 __WEBPACK_IMPORTED_MODULE_1_axios___default.a.defaults.adapter = function (config) {
 				return new __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_promise___default.a(function (resolve, reject) {
-								console.log(config);
+								// console.log(config)
 								// TODO wx.request(...)
-								wx.request({
-												url: config.url,
-												method: config.method,
-												data: config.params, //参数为键值对字符串
-												header: config.headers,
-												success: function success(res) {
-																console.log(res.data);
-																// that.setData({
-																// 	items: res.data
-																// })
-												}
-								});
+								// wx.request({
+								// 	url: config.url,
+								// 	method: config.method,
+								// 	data: config.params,    //参数为键值对字符串
+								// 	header: config.headers,
+								// 	success: function (res) {
+								// 		console.log(res.data)
+								// 		// that.setData({
+								// 		// 	items: res.data
+								// 		// })
+								// 	}
+								// })
 				});
 };
 /*
@@ -428,5 +427,5 @@ var getCode = function getCode(params) {
 
 /***/ })
 
-},[48]);
+},[49]);
 //# sourceMappingURL=app.js.map

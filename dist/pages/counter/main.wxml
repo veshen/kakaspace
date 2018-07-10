@@ -1,1 +1,1 @@
-<import src="../../components/counter$0b179044" /><template is="counter$0b179044" data="{{ ...$root['0'], $root }}"/>
+<import src="../../components/counter$d8e83adc" /><template is="counter$d8e83adc" data="{{ ...$root['0'], $root }}"/>

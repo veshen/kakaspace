@@ -1,0 +1,16 @@
+<template name="card$103c7587">
+  <view class="_div data-v-09cd22eb nav">
+    <view class="_div data-v-09cd22eb nav-item" bindtap="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}">
+      <view class="_a data-v-09cd22eb nav-text  active">首页</view>
+    </view>
+    <view class="_div data-v-09cd22eb nav-item" bindtap="handleProxy" data-eventid="{{'1'}}" data-comkey="{{$k}}">
+      <view class="_a data-v-09cd22eb nav-text">深度</view>
+    </view>
+    <view class="_div data-v-09cd22eb nav-item" bindtap="handleProxy" data-eventid="{{'2'}}" data-comkey="{{$k}}">
+      <view class="_a data-v-09cd22eb nav-text">发现</view>
+    </view>
+    <view class="_div data-v-09cd22eb nav-item" bindtap="handleProxy" data-eventid="{{'3'}}" data-comkey="{{$k}}">
+      <view class="_a data-v-09cd22eb nav-text">我的</view>
+    </view>
+  </view>
+</template>

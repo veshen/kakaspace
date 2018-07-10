@@ -16,8 +16,8 @@
         </div>
         <div class="content">
             <div class="list-content">
-                <div 
-                  class="list-item"  
+                <div
+                  class="list-item"
                   v-for="(item, index) in arrData"
                   @click="toPage('../photoinfo/main')"
                   wx:key={item.id}
@@ -33,12 +33,12 @@
         </div>
         <div class="updata-photo-box" v-show="updataPhoto">
           <div class="update-block">
-            <div class="off-btn-box">
-              <img class="off-btn" src="https://resource.sa-green.cn/image/jpg/%E5%85%B3%E9%97%AD.svg">
+            <div class="off-btn-box" @click="updataPhoto=false">
+              <img class="off-btn"  src="https://resource.sa-green.cn/image/jpg/%E5%85%B3%E9%97%AD.svg">
             </div>
             <div class="update-img-list">
-              <div 
-                class="update-img-item" 
+              <div
+                class="update-img-item"
                 v-for="(item, index) in tempFilePaths"
                 wx:key={index}
                 >
@@ -49,15 +49,15 @@
                   <span class="add-icon">+</span>
               </div>
             </div>
-            <div 
-              class="update-file-btn-box" 
-              @click="listenerButtonChooseImage" 
+            <div
+              class="update-file-btn-box"
+              @click="listenerButtonChooseImage"
               v-if="tempFilePaths.length===0">
               <img class="update-file-img" src="https://resource.sa-green.cn/image/jpg/%E4%B8%8A%E4%BC%A0%E7%85%A7%E7%89%87.png">
               <div class="text">上传照片</div>
             </div>
             <div class="photo-desc-input-box">
-              
+
             </div>
             <div class="submit-btn">提交</div>
           </div>
@@ -96,14 +96,14 @@ export default {
           count: 9,
           //original原图，compressed压缩图
           sizeType: ['original'],
-          //album来源相册 camera相机 
+          //album来源相册 camera相机
           sourceType: ['album', 'camera'],
           //成功时会回调
           success: function(res) {
               //重绘视图
               console.log(res)
               that.tempFilePaths = that.tempFilePaths.concat(res.tempFilePaths);
-              
+
               // that.setData({
               //     source: res.tempFilePaths
               // })
@@ -283,7 +283,7 @@ export default {
   color: #FFE631;
 }
 .find-container .filter-box .left-btn{
-  
+
 }
 .find-container .filter-box .left-btn .line {
   height: 4rpx;
@@ -308,7 +308,7 @@ export default {
   background: #000;
   position: relative;
   margin-bottom: 1rpx;
- 
+
 }
 .find-container .filter-box .left-btn .check-list li {
   opacity: 0;
