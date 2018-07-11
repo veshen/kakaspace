@@ -24,21 +24,20 @@
   			<div class="title">地址</div>
   			<div class="desc">上海市黄浦区局门路411号（8号桥2期）9号线马当路站步行8分钟可到</div>
   			<div class="map-box">
-  				<map 
-  					id="map" 
-  					longitude="36.0614156482" 
-  					latitude="120.3853189945" 
-  					scale="14" 
+  				<map
+  					id="map"
+  					longitude="36.0614156482"
+  					latitude="89.3853189945"
+  					scale="14"
   					bindcontroltap="controltap"
-  					bindregionchange="regionchange" 
-  					show-location 
+  					bindregionchange="regionchange"
+  					show-location
   					style="width: 670rpx; height: 440rpx;"
   					>
 				</map>
   			</div>
   		</div>
   	</div>
-    <card :text="motto"></card>
     <moreInfo />
   </div>
 
@@ -86,7 +85,6 @@ export default {
 
 <style scoped>
 .about-container{
-	padding-bottom: 110rpx;
 }
 .about-container .header{
 	height: 1110rpx;

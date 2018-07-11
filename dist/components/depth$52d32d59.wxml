@@ -13,11 +13,11 @@
         <view class="_div data-v-2aee11bd text-box">视频示意</view>
       </view>
       <view class="_div data-v-2aee11bd list-content">
-        <view class="_div data-v-2aee11bd list-item" wx:key="{index}" wx:for="{{videoData}}" wx:for-index="index" wx:for-item="data">
+        <view class="_div data-v-2aee11bd list-item" wx:key="{index}" bindtap="handleProxy" data-eventid="{{'0-'+index}}" data-comkey="{{$k}}" wx:for="{{videoData}}" wx:for-index="index" wx:for-item="data">
           <view class="_div data-v-2aee11bd video-box">
-            <video class="_video data-v-2aee11bd v-box" poster="{{data.poster}}" src="{{data.videoUrl}}"></video>
+            <image class="_img data-v-2aee11bd v-box" src="{{data.poster}}" alt></image>
           </view>
-          <view class="_div data-v-2aee11bd video-desc" bindtap="handleProxy" data-eventid="{{'0-'+index}}" data-comkey="{{$k}}">
+          <view class="_div data-v-2aee11bd video-desc">
             <view class="_div data-v-2aee11bd title">你是所有美好的起因你是所有美好的起因</view>
             <view class="_div data-v-2aee11bd sub-title">闺蜜就是西瓜分你一半闺蜜就是西瓜分你一半闺蜜就是西瓜分你一半</view>
           </view>

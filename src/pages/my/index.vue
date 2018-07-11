@@ -10,44 +10,45 @@
       <div class="content">
           <div class="list-content">
               <div class="list-item">
-                  <Icon class="like" size='14' type='success'/>
+                  <img class="left-icon" src="http://static.sa-green.cn/image/jpg/kaka/%E5%96%9C%E6%AC%A2.svg" alt="">
                   <div class="content-text">订单</div>
                   <Icon class="like" size='14' type='success'/>
               </div>
               <div class="list-item">
-                  <Icon class="like" size='14' type='success'/>
+                  <img class="left-icon" src="http://static.sa-green.cn/image/jpg/kaka/%E5%96%9C%E6%AC%A2.svg" alt="">
                   <div class="content-text">喜欢</div>
                   <Icon class="like" size='14' type='success'/>
               </div>
               <div class="list-item">
-                  <Icon class="like" size='14' type='success'/>
+                  <img class="left-icon" src="http://static.sa-green.cn/image/jpg/kaka/%E7%9B%B8%E5%86%8C.svg" alt="">
                   <div class="content-text">相册</div>
                   <Icon class="like" size='14' type='success'/>
               </div>
               <div class="list-item">
-                  <Icon class="like" size='14' type='success'/>
+                  <img class="left-icon" src="http://static.sa-green.cn/image/jpg/kaka/%E5%8F%8D%E9%A6%88.svg" alt="">
                   <div class="content-text">反馈</div>
                   <Icon class="like" size='14' type='success'/>
               </div>
           </div>
       </div>
-    <card :text="motto"></card>
+      <!-- <moreInfo /> -->
+      <card :text="motto"></card>
   </div>
 </template>
 
 <script>
 import card from '@/components/card'
+import moreInfo from '@/components/moreInfo'
 
 export default {
   data () {
     return {
-      motto: 'Hello World 000',
+      motto: 'my',
       userInfo: {}
     }
   },
-
   components: {
-    card
+    card, moreInfo
   },
 
   methods: {
@@ -84,7 +85,6 @@ export default {
   height: 340rpx;
   background: url('https://resource.sa-green.cn/static/jpg/%E6%88%91%E7%9A%84_%E9%A1%B6%E5%9B%BE.png') no-repeat top center;
   background-size: 100% 100%;
-  margin-bottom: 30rpx;
 }
 .mine-container .index-top-box .login-box {
   overflow: hidden;
@@ -103,8 +103,12 @@ export default {
   text-align: center;
 }
 .mine-container .content {
-  padding: 40rpx 60rpx 80rpx;
-  background: #fff;
+  padding-top: 30rpx;
+  background: rgb(241,241,241);
+}
+.mine-container .content .list-content{
+    background: #fff;
+    padding: 40rpx 60rpx 80rpx;
 }
 .mine-container .content .list-content .list-item {
   display: flex;
@@ -113,6 +117,9 @@ export default {
   padding-left: 7rpx;
   height: 120rpx;
   border-bottom: 1rpx solid #D9D3CB;
+}
+.mine-container .content .list-content .list-item .left-icon{
+    width: 48rpx;
 }
 .mine-container .content .list-content .list-item .content-text {
   flex-grow: 1;

@@ -1,6 +1,6 @@
 <template>
   <div class='index depth-container'>
-    <div class="index-top-box" 
+    <div class="index-top-box"
           v-bind:style="{background: 'url('+'https://resource.sa-green.cn/image/jpg/kaka/%E9%A1%B6%E5%9B%BE.png'+') no-repeat top center',backgroundSize:'100% 100%'}">
              <div class="title">KIKYO SPACE 123123</div>
              <div class="sub-title">有人说，我喜欢你们的光影，尽致淋漓</div>
@@ -12,19 +12,21 @@
            <div class="text-box">视频示意</div>
        </div>
        <div class="list-content">
-           <div 
-              class="list-item" 
-              v-for="(data, index) in videoData" 
+           <div
+              class="list-item"
+              v-for="(data, index) in videoData"
               wx:key={index}
+                @click="toPage('../videoinfo/main')"
               >
                <div class="video-box">
-                  <video
+                  <img class="v-box" v-bind:src="data.poster" alt="">
+                  <!-- <video
                       class="v-box"
                       v-bind:poster="data.poster"
                       v-bind:src="data.videoUrl"
-                      />
+                      /> -->
                </div>
-               <div class="video-desc"   @click="toPage('../videoinfo/main')">
+               <div class="video-desc" >
                    <div class="title">你是所有美好的起因你是所有美好的起因</div>
                    <div class="sub-title">闺蜜就是西瓜分你一半闺蜜就是西瓜分你一半闺蜜就是西瓜分你一半</div>
                </div>
@@ -44,7 +46,7 @@ import moreInfo from '@/components/moreInfo'
 export default {
   data () {
     return {
-      motto: 'Hello World 000',
+      motto: 'depth',
       userInfo: {},
       imgUrl : 'https://resource.sa-green.cn/image/jpg/kaka/%E9%A1%B6%E5%9B%BE.png',
       videoData : [
@@ -82,7 +84,6 @@ export default {
 
 <style scoped>
 .depth-container {
-  padding-bottom: 150rpx;
   background: rgb(241,241,241);
 }
 .depth-container .index-top-box {

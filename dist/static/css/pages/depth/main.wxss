@@ -1,7 +1,6 @@
 @import "/static/css/vendor.wxss";
 
 .depth-container.data-v-2aee11bd {
-  padding-bottom: 150rpx;
   background: rgb(241,241,241);
 }
 .depth-container .index-top-box.data-v-2aee11bd {

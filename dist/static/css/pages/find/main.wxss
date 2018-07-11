@@ -1,8 +1,5 @@
 @import "/static/css/vendor.wxss";
 
-.find-container.data-v-3d262215 {
-  padding-top: 100rpx;
-}
 .photo-desc-input-box.data-v-3d262215 {
   width: 510rpx;
   height: 170rpx;

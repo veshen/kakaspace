@@ -1,4 +1,4 @@
-global.webpackJsonp([15],{
+global.webpackJsonp([17],{
 
 /***/ 129:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -122,6 +122,8 @@ if (false) {(function () {
 //
 //
 //
+//
+//
 
 
 
@@ -129,7 +131,7 @@ if (false) {(function () {
 /* harmony default export */ __webpack_exports__["a"] = ({
   data: function data() {
     return {
-      motto: 'Hello World 000',
+      motto: 'depth',
       userInfo: {},
       imgUrl: 'https://resource.sa-green.cn/image/jpg/kaka/%E9%A1%B6%E5%9B%BE.png',
       videoData: [{
@@ -188,19 +190,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     return _c('div', {
       staticClass: "list-item",
       attrs: {
-        "wx:key": "{index}"
-      }
-    }, [_c('div', {
-      staticClass: "video-box"
-    }, [_c('video', {
-      staticClass: "v-box",
-      attrs: {
-        "poster": data.poster,
-        "src": data.videoUrl
-      }
-    })]), _vm._v(" "), _c('div', {
-      staticClass: "video-desc",
-      attrs: {
+        "wx:key": "{index}",
         "eventid": '0-' + index
       },
       on: {
@@ -209,10 +199,14 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
         }
       }
     }, [_c('div', {
-      staticClass: "title"
-    }, [_vm._v("你是所有美好的起因你是所有美好的起因")]), _vm._v(" "), _c('div', {
-      staticClass: "sub-title"
-    }, [_vm._v("闺蜜就是西瓜分你一半闺蜜就是西瓜分你一半闺蜜就是西瓜分你一半")])])])
+      staticClass: "video-box"
+    }, [_c('img', {
+      staticClass: "v-box",
+      attrs: {
+        "src": data.poster,
+        "alt": ""
+      }
+    })]), _vm._v(" "), _vm._m(1, true)])
   }))]), _vm._v(" "), _c('card', {
     attrs: {
       "text": _vm.motto,
@@ -232,6 +226,14 @@ var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _
   }), _vm._v(" "), _c('div', {
     staticClass: "text-box"
   }, [_vm._v("视频示意")])])
+},function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "video-desc"
+  }, [_c('div', {
+    staticClass: "title"
+  }, [_vm._v("你是所有美好的起因你是所有美好的起因")]), _vm._v(" "), _c('div', {
+    staticClass: "sub-title"
+  }, [_vm._v("闺蜜就是西瓜分你一半闺蜜就是西瓜分你一半闺蜜就是西瓜分你一半")])])
 }]
 render._withStripped = true
 var esExports = { render: render, staticRenderFns: staticRenderFns }

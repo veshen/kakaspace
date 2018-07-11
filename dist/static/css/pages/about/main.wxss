@@ -1,8 +1,5 @@
 @import "/static/css/vendor.wxss";
 
-.about-container.data-v-e8ad13f2 {
-  padding-bottom: 110rpx;
-}
 .about-container .header.data-v-e8ad13f2 {
   height: 1110rpx;
   background: #000;

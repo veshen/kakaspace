@@ -1,5 +1,5 @@
 
-.nav {
+.nav.data-v-09cd22eb {
   position: fixed;
   bottom: 0;
   left: 0;
@@ -10,15 +10,28 @@
   justify-content: space-around;
   align-items: center;
 }
-.nav-item {
+.nav-icon.data-v-09cd22eb {
+  width: 56rpx;
+  height: 56rpx;
+}
+.nav-item.data-v-09cd22eb {
   width: 56rpx;
   text-align: center;
 }
-.nav-item ._a {
-  color: #fff;
+.nav-text.data-v-09cd22eb {
+  margin-top: -12rpx;
   font-size: 22rpx;
+  color: #FFFFFF;
+  letter-spacing: 0;
+  text-align: center;
 }
-.more-info {
+.active.data-v-09cd22eb {
+  color: #FFE631;
+}
+.isIphoneX.data-v-09cd22eb {
+  padding-bottom: 68rpx;
+}
+.more-info.data-v-fca9a304 {
   text-align: center;
   height: 163rpx;
   background: rgb(241,241,241);
@@ -26,10 +39,17 @@
   justify-content: center;
   flex-direction: column;
 }
-.more-info ._p {
+.images.data-v-fca9a304 {
+  width: 280rpx;
+  height: 18rpx;
+}
+.more-info ._p.data-v-fca9a304 {
   font-size: 22rpx;
   color: #100F0F;
   letter-spacing: 0;
   text-align: center;
   line-height: 22rpx;
+}
+.isIphoneX.data-v-fca9a304 {
+  padding-bottom: 68rpx;
 }

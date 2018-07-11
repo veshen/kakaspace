@@ -1,5 +1,6 @@
 <import src="card$103c7587" />
 <import src="moreInfo$44b7d31a" />
+<import src="subscribe$5f199e63" />
 <template name="index$9cb2f6b0">
   <view class="_div data-v-ec7d2de8 container index index-container">
     <view class="_div data-v-ec7d2de8 index-top-box" bindtap="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}">
@@ -22,5 +23,6 @@
     </view>
     <template data="{{...$root[$kk+'0'], $root}}" is="card$103c7587"></template>
     <template data="{{...$root[$kk+'1'], $root}}" is="moreInfo$44b7d31a"></template>
+    <template data="{{...$root[$kk+'2'], $root}}" is="subscribe$5f199e63"></template>
   </view>
 </template>

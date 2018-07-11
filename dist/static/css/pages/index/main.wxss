@@ -1,8 +1,5 @@
 @import "/static/css/vendor.wxss";
 
-.index-container.data-v-ec7d2de8 {
-  padding-bottom: 150rpx;
-}
 .index-container .index-top-box.data-v-ec7d2de8 {
   position: relative;
   width: 750rpx;
@@ -101,4 +98,18 @@
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
   overflow: hidden;
+}
+.subscribe-btn.data-v-7edca102 {
+  width: 140rpx;
+  height: 140rpx;
+  position: fixed;
+  z-index: 999;
+  border-radius: 50%;
+  overflow: hidden;
+  top: 732rpx;
+  right: 30rpx;
+}
+.subscribe-btn .image.data-v-7edca102 {
+  width: 100%;
+  height: 100%;
 }

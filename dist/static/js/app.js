@@ -1,4 +1,4 @@
-global.webpackJsonp([1],{
+global.webpackJsonp([2],{
 
 /***/ 109:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -286,12 +286,12 @@ Object(__WEBPACK_IMPORTED_MODULE_2__axios_index_js__["a" /* getCode */])();
   // 这个字段走 app.json
   config: {
     // 页面前带有 ^ 符号的，会被编译成首页，其他页面可以选填，我们会自动把 webpack entry 里面的入口页面加进去
-    pages: ['pages/my/main', 'pages/themeinfo/main', 'pages/videoinfo/main', 'pages/find/main', 'pages/photoinfo/main', 'pages/photobrowse/main', 'pages/depth/main', '^pages/index/main', 'pages/myorder/main', 'pages/ilike/main', 'pages/myalbum/main', 'pages/about/main'],
+    pages: ['^pages/my/main', 'pages/themeinfo/main', 'pages/videoinfo/main', 'pages/find/main', 'pages/photoinfo/main', 'pages/photobrowse/main', 'pages/depth/main', 'pages/index/main', 'pages/myorder/main', 'pages/ilike/main', 'pages/myalbum/main', 'pages/about/main', 'pages/onlineSubscribe/main', 'pages/orderInfo/main'],
     window: {
       backgroundTextStyle: 'light',
-      navigationBarBackgroundColor: '#fff',
+      navigationBarBackgroundColor: '#000',
       navigationBarTitleText: 'WeChat',
-      navigationBarTextStyle: 'black'
+      navigationBarTextStyle: '#fff'
     }
   }
 });
@@ -363,12 +363,36 @@ if (false) {(function () {
 "use strict";
 
 /* harmony default export */ __webpack_exports__["a"] = ({
+  data: {
+    a: 1
+  },
+  globalData: {},
   created: function created() {
     // 调用API从本地缓存中获取数据
     var logs = wx.getStorageSync('logs') || [];
     logs.unshift(Date.now());
     wx.setStorageSync('logs', logs);
     console.log('app created and cache logs by setStorageSync');
+  },
+  onLaunch: function onLaunch() {},
+  onShow: function onShow() {
+    var _this = this;
+
+    // console.log(this.$root.$mp.app.globalData);
+
+    console.log('a is: ' + this.a, '小程序触发的 onshow');
+    var that = this;
+    wx.getSystemInfo({
+      success: function success(res) {
+        // console.log('手机信息res'+res.model)
+        var modelmes = res.model;
+        if (modelmes.search('iPhone X') != -1) {
+          _this.$root.$mp.app.globalData.isIphoneX = true;
+        } else {
+          _this.$root.$mp.app.globalData.isIphoneX = false;
+        }
+      }
+    });
   }
 });
 

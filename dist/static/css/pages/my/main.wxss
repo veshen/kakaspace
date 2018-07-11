@@ -4,7 +4,6 @@
   height: 340rpx;
   background: url('https://resource.sa-green.cn/static/jpg/%E6%88%91%E7%9A%84_%E9%A1%B6%E5%9B%BE.png') no-repeat top center;
   background-size: 100% 100%;
-  margin-bottom: 30rpx;
 }
 .mine-container .index-top-box .login-box.data-v-51295288 {
   overflow: hidden;
@@ -23,8 +22,12 @@
   text-align: center;
 }
 .mine-container .content.data-v-51295288 {
-  padding: 40rpx 60rpx 80rpx;
+  padding-top: 30rpx;
+  background: rgb(241,241,241);
+}
+.mine-container .content .list-content.data-v-51295288 {
   background: #fff;
+  padding: 40rpx 60rpx 80rpx;
 }
 .mine-container .content .list-content .list-item.data-v-51295288 {
   display: flex;
@@ -33,6 +36,9 @@
   padding-left: 7rpx;
   height: 120rpx;
   border-bottom: 1rpx solid #D9D3CB;
+}
+.mine-container .content .list-content .list-item .left-icon.data-v-51295288 {
+  width: 48rpx;
 }
 .mine-container .content .list-content .list-item .content-text.data-v-51295288 {
   flex-grow: 1;

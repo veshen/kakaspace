@@ -1,15 +1,17 @@
 {
   "pages": [
-    "pages/index/main",
+    "pages/my/main",
     "pages/about/main",
     "pages/counter/main",
     "pages/depth/main",
     "pages/find/main",
     "pages/ilike/main",
+    "pages/index/main",
     "pages/logs/main",
-    "pages/my/main",
     "pages/myalbum/main",
     "pages/myorder/main",
+    "pages/onlineSubscribe/main",
+    "pages/orderInfo/main",
     "pages/photobrowse/main",
     "pages/photoinfo/main",
     "pages/test/main",
@@ -18,8 +20,8 @@
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
+    "navigationBarBackgroundColor": "#000",
     "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle": "black"
+    "navigationBarTextStyle": "#fff"
   }
 }

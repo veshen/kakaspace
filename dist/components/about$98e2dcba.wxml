@@ -1,4 +1,3 @@
-<import src="card$103c7587" />
 <import src="moreInfo$44b7d31a" />
 <template name="about$98e2dcba">
   <view class="_div data-v-e8ad13f2 index about-container">
@@ -25,11 +24,10 @@
         <view class="_div data-v-e8ad13f2 title">地址</view>
         <view class="_div data-v-e8ad13f2 desc">上海市黄浦区局门路411号（8号桥2期）9号线马当路站步行8分钟可到</view>
         <view class="_div data-v-e8ad13f2 map-box">
-          <map id="map" longitude="36.0614156482" latitude="120.3853189945" scale="14" bindcontroltap="controltap" bindregionchange="regionchange" show-location style="width: 670rpx; height: 440rpx;" class="_map data-v-e8ad13f2"></map>
+          <map id="map" longitude="36.0614156482" latitude="89.3853189945" scale="14" bindcontroltap="controltap" bindregionchange="regionchange" show-location style="width: 670rpx; height: 440rpx;" class="_map data-v-e8ad13f2"></map>
         </view>
       </view>
     </view>
-    <template data="{{...$root[$kk+'0'], $root}}" is="card$103c7587"></template>
-    <template data="{{...$root[$kk+'1'], $root}}" is="moreInfo$44b7d31a"></template>
+    <template data="{{...$root[$kk+'0'], $root}}" is="moreInfo$44b7d31a"></template>
   </view>
 </template>

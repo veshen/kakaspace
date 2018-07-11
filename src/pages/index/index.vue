@@ -26,17 +26,20 @@
       </div>
     <card :text="motto"></card>
     <moreInfo />
+    <subscribe/>
+</subscribe/>
   </div>
 </template>
 
 <script>
 import card from '@/components/card'
+import subscribe from '@/components/subscribe'
 import moreInfo from '@/components/moreInfo'
 import { get } from './../../utils/index'
 export default {
   data () {
     return {
-      motto: 'Hello World 000',
+      motto: 'index',
       userInfo: {},
       listData : [
         {imgUrl:'https://resource.sa-green.cn/image/jpg/kaka/Bitmap.png',title:'这是主标题',desc:'这是描述 好多个字的描述,这是描述 好多个字的描述,这是描述 好多个字的描述'},
@@ -48,7 +51,7 @@ export default {
   },
 
   components: {
-    card, moreInfo
+    card, subscribe, moreInfo
   },
 
   methods: {
@@ -65,7 +68,7 @@ export default {
         success: (re) => {
             console.log(re);
             const code = re.code;
-            get('/base/wechant/login',{code})
+            // get('/base/wechant/login',{code})
           wx.getUserInfo({
             success: (res) => {
                 // console.log(res);
@@ -89,7 +92,7 @@ export default {
 
 <style scoped>
 .index-container {
-  padding-bottom: 150rpx;
+  /* padding-bottom: 98rpx; */
 }
 .index-container .index-top-box {
   position: relative;

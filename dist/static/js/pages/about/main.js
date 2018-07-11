@@ -1,4 +1,4 @@
-global.webpackJsonp([16],{
+global.webpackJsonp([18],{
 
 /***/ 111:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -128,7 +128,6 @@ if (false) {(function () {
 //
 //
 //
-//
 
 
 
@@ -197,20 +196,15 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     attrs: {
       "id": "map",
       "longitude": "36.0614156482",
-      "latitude": "120.3853189945",
+      "latitude": "89.3853189945",
       "scale": "14",
       "bindcontroltap": "controltap",
       "bindregionchange": "regionchange",
       "show-location": ""
     }
-  })], 1)])]), _vm._v(" "), _c('card', {
+  })], 1)])]), _vm._v(" "), _c('moreInfo', {
     attrs: {
-      "text": _vm.motto,
       "mpcomid": '0'
-    }
-  }), _vm._v(" "), _c('moreInfo', {
-    attrs: {
-      "mpcomid": '1'
     }
   })], 1)
 }

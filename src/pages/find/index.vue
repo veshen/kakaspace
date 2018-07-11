@@ -72,7 +72,7 @@ import card from '@/components/card'
 export default {
   data () {
     return {
-      motto: 'Hello World 000',
+      motto: 'find',
       userInfo: {},
       arrData: [{id: 1, title: 'Hello World', content: 'Welcome to learning Taro!'}, {id: 2, title: 'Installation', content: 'You can install Taro from npm.'}, {id: 3, title: 'Hello World', content: 'Welcome to learning Taro!'}],
       isActive : false,
@@ -120,7 +120,6 @@ export default {
 
 <style scoped>
 .find-container {
-  padding-top: 100rpx;
 }
 
 .photo-desc-input-box{
