@@ -1,13 +1,13 @@
 global.webpackJsonp([5],{
 
-/***/ 199:
+/***/ 229:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__index__ = __webpack_require__(200);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__index__ = __webpack_require__(230);
 
 
 
@@ -16,16 +16,16 @@ app.$mount();
 
 /***/ }),
 
-/***/ 200:
+/***/ 230:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_lib_selector_type_script_index_0_index_vue__ = __webpack_require__(202);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_lib_template_compiler_index_id_data_v_61e9bc71_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_mpvue_loader_lib_selector_type_template_index_0_index_vue__ = __webpack_require__(203);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_lib_selector_type_script_index_0_index_vue__ = __webpack_require__(232);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_lib_template_compiler_index_id_data_v_61e9bc71_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_mpvue_loader_lib_selector_type_template_index_0_index_vue__ = __webpack_require__(233);
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(201)
+  __webpack_require__(231)
 }
 var normalizeComponent = __webpack_require__(0)
 /* script */
@@ -70,18 +70,19 @@ if (false) {(function () {
 
 /***/ }),
 
-/***/ 201:
+/***/ 231:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
 
-/***/ 202:
+/***/ 232:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_moreInfo__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_moreInfo__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__utils_index__ = __webpack_require__(54);
 //
 //
 //
@@ -112,51 +113,57 @@ if (false) {(function () {
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+
 
 
 /* harmony default export */ __webpack_exports__["a"] = ({
-  data: function data() {
-    return {
-      motto: 'Hello World 000',
-      userInfo: {},
-      movies: [{ id: 1, title: 'Hello World', url: 'http://b.zol-img.com.cn/sjbizhi/images/6/320x510/138493998617.jpg' }, { id: 2, title: 'Installation', url: 'http://b.zol-img.com.cn/sjbizhi/images/6/320x510/138493998617.jpg' }, { id: 3, title: 'Hello World', url: 'http://b.zol-img.com.cn/sjbizhi/images/6/320x510/138493998617.jpg' }]
-    };
-  },
+    data: function data() {
+        return {
+            id: 0,
+            mainPic: '',
+            subName: '',
+            subDesc: '',
+            subThumbList: []
+        };
+    },
 
+    methods: {
+        previewImage: function previewImage(curImg) {
+            console.log(curImg);
+            var imgs = [];
+            this.subThumbList.map(function (item, index) {
+                console.log(item, index);
+                imgs.push(item.picUrl);
+            });
+            console.log(imgs);
+            wx.previewImage({
+                current: curImg, // 当前显示图片的http链接
+                urls: imgs // 需要预览的图片http链接列表
+            });
+        }
+    },
+    components: {
+        moreInfo: __WEBPACK_IMPORTED_MODULE_0__components_moreInfo__["a" /* default */]
+    },
+    onLoad: function onLoad(option) {
+        var _this = this;
 
-  methods: {},
-  components: {
-    moreInfo: __WEBPACK_IMPORTED_MODULE_0__components_moreInfo__["a" /* default */]
-  },
-  created: function created() {}
+        Object(__WEBPACK_IMPORTED_MODULE_1__utils_index__["b" /* get */])('/mainPage/subjectDetail', { subjectId: option.id || this.id }).then(function (res) {
+            console.log(res);
+            _this.mainPic = res.subjectMainPicUrl;
+            _this.subName = res.subjectName;
+            _this.subDesc = res.subjectDesc;
+            _this.subThumbList = res.sceneSmallInfoBeanList;
+        }).catch(function (e) {
+            console.log(e);
+        });
+    },
+    created: function created() {}
 });
 
 /***/ }),
 
-/***/ 203:
+/***/ 233:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -165,112 +172,51 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticClass: "index theme-info-container"
   }, [_c('div', {
     staticClass: "swiper-content"
-  }, [_c('swiper', {
-    staticClass: "swiper",
+  }, [_c('image', {
+    staticClass: "slide-image",
     attrs: {
-      "indicator-dots": "true",
-      "autoplay": "true",
-      "interval": "5000",
-      "duration": "1000",
-      "indicator-color": "rgba(255,255,255,0.5)",
-      "indicator-active-color": "#FFE631"
+      "src": _vm.mainPic,
+      "mode": "aspectFill"
     }
-  }, _vm._l((_vm.movies), function(item, index) {
-    return _c('block', {
-      key: _vm.key,
-      attrs: {
-        "index": index
-      }
-    }, [_c('swiper-item', {
-      attrs: {
-        "mpcomid": '0-' + index
-      }
-    }, [_c('image', {
-      staticClass: "slide-image",
-      attrs: {
-        "src": item.url,
-        "mode": "aspectFill"
-      }
-    })])], 1)
-  }))], 1), _vm._v(" "), _vm._m(0), _vm._v(" "), _c('moreInfo', {
-    attrs: {
-      "mpcomid": '1'
-    }
-  })], 1)
-}
-var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
+  })]), _vm._v(" "), _c('div', {
     staticClass: "warp"
   }, [_c('div', {
     staticClass: "main"
   }, [_c('div', {
     staticClass: "title"
-  }, [_vm._v("\n                    关于空间\n                ")]), _vm._v(" "), _c('div', {
+  }, [_vm._v("\n                " + _vm._s(_vm.subName) + "\n            ")]), _vm._v(" "), _c('div', {
     staticClass: "desc"
-  }, [_vm._v("\n                    这里是主题描述，再多几个字。\n云虹很像彩虹，但颜色更浅。事实上，它们往往不会呈现出任何\n可辨别的颜色，看起来就像白化的彩虹，或是彩虹的鬼魂经过。\n                ")]), _vm._v(" "), _c('div', {
+  }, [_vm._v(_vm._s(_vm.subDesc))]), _vm._v(" "), _c('div', {
     staticClass: "scene-list"
-  }, [_c('div', {
-    staticClass: "scene-item"
-  }, [_c('img', {
-    staticClass: "item-pic",
+  }, _vm._l((_vm.subThumbList), function(data, index) {
+    return _c('div', {
+      staticClass: "scene-item",
+      attrs: {
+        "wx:key": "{index}"
+      }
+    }, [_c('img', {
+      staticClass: "item-pic",
+      attrs: {
+        "mode": "aspectFill",
+        "src": data.picUrl,
+        "alt": "",
+        "eventid": '0-' + index
+      },
+      on: {
+        "click": function($event) {
+          _vm.previewImage(data.picUrl)
+        }
+      }
+    }), _vm._v(" "), _c('div', {
+      staticClass: "text"
+    }, [_vm._v(_vm._s(data.name || ''))])])
+  }))])]), _vm._v(" "), _c('moreInfo', {
     attrs: {
-      "src": "http://b.zol-img.com.cn/sjbizhi/images/6/320x510/138493998617.jpg",
-      "alt": ""
+      "mpcomid": '0'
     }
-  }), _vm._v(" "), _c('div', {
-    staticClass: "text"
-  }, [_vm._v("这是文字描述这是文字描述这是文字描述这是文字描述")])]), _vm._v(" "), _c('div', {
-    staticClass: "scene-item"
-  }, [_c('img', {
-    staticClass: "item-pic",
-    attrs: {
-      "src": "http://b.zol-img.com.cn/sjbizhi/images/6/320x510/138493998617.jpg",
-      "alt": ""
-    }
-  }), _vm._v(" "), _c('div', {
-    staticClass: "text"
-  }, [_vm._v("这是文字描述这是文字描述这是文字描述这是文字描述")])]), _vm._v(" "), _c('div', {
-    staticClass: "scene-item"
-  }, [_c('img', {
-    staticClass: "item-pic",
-    attrs: {
-      "src": "http://b.zol-img.com.cn/sjbizhi/images/6/320x510/138493998617.jpg",
-      "alt": ""
-    }
-  }), _vm._v(" "), _c('div', {
-    staticClass: "text"
-  }, [_vm._v("这是文字描述这是文字描述这是文字描述这是文字描述")])]), _vm._v(" "), _c('div', {
-    staticClass: "scene-item"
-  }, [_c('img', {
-    staticClass: "item-pic",
-    attrs: {
-      "src": "http://b.zol-img.com.cn/sjbizhi/images/6/320x510/138493998617.jpg",
-      "alt": ""
-    }
-  }), _vm._v(" "), _c('div', {
-    staticClass: "text"
-  }, [_vm._v("这是文字描述这是文字描述这是文字描述这是文字描述")])]), _vm._v(" "), _c('div', {
-    staticClass: "scene-item"
-  }, [_c('img', {
-    staticClass: "item-pic",
-    attrs: {
-      "src": "http://b.zol-img.com.cn/sjbizhi/images/6/320x510/138493998617.jpg",
-      "alt": ""
-    }
-  }), _vm._v(" "), _c('div', {
-    staticClass: "text"
-  }, [_vm._v("这是文字描述这是文字描述这是文字描述这是文字描述")])]), _vm._v(" "), _c('div', {
-    staticClass: "scene-item"
-  }, [_c('img', {
-    staticClass: "item-pic",
-    attrs: {
-      "src": "http://b.zol-img.com.cn/sjbizhi/images/6/320x510/138493998617.jpg",
-      "alt": ""
-    }
-  }), _vm._v(" "), _c('div', {
-    staticClass: "text"
-  }, [_vm._v("这是文字描述这是文字描述这是文字描述这是文字描述")])])])])])
-}]
+  })], 1)
+}
+var staticRenderFns = []
 render._withStripped = true
 var esExports = { render: render, staticRenderFns: staticRenderFns }
 /* harmony default export */ __webpack_exports__["a"] = (esExports);
@@ -283,5 +229,5 @@ if (false) {
 
 /***/ })
 
-},[199]);
+},[229]);
 //# sourceMappingURL=main.js.map

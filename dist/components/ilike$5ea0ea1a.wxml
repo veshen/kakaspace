@@ -1,0 +1,7 @@
+<template name="ilike$5ea0ea1a">
+  <view class="_div data-v-e074db8c container ilike-container">
+    <view class="_div data-v-e074db8c like-list">
+      <view class="_div data-v-e074db8c like-item" wx:key="{index}" wx:for="{{listData}}" wx:for-index="index" wx:for-item="data" style=" {{(  'background:' +  ('url(' + data.imgUrl + ') no-repeat top center') +  ';' +  'background-size:' +  '100% 100%' +  ';')}}"></view>
+    </view>
+  </view>
+</template>

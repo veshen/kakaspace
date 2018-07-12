@@ -1,1 +1,1 @@
-<import src="../../components/myalbum$e32487ce" /><template is="myalbum$e32487ce" data="{{ ...$root['0'], $root }}"/>
+<import src="../../components/myalbum$50c5f75d" /><template is="myalbum$50c5f75d" data="{{ ...$root['0'], $root }}"/>

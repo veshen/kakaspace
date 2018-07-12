@@ -1,13 +1,13 @@
 global.webpackJsonp([18],{
 
-/***/ 111:
+/***/ 120:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__index__ = __webpack_require__(112);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__index__ = __webpack_require__(121);
 
 
 
@@ -16,16 +16,16 @@ app.$mount();
 
 /***/ }),
 
-/***/ 112:
+/***/ 121:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_lib_selector_type_script_index_0_index_vue__ = __webpack_require__(114);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_lib_template_compiler_index_id_data_v_e8ad13f2_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_mpvue_loader_lib_selector_type_template_index_0_index_vue__ = __webpack_require__(121);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_lib_selector_type_script_index_0_index_vue__ = __webpack_require__(123);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_lib_template_compiler_index_id_data_v_e8ad13f2_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_mpvue_loader_lib_selector_type_template_index_0_index_vue__ = __webpack_require__(130);
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(113)
+  __webpack_require__(122)
 }
 var normalizeComponent = __webpack_require__(0)
 /* script */
@@ -70,19 +70,20 @@ if (false) {(function () {
 
 /***/ }),
 
-/***/ 113:
+/***/ 122:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
 
-/***/ 114:
+/***/ 123:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_card__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_moreInfo__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_moreInfo__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__utils_index__ = __webpack_require__(54);
 //
 //
 //
@@ -128,42 +129,61 @@ if (false) {(function () {
 //
 //
 //
+
 
 
 
 
 /* harmony default export */ __webpack_exports__["a"] = ({
-  data: function data() {
-    return {
-      motto: 'Hello World 000',
-      userInfo: {},
-      imgUrl: 'https://resource.sa-green.cn/image/jpg/kaka/%E9%A1%B6%E5%9B%BE.png',
-      videoData: [{
-        poster: 'https://resource.sa-green.cn/image/jpg/kaka/Bitmap%20Copy.png',
-        videoUrl: 'http://wxsnsdy.tc.qq.com/105/20210/snsdyvideodownload?filekey=30280201010421301f0201690402534804102ca905ce620b1241b726bc41dcff44e00204012882540400&bizid=1023&hy=SH&fileparam=302c020101042530230204136ffd93020457e3c4ff02024ef202031e8d7f02030f42400204045a320a0201000400'
-      }, {
-        poster: 'https://resource.sa-green.cn/image/jpg/kakaBitmap%202.png',
-        videoUrl: 'http://wxsnsdy.tc.qq.com/105/20210/snsdyvideodownload?filekey=30280201010421301f0201690402534804102ca905ce620b1241b726bc41dcff44e00204012882540400&bizid=1023&hy=SH&fileparam=302c020101042530230204136ffd93020457e3c4ff02024ef202031e8d7f02030f42400204045a320a0201000400'
-      }, {
-        poster: 'https://resource.sa-green.cn/image/jpg/kakaBitmap%203.png',
-        videoUrl: 'http://wxsnsdy.tc.qq.com/105/20210/snsdyvideodownload?filekey=30280201010421301f0201690402534804102ca905ce620b1241b726bc41dcff44e00204012882540400&bizid=1023&hy=SH&fileparam=302c020101042530230204136ffd93020457e3c4ff02024ef202031e8d7f02030f42400204045a320a0201000400'
-      }]
-    };
-  },
+    data: function data() {
+        return {
+            addr: '',
+            desc: '',
+            priceDes: '',
+            lat: '',
+            lng: '',
+            markers: [],
+            mainPic: ''
+        };
+    },
 
 
-  components: {
-    card: __WEBPACK_IMPORTED_MODULE_0__components_card__["a" /* default */], moreInfo: __WEBPACK_IMPORTED_MODULE_1__components_moreInfo__["a" /* default */]
-  },
+    components: {
+        card: __WEBPACK_IMPORTED_MODULE_0__components_card__["a" /* default */], moreInfo: __WEBPACK_IMPORTED_MODULE_1__components_moreInfo__["a" /* default */]
+    },
 
-  methods: {},
+    methods: {},
+    onLoad: function onLoad(option) {
+        console.log(option);
+    },
+    onShow: function onShow() {
+        var _this = this;
 
-  created: function created() {}
+        Object(__WEBPACK_IMPORTED_MODULE_2__utils_index__["b" /* get */])('/mainPage/withUs').then(function (res) {
+            console.log(res);
+            _this.addr = res.address;
+            _this.desc = res.introduce;
+            _this.priceDes = res.priceDes;
+            _this.lat = res.latitude;
+            _this.lng = res.longitude;
+            _this.mainPic = res.picUrl;
+            _this.markers = [{
+                id: 0,
+                latitude: res.latitude,
+                longitude: res.longitude,
+                width: 50,
+                height: 50
+            }];
+        }).catch(function (e) {
+            console.log(e);
+        });
+    },
+    created: function created() {}
 });
 
 /***/ }),
 
-/***/ 121:
+/***/ 130:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -174,19 +194,38 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticClass: "header"
   }, [_c('div', {
     staticClass: "content"
-  }, [_vm._m(0), _vm._v(" "), _c('div', {
+  }, [_c('div', {
+    staticClass: "img-box"
+  }, [_c('img', {
+    staticClass: "image",
+    attrs: {
+      "src": _vm.mainPic
+    }
+  })]), _vm._v(" "), _c('div', {
     staticClass: "img-desc"
   }, [_c('h3', {
     staticClass: "title"
-  }, [_vm._v("KILKYO  SPACE")]), _vm._v(" "), _vm._m(1)], 1)])]), _vm._v(" "), _c('div', {
+  }, [_vm._v("KILKYO  SPACE")]), _vm._v(" "), _c('div', {
+    staticClass: "desc"
+  }, [_c('div', {
+    staticClass: "left-box"
+  }, [_vm._v("拍照艺术空间")]), _vm._v(" "), _c('div', {
+    staticClass: "right-box"
+  }, [_vm._v(_vm._s(_vm.priceDes))])])], 1)])]), _vm._v(" "), _c('div', {
     staticClass: "main"
-  }, [_vm._m(2), _vm._v(" "), _c('div', {
+  }, [_c('div', {
+    staticClass: "about-space"
+  }, [_c('div', {
+    staticClass: "title"
+  }, [_vm._v("关于空间")]), _vm._v(" "), _c('div', {
+    staticClass: "desc"
+  }, [_vm._v(_vm._s(_vm.desc))])]), _vm._v(" "), _c('div', {
     staticClass: "address-box"
   }, [_c('div', {
     staticClass: "title"
   }, [_vm._v("地址")]), _vm._v(" "), _c('div', {
     staticClass: "desc"
-  }, [_vm._v("上海市黄浦区局门路411号（8号桥2期）9号线马当路站步行8分钟可到")]), _vm._v(" "), _c('div', {
+  }, [_vm._v(_vm._s(_vm.addr))]), _vm._v(" "), _c('div', {
     staticClass: "map-box"
   }, [_c('map', {
     staticStyle: {
@@ -195,8 +234,9 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     },
     attrs: {
       "id": "map",
-      "longitude": "36.0614156482",
-      "latitude": "89.3853189945",
+      "longitude": _vm.lng,
+      "latitude": _vm.lat,
+      "markers": _vm.markers,
       "scale": "14",
       "bindcontroltap": "controltap",
       "bindregionchange": "regionchange",
@@ -208,32 +248,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }
   })], 1)
 }
-var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    staticClass: "img-box"
-  }, [_c('img', {
-    staticClass: "image",
-    attrs: {
-      "src": "https://resource.sa-green.cn/image/jpg/kaka/%E9%A1%B6%E5%9B%BE.png"
-    }
-  })])
-},function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    staticClass: "desc"
-  }, [_c('div', {
-    staticClass: "left-box"
-  }, [_vm._v("拍照艺术空间")]), _vm._v(" "), _c('div', {
-    staticClass: "right-box"
-  }, [_vm._v("30元/半小时")])])
-},function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    staticClass: "about-space"
-  }, [_c('div', {
-    staticClass: "title"
-  }, [_vm._v("关于空间")]), _vm._v(" "), _c('div', {
-    staticClass: "desc"
-  }, [_vm._v("KIKYO SPACE 是一家关于拍照的艺术空间为用户提供很多不同场景的。\n说一句是一句，清早上火车站长街黑暗无行人卖豆浆的小店冒着热气 从前的日色变得慢 车马邮件都慢 。")])])
-}]
+var staticRenderFns = []
 render._withStripped = true
 var esExports = { render: render, staticRenderFns: staticRenderFns }
 /* harmony default export */ __webpack_exports__["a"] = (esExports);
@@ -246,5 +261,5 @@ if (false) {
 
 /***/ })
 
-},[111]);
+},[120]);
 //# sourceMappingURL=main.js.map

@@ -9,6 +9,7 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
+  z-index: 10;
 }
 .nav-icon.data-v-09cd22eb {
   width: 56rpx;

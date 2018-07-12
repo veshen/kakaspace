@@ -61,6 +61,7 @@ export default {
     display: flex;
     justify-content: space-around;
     align-items: center;
+    z-index: 10;
 }
 .nav-icon{
     width: 56rpx;

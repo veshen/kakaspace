@@ -1,9 +1,9 @@
 <template>
   <div class="container index index-container">
-      <div class="index-top-box"  @click="toPage('../about/main')">
+      <div class="index-top-box" v-bind:style="{background: 'url('+mainPic+') no-repeat top center',backgroundSize:'100% 100%'}" @click="toPage('../about/main')">
           <div class="title">KIKYO SPACE</div>
           <div class="city-name">上海</div>
-          <div class="description">有人说，我喜欢你们的光影，尽致淋漓有人说，我喜欢你们的人物氛围，情感细腻</div>
+          <div class="description">{{mainDesc}}</div>
           <div class="about-button">关于KIKYO</div>
       </div>
       <div class="content">
@@ -15,19 +15,18 @@
               <div  class="list-item"
                     v-for="(data, index) in listData"
                     wx:key={index}
-                    v-bind:style="{background: 'url('+data.imgUrl+') no-repeat top center',backgroundSize:'100% 100%'}"
-                    @click="toPage('../themeinfo/main')"
+                    v-bind:style="{background: 'url('+data.subjectMainPicUrl+') no-repeat top center',backgroundSize:'100% 100%'}"
+                    @click="toPage(`../themeinfo/main?id=${data.subjectId}`)"
                     >
                 <!-- <div class="index-box">{{index}}</div> -->
-                <div class="title">{{data.title}}</div>
-                <div class="desc">{{data.desc}}</div>
+                <div class="title">{{data.subjectName}}</div>
+                <div class="desc">{{data.subjectDesc}}</div>
               </div>
           </div>
       </div>
     <card :text="motto"></card>
     <moreInfo />
     <subscribe/>
-</subscribe/>
   </div>
 </template>
 
@@ -40,13 +39,10 @@ export default {
   data () {
     return {
       motto: 'index',
+      mainPic:'',
+      mainDesc:'',
       userInfo: {},
-      listData : [
-        {imgUrl:'https://resource.sa-green.cn/image/jpg/kaka/Bitmap.png',title:'这是主标题',desc:'这是描述 好多个字的描述,这是描述 好多个字的描述,这是描述 好多个字的描述'},
-        {imgUrl:'https://resource.sa-green.cn/image/jpg/kaka/Bitmap%202.png',title:'这是主标题',desc:'这是描述 好多个字的描述'},
-        {imgUrl:'https://resource.sa-green.cn/image/jpg/kaka/Bitmap%203.png',title:'这是主标题',desc:'这是描述 好多个字的描述'},
-        {imgUrl:'https://resource.sa-green.cn/image/jpg/kaka/Bitmap%204.png',title:'这是主标题',desc:'这是描述 好多个字的描述'}
-        ]
+      listData : []
     }
   },
 
@@ -78,6 +74,18 @@ export default {
         }
       })
     },
+    async getPage(){
+        try{
+            const pageData = await get('/mainPage/mainPageInfo');
+            console.log(pageData);
+            this.mainPic = pageData.mainPicUrl;
+            this.mainDesc = pageData.mainDesc;
+            this.listData = pageData.subjectInfoOverViewBeanList;
+        }catch(e){
+            console.log(e);
+        }
+
+    },
     clickHandle (msg, ev) {
       console.log('clickHandle:', msg, ev)
     }
@@ -85,7 +93,9 @@ export default {
 
   created () {
     // 调用应用实例的方法获取全局数据
-    this.getUserInfo()
+    this.getUserInfo();
+    this.getPage();
+    // console.log(getApp());
   }
 }
 </script>
@@ -93,6 +103,10 @@ export default {
 <style scoped>
 .index-container {
   /* padding-bottom: 98rpx; */
+}
+.content {
+    background: rgba(241,241,241,1);
+    padding-top: 20rpx;
 }
 .index-container .index-top-box {
   position: relative;
@@ -103,7 +117,23 @@ export default {
   overflow: hidden;
   text-align: center;
   color: #FFFFFF;
-  margin-bottom: 30rpx;
+  /* margin-bottom: 30rpx; */
+  /* box-shadow:0 200px 1860px rgba(0,0,0,0.8) inset; */
+}
+.index-container .index-top-box::before{
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 1;
+    content: '';
+    background: linear-gradient(to bottom, rgba(0,0,0,0.9), rgba(0,0,0,0));
+}
+.index-container .index-top-box > view {
+    position: relative;
+    z-index: 2;
 }
 .index-container .index-top-box .title {
   font-size: 34rpx;
@@ -144,7 +174,7 @@ export default {
   text-align: center;
   text-shadow: 1rpx 1rpx 0 #FFE631;
   position: relative;
-  margin-bottom: 20rpx;
+  padding-bottom: 20rpx;
 }
 .index-container .content .list-title .line-box {
   height: 8rpx;
@@ -157,7 +187,7 @@ export default {
   transform: translateX(-50%);
 }
 .index-container .content .list-title .text-box {
-  background: #fff;
+  background: rgba(241,241,241,1);
   position: relative;
   z-index: 6;
   width: 120rpx;
@@ -166,11 +196,29 @@ export default {
 }
 .index-container .content .list-content {
   margin: 0 30rpx;
+  overflow: auto;
 }
 .index-container .content .list-content .list-item {
   height: 240rpx;
   border-radius: 12rpx;
   margin-bottom: 20rpx;
+  position: relative;
+  /* box-shadow:0 20px 160px rgba(0,0,0,0.8) inset; */
+}
+.index-container .content .list-content .list-item::before{
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 1;
+    content: '';
+    background: linear-gradient(to right, rgba(0,0,0,0.4), rgba(0,0,0,0));
+}
+.index-container .content .list-content .list-item>view{
+    position: relative;
+    z-index: 2;
 }
 .index-container .content .list-content .list-item .index-box{
 
