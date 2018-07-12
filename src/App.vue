@@ -1,4 +1,6 @@
 <script>
+import {get} from './utils/index'
+
 export default {
   data: {
     a: 1,
@@ -19,6 +21,32 @@ export default {
   },
   onShow() {
     // console.log(this.$root.$mp.app.globalData);
+    wx.checkSession({
+      success: function(){
+        //session_key 未过期，并且在本生命周期一直有效
+        console.log('session_key 未过期，并且在本生命周期一直有效');
+      },
+      fail: function(){
+        // session_key 已经失效，需要重新执行登录流程
+        console.log('session_key 已经失效，需要重新执行登录流程');
+        // wx.login() //重新登录
+      }
+    })
+    // 调用登录接口
+    // wx.login({
+    //   success: (re) => {
+    //       console.log(re,'re26');
+    //       const code = re.code;
+    //       get('/base/wechat/user/login',{code})
+    //     wx.getUserInfo({
+    //       success: (res) => {
+    //           // console.log(res);
+    //         this.userInfo = res.userInfo
+    //         console.log(res);
+    //       }
+    //     })
+    //   }
+    // })
 
     console.log('a is: ' + this.a, '小程序触发的 onshow')
     let  that = this;

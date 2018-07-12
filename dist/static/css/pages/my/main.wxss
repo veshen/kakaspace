@@ -39,6 +39,11 @@
 }
 .mine-container .content .list-content .list-item .left-icon.data-v-51295288 {
   width: 48rpx;
+  height: 48rpx;
+}
+.mine-container .content .list-content .list-item  .left-right.data-v-51295288 {
+  width: 18rpx;
+  height: 28rpx;
 }
 .mine-container .content .list-content .list-item .content-text.data-v-51295288 {
   flex-grow: 1;

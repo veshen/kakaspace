@@ -9,7 +9,6 @@
   overflow: hidden;
   text-align: center;
   color: #FFFFFF;
-  margin-bottom: 30rpx;
 }
 .index-container .index-top-box .title.data-v-ec7d2de8 {
   font-size: 34rpx;
@@ -42,6 +41,10 @@
   justify-content: center;
   align-items: center;
 }
+.index-container .content.data-v-ec7d2de8 {
+  background: rgb(241,241,241);
+  padding: 30rpx 0 20rpx;
+}
 .index-container .content .list-title.data-v-ec7d2de8 {
   height: 42rpx;
   font-size: 30rpx;
@@ -63,7 +66,7 @@
   transform: translateX(-50%);
 }
 .index-container .content .list-title .text-box.data-v-ec7d2de8 {
-  background: #fff;
+  background: rgb(241,241,241);
   position: relative;
   z-index: 6;
   width: 120rpx;

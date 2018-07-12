@@ -1,3 +1,4 @@
+<import src="bindPhoneNumber$668eba33" />
 <template name="onlineSubscribe$3c9d6fe6">
   <view class="_div data-v-8c56011e container online-subscribe-container">
     <view class="_div data-v-8c56011e top-box">
@@ -30,5 +31,6 @@
       <view class="_div data-v-8c56011e"></view>
       <view class="_div data-v-8c56011e submit-btn {{[index > 0 && date !== '请选择 >' ? 'active' : '']}}" bindtap="handleProxy" data-eventid="{{'2'}}" data-comkey="{{$k}}"> 立即预约 </view>
     </view>
+    <template data="{{...$root[$kk+'0'], $root}}" is="bindPhoneNumber$668eba33"></template>
   </view>
 </template>

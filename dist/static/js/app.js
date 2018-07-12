@@ -1,15 +1,15 @@
-global.webpackJsonp([2],{
+global.webpackJsonp([3],{
 
-/***/ 109:
+/***/ 119:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return get; });
 /* unused harmony export post */
 /* unused harmony export postExport */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_promise__ = __webpack_require__(19);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_promise__ = __webpack_require__(23);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_promise___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_promise__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios__ = __webpack_require__(42);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios__ = __webpack_require__(49);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_axios__);
 
 
@@ -114,7 +114,7 @@ function markUrl(link, data) {
 
 /***/ }),
 
-/***/ 110:
+/***/ 120:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -263,15 +263,15 @@ var SSP_SUBMIT_RECEIVR_ORDER = PRODUCTION + 'site/order/receive/submitReceiveOrd
 
 /***/ }),
 
-/***/ 49:
+/***/ 59:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__App__ = __webpack_require__(51);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__axios_index_js__ = __webpack_require__(54);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__App__ = __webpack_require__(60);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__axios_index_js__ = __webpack_require__(99);
 
 
 
@@ -298,15 +298,15 @@ Object(__WEBPACK_IMPORTED_MODULE_2__axios_index_js__["a" /* getCode */])();
 
 /***/ }),
 
-/***/ 51:
+/***/ 60:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_lib_selector_type_script_index_0_App_vue__ = __webpack_require__(53);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_lib_selector_type_script_index_0_App_vue__ = __webpack_require__(62);
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(52)
+  __webpack_require__(61)
 }
 var normalizeComponent = __webpack_require__(0)
 /* script */
@@ -350,17 +350,20 @@ if (false) {(function () {
 
 /***/ }),
 
-/***/ 52:
+/***/ 61:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
 
-/***/ 53:
+/***/ 62:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__utils_index__ = __webpack_require__(16);
+
+
 
 /* harmony default export */ __webpack_exports__["a"] = ({
   data: {
@@ -379,6 +382,32 @@ if (false) {(function () {
     var _this = this;
 
     // console.log(this.$root.$mp.app.globalData);
+    wx.checkSession({
+      success: function success() {
+        //session_key 未过期，并且在本生命周期一直有效
+        console.log('session_key 未过期，并且在本生命周期一直有效');
+      },
+      fail: function fail() {
+        // session_key 已经失效，需要重新执行登录流程
+        console.log('session_key 已经失效，需要重新执行登录流程');
+        // wx.login() //重新登录
+      }
+    });
+    // 调用登录接口
+    // wx.login({
+    //   success: (re) => {
+    //       console.log(re,'re26');
+    //       const code = re.code;
+    //       get('/base/wechat/user/login',{code})
+    //     wx.getUserInfo({
+    //       success: (res) => {
+    //           // console.log(res);
+    //         this.userInfo = res.userInfo
+    //         console.log(res);
+    //       }
+    //     })
+    //   }
+    // })
 
     console.log('a is: ' + this.a, '小程序触发的 onshow');
     var that = this;
@@ -398,17 +427,17 @@ if (false) {(function () {
 
 /***/ }),
 
-/***/ 54:
+/***/ 99:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return getCode; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_promise__ = __webpack_require__(19);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_promise__ = __webpack_require__(23);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_promise___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_promise__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios__ = __webpack_require__(42);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios__ = __webpack_require__(49);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_axios__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__tools__ = __webpack_require__(109);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__config__ = __webpack_require__(110);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__tools__ = __webpack_require__(119);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__config__ = __webpack_require__(120);
 
 
 
@@ -451,5 +480,5 @@ var getCode = function getCode(params) {
 
 /***/ })
 
-},[49]);
+},[59]);
 //# sourceMappingURL=app.js.map

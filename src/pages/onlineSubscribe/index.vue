@@ -52,11 +52,12 @@
                 立即预约
             </div>
         </div>
+        <bindPhoneNumber/>
   </div>
 </template>
 
 <script>
-
+import bindPhoneNumber from '@/components/bindPhoneNumber'
 export default {
   data () {
     return {
@@ -68,6 +69,7 @@ export default {
   },
 
   components: {
+      bindPhoneNumber
   },
 
   methods: {

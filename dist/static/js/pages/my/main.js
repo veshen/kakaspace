@@ -1,13 +1,13 @@
 global.webpackJsonp([13],{
 
-/***/ 159:
+/***/ 168:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__index__ = __webpack_require__(160);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__index__ = __webpack_require__(169);
 
 
 
@@ -16,16 +16,16 @@ app.$mount();
 
 /***/ }),
 
-/***/ 160:
+/***/ 169:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_lib_selector_type_script_index_0_index_vue__ = __webpack_require__(162);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_lib_template_compiler_index_id_data_v_51295288_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_mpvue_loader_lib_selector_type_template_index_0_index_vue__ = __webpack_require__(163);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_lib_selector_type_script_index_0_index_vue__ = __webpack_require__(172);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_lib_template_compiler_index_id_data_v_51295288_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_mpvue_loader_lib_selector_type_template_index_0_index_vue__ = __webpack_require__(173);
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(161)
+  __webpack_require__(170)
 }
 var normalizeComponent = __webpack_require__(0)
 /* script */
@@ -70,19 +70,23 @@ if (false) {(function () {
 
 /***/ }),
 
-/***/ 161:
+/***/ 170:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
 
-/***/ 162:
+/***/ 172:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_card__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_moreInfo__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_moreInfo__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__utils_index__ = __webpack_require__(16);
+//
+//
+//
 //
 //
 //
@@ -136,54 +140,89 @@ if (false) {(function () {
   components: {
     card: __WEBPACK_IMPORTED_MODULE_0__components_card__["a" /* default */], moreInfo: __WEBPACK_IMPORTED_MODULE_1__components_moreInfo__["a" /* default */]
   },
-
   methods: {
     binddivTap: function binddivTap() {
       var url = '../logs/main';
       wx.navigateTo({ url: url });
     },
-    getUserInfo: function getUserInfo() {
-      var _this = this;
+    bindGetUserInfo: function bindGetUserInfo(e) {
+      var self = this;
+      console.log(e);
+      // 查看是否授权
+      wx.getSetting({
+        success: function success(res) {
+          // 授权信息里有用户信息
+          if (res.authSetting['scope.userInfo']) {
+            // 检查用户登录是否过期
+            wx.checkSession({
+              success: function success() {
+                // 没过期 直接成功
+                Object(__WEBPACK_IMPORTED_MODULE_2__utils_index__["c" /* showSuccess */])('登录成功');
+                wx.getUserInfo({
+                  success: function success(res) {
+                    // console.log(res);
+                    // this.userInfo = res.userInfo
+                    console.log(res, 'userInfo');
+                  }
+                });
+              },
+              fail: function fail() {
+                // 过期了 重新登录 先清楚登录的状态
+                qcloud.clearSession();
+                // 登录态已过期，需重新登录
+                // 登录需要的加密信息
+                var options = {
+                  encryptedData: e.mp.detail.encryptedData,
+                  iv: e.mp.detail.iv,
+                  userinfo: e.mp.detail.userInfo
+                };
+                self.getWxLogin(options);
+              }
 
-      // 调用登录接口
-      wx.login({
-        success: function success() {
-          wx.getUserInfo({
-            success: function success(res) {
-              _this.userInfo = res.userInfo;
-            }
-          });
+            });
+          } else {
+            Object(__WEBPACK_IMPORTED_MODULE_2__utils_index__["b" /* showModal */])('用户未授权', e.mp.detail.errMsg);
+          }
         }
+
       });
-    },
-    clickHandle: function clickHandle(msg, ev) {
-      console.log('clickHandle:', msg, ev);
+
+      // let user = wx.getStorageSync('userinfo')
+      // const self = this
+      // if (!user) {
+      //   qcloud.setLoginUrl(config.loginUrl)
+      //   qcloud.login({
+      //     success: function (userinfo) {
+      //       qcloud.request({
+      //         url: config.userUrl,
+      //         login: true,
+      //         success (userRes) {
+      //           showSuccess('登录成功')
+      //           wx.setStorageSync('userinfo', userRes.data.data)
+      //           self.userinfo = userRes.data.data
+      //         }
+      //       })
+      //     }
+
+      //   })
+      // }
     }
   },
 
   created: function created() {
     // 调用应用实例的方法获取全局数据
-    this.getUserInfo();
   }
 });
 
 /***/ }),
 
-/***/ 163:
+/***/ 173:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
-    staticClass: "container mine mine-container",
-    attrs: {
-      "eventid": '0'
-    },
-    on: {
-      "click": function($event) {
-        _vm.clickHandle('test click', $event)
-      }
-    }
+    staticClass: "container mine mine-container"
   }, [_c('div', {
     staticClass: "index-top-box"
   }, [_c('div', {
@@ -196,7 +235,25 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }
   }), _vm._v(" "), _c('div', {
     staticClass: "user-name"
-  }, [_vm._v("翠花是朵花")])])]), _vm._v(" "), _c('div', {
+  }, [_vm._v("翠花是朵花")])]), _vm._v(" "), _c('div', {
+    staticClass: "get-user-info"
+  }, [_c('button', {
+    attrs: {
+      "open-type": "getUserInfo",
+      "eventid": '0'
+    },
+    on: {
+      "getuserinfo": _vm.bindGetUserInfo
+    }
+  }, [_vm._v("获取用户信息")])], 1)]), _vm._v(" "), _vm._m(0), _vm._v(" "), _c('card', {
+    attrs: {
+      "text": _vm.motto,
+      "mpcomid": '1'
+    }
+  })], 1)
+}
+var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
     staticClass: "content"
   }, [_c('div', {
     staticClass: "list-content"
@@ -205,19 +262,18 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
   }, [_c('img', {
     staticClass: "left-icon",
     attrs: {
-      "src": "http://static.sa-green.cn/image/jpg/kaka/%E5%96%9C%E6%AC%A2.svg",
+      "src": "http://static.sa-green.cn/image/jpg/kaka/%E8%AE%A2%E5%8D%95.svg",
       "alt": ""
     }
   }), _vm._v(" "), _c('div', {
     staticClass: "content-text"
-  }, [_vm._v("订单")]), _vm._v(" "), _c('Icon', {
-    staticClass: "like",
+  }, [_vm._v("订单")]), _vm._v(" "), _c('img', {
+    staticClass: "left-right",
     attrs: {
-      "size": "14",
-      "type": "success",
-      "mpcomid": '1'
+      "src": "http://static.sa-green.cn/image/jpg/kaka/%E7%AE%AD%E5%A4%B4%E5%8F%B3.svg",
+      "alt": ""
     }
-  })], 1), _vm._v(" "), _c('div', {
+  })]), _vm._v(" "), _c('div', {
     staticClass: "list-item"
   }, [_c('img', {
     staticClass: "left-icon",
@@ -227,14 +283,13 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }
   }), _vm._v(" "), _c('div', {
     staticClass: "content-text"
-  }, [_vm._v("喜欢")]), _vm._v(" "), _c('Icon', {
-    staticClass: "like",
+  }, [_vm._v("喜欢")]), _vm._v(" "), _c('img', {
+    staticClass: "left-right",
     attrs: {
-      "size": "14",
-      "type": "success",
-      "mpcomid": '2'
+      "src": "http://static.sa-green.cn/image/jpg/kaka/%E7%AE%AD%E5%A4%B4%E5%8F%B3.svg",
+      "alt": ""
     }
-  })], 1), _vm._v(" "), _c('div', {
+  })]), _vm._v(" "), _c('div', {
     staticClass: "list-item"
   }, [_c('img', {
     staticClass: "left-icon",
@@ -244,14 +299,13 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }
   }), _vm._v(" "), _c('div', {
     staticClass: "content-text"
-  }, [_vm._v("相册")]), _vm._v(" "), _c('Icon', {
-    staticClass: "like",
+  }, [_vm._v("相册")]), _vm._v(" "), _c('img', {
+    staticClass: "left-right",
     attrs: {
-      "size": "14",
-      "type": "success",
-      "mpcomid": '3'
+      "src": "http://static.sa-green.cn/image/jpg/kaka/%E7%AE%AD%E5%A4%B4%E5%8F%B3.svg",
+      "alt": ""
     }
-  })], 1), _vm._v(" "), _c('div', {
+  })]), _vm._v(" "), _c('div', {
     staticClass: "list-item"
   }, [_c('img', {
     staticClass: "left-icon",
@@ -261,21 +315,14 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }
   }), _vm._v(" "), _c('div', {
     staticClass: "content-text"
-  }, [_vm._v("反馈")]), _vm._v(" "), _c('Icon', {
-    staticClass: "like",
+  }, [_vm._v("反馈")]), _vm._v(" "), _c('img', {
+    staticClass: "left-right",
     attrs: {
-      "size": "14",
-      "type": "success",
-      "mpcomid": '4'
+      "src": "http://static.sa-green.cn/image/jpg/kaka/%E7%AE%AD%E5%A4%B4%E5%8F%B3.svg",
+      "alt": ""
     }
-  })], 1)])]), _vm._v(" "), _c('card', {
-    attrs: {
-      "text": _vm.motto,
-      "mpcomid": '5'
-    }
-  })], 1)
-}
-var staticRenderFns = []
+  })])])])
+}]
 render._withStripped = true
 var esExports = { render: render, staticRenderFns: staticRenderFns }
 /* harmony default export */ __webpack_exports__["a"] = (esExports);
@@ -288,5 +335,5 @@ if (false) {
 
 /***/ })
 
-},[159]);
+},[168]);
 //# sourceMappingURL=main.js.map

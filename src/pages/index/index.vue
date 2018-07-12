@@ -85,7 +85,7 @@ export default {
 
   created () {
     // 调用应用实例的方法获取全局数据
-    this.getUserInfo()
+    // this.getUserInfo()
   }
 }
 </script>
@@ -103,7 +103,6 @@ export default {
   overflow: hidden;
   text-align: center;
   color: #FFFFFF;
-  margin-bottom: 30rpx;
 }
 .index-container .index-top-box .title {
   font-size: 34rpx;
@@ -136,6 +135,10 @@ export default {
   justify-content: center;
   align-items: center;
 }
+.index-container .content{
+    background: rgb(241,241,241);
+    padding: 30rpx 0 20rpx;
+}
 .index-container .content .list-title {
   height: 42rpx;
   font-size: 30rpx;
@@ -157,7 +160,7 @@ export default {
   transform: translateX(-50%);
 }
 .index-container .content .list-title .text-box {
-  background: #fff;
+  background: rgb(241,241,241);
   position: relative;
   z-index: 6;
   width: 120rpx;
