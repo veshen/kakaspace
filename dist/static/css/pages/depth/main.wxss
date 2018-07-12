@@ -1,7 +1,7 @@
 @import "/static/css/vendor.wxss";
 
 .depth-container.data-v-2aee11bd {
-  background: rgb(241,241,241);
+  background: rgb(241, 241, 241);
 }
 .depth-container .index-top-box.data-v-2aee11bd {
   position: relative;
@@ -41,7 +41,7 @@
   transform: translateX(-50%);
 }
 .depth-container .content .list-title .text-box.data-v-2aee11bd {
-  background: #fff;
+  background: rgb(241, 241, 241);
   position: relative;
   z-index: 6;
   width: 120rpx;
@@ -65,7 +65,7 @@
   width: 100%;
 }
 .depth-container .content .list-content .list-item .video-desc.data-v-2aee11bd {
-  background: rgb(229,229,229);
+  background: rgb(229, 229, 229);
   padding: 30rpx 20rpx 18rpx;
 }
 .depth-container .content .list-content .list-item .video-desc .title.data-v-2aee11bd {

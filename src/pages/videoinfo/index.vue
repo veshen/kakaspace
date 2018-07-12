@@ -40,6 +40,10 @@ export default {
 </script>
 
 <style scoped>
+.video-info-container{
+    min-height: 100%;
+    background: rgb(241, 241, 241);
+}
 .video-info-container .content .video-box .v-box {
   width: 100%;
   height: 420rpx;

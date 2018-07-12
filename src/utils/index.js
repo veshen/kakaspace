@@ -19,10 +19,15 @@ function request (url, method, data, header = {}) {
       header,
       url: config.host + url,
       success: function (res) {
-        if (res.data.code === 0) {
-          resolve(res.data.data)
+        if (res.statusCode === 200) {
+            if (res.data.code===200) {
+                resolve(res.data.data)
+            }else{
+                showModal('失败', res.data.message)
+                reject(res.data)
+            }
         } else {
-          showModal('失败', res.data.data.msg)
+          showModal('失败', res.errMsg)
           reject(res.data)
         }
       }

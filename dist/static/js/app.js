@@ -286,7 +286,7 @@ Object(__WEBPACK_IMPORTED_MODULE_2__axios_index_js__["a" /* getCode */])();
   // 这个字段走 app.json
   config: {
     // 页面前带有 ^ 符号的，会被编译成首页，其他页面可以选填，我们会自动把 webpack entry 里面的入口页面加进去
-    pages: ['pages/my/main', 'pages/themeinfo/main', 'pages/videoinfo/main', 'pages/find/main', 'pages/photoinfo/main', 'pages/photobrowse/main', 'pages/depth/main', '^pages/index/main', 'pages/myorder/main', 'pages/ilike/main', 'pages/myalbum/main', 'pages/about/main', 'pages/onlineSubscribe/main', 'pages/orderInfo/main'],
+    pages: ['pages/my/main', 'pages/themeinfo/main', 'pages/videoinfo/main', 'pages/find/main', 'pages/photoinfo/main', 'pages/photobrowse/main', 'pages/depth/main', 'pages/index/main', 'pages/myorder/main', 'pages/ilike/main', 'pages/myalbum/main', 'pages/about/main', '^pages/onlineSubscribe/main', 'pages/orderInfo/main'],
     window: {
       backgroundTextStyle: 'light',
       navigationBarBackgroundColor: '#000',
@@ -361,7 +361,13 @@ if (false) {(function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__utils_index__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__ = __webpack_require__(268);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator__ = __webpack_require__(271);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__utils_index__ = __webpack_require__(16);
+
+
 
 
 
@@ -369,56 +375,100 @@ if (false) {(function () {
   data: {
     a: 1
   },
-  globalData: {},
+  methods: {
+    login: function login() {
+      var _this = this;
+
+      var that = this;
+      // 调用登录接口
+      wx.login({
+        success: function () {
+          var _ref = __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee(re) {
+            var code, loginRes;
+            return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
+              while (1) {
+                switch (_context.prev = _context.next) {
+                  case 0:
+                    code = re.code;
+                    _context.next = 3;
+                    return Object(__WEBPACK_IMPORTED_MODULE_2__utils_index__["b" /* get */])('/base/wechat/user/login', { code: code });
+
+                  case 3:
+                    loginRes = _context.sent;
+
+                    if (loginRes.userId) {
+                      wx.setStorageSync('userId', loginRes.userId);
+                      wx.setStorageSync('userMobile', loginRes.userMobile);
+                    }
+                    // wx.getUserInfo({
+                    //   success: (res) => {
+                    //       // console.log(res);
+                    //     // this.userInfo = res.userInfo
+                    //     // console.log('调用登陆接口之后',res);
+                    //     that.$root.$mp.app.globalData.userInfo = res.userInfo;
+                    //   }
+                    // })
+
+                  case 5:
+                  case 'end':
+                    return _context.stop();
+                }
+              }
+            }, _callee, _this);
+          }));
+
+          return function success(_x) {
+            return _ref.apply(this, arguments);
+          };
+        }()
+      });
+    }
+  },
   created: function created() {
+    var userId = wx.getStorageSync('userId') || false;
+    var that = this;
+    if (!userId) {
+      this.login();
+    } else {
+      wx.checkSession({
+        success: function success() {
+          //session_key 未过期，并且在本生命周期一直有效
+          console.log('session_key 未过期，并且在本生命周期一直有效');
+          wx.getUserInfo({
+            success: function success(res) {
+              // console.log(res);
+              // this.userInfo = res.userInfo
+              // console.log('这是未过期返回的',res);
+              that.$root.$mp.app.globalData.userInfo = res.userInfo;
+            }
+          });
+        },
+        fail: function fail() {
+          // session_key 已经失效，需要重新执行登录流程
+          console.log('session_key 已经失效，需要重新执行登录流程');
+          // wx.login() //重新登录
+        }
+      });
+    }
     // 调用API从本地缓存中获取数据
-    var logs = wx.getStorageSync('logs') || [];
-    logs.unshift(Date.now());
-    wx.setStorageSync('logs', logs);
-    console.log('app created and cache logs by setStorageSync');
+    // const logs = wx.getStorageSync('logs') || []
+    // logs.unshift(Date.now())
+    // wx.setStorageSync('logs', logs)
+    // console.log('app created and cache logs by setStorageSync')
   },
   onLaunch: function onLaunch() {},
   onShow: function onShow() {
-    var _this = this;
+    var _this2 = this;
 
-    // console.log(this.$root.$mp.app.globalData);
-    wx.checkSession({
-      success: function success() {
-        //session_key 未过期，并且在本生命周期一直有效
-        console.log('session_key 未过期，并且在本生命周期一直有效');
-      },
-      fail: function fail() {
-        // session_key 已经失效，需要重新执行登录流程
-        console.log('session_key 已经失效，需要重新执行登录流程');
-        // wx.login() //重新登录
-      }
-    });
-    // 调用登录接口
-    // wx.login({
-    //   success: (re) => {
-    //       console.log(re,'re26');
-    //       const code = re.code;
-    //       get('/base/wechat/user/login',{code})
-    //     wx.getUserInfo({
-    //       success: (res) => {
-    //           // console.log(res);
-    //         this.userInfo = res.userInfo
-    //         console.log(res);
-    //       }
-    //     })
-    //   }
-    // })
-
-    console.log('a is: ' + this.a, '小程序触发的 onshow');
     var that = this;
     wx.getSystemInfo({
       success: function success(res) {
         // console.log('手机信息res'+res.model)
         var modelmes = res.model;
         if (modelmes.search('iPhone X') != -1) {
-          _this.$root.$mp.app.globalData.isIphoneX = true;
+          _this2.$root.$mp.app.globalData.isIphoneX = true;
         } else {
-          _this.$root.$mp.app.globalData.isIphoneX = false;
+          _this2.$root.$mp.app.globalData.isIphoneX = false;
         }
       }
     });

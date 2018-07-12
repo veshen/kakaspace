@@ -42,29 +42,44 @@
                     </div>
                 </div>
             </div>
+            <div class="select-scope">
+                <div class="tips-text">
+                    <div class="title">
+                        联系人手机号
+                    </div>
+                    <div class="subTitle">
+                        <input type="text" name="" value="">
+                    </div>
+                </div>
+            </div>
 
         </div>
         <div class="bottom-bar">
             <div class="">
 
             </div>
-            <div class="submit-btn" v-bind:class="[index>0&&date!== '请选择 >'? 'active' : '']" @click="toPage('../orderInfo/main')">
+            <div class="submit-btn" v-show="userMobile" v-bind:class="[index>0&&date!== '请选择 >'? 'active' : '']" @click="toPage('../orderInfo/main')">
                 立即预约
             </div>
+             <!-- <button class="submit-btn" v-show="!userMobile" v-bind:class="[index>0&&date!== '请选择 >'? 'active' : '']" open-type="getPhoneNumber" @getphonenumber="bindgetphonenumber">立即预约</button> -->
         </div>
-        <bindPhoneNumber/>
+        <!-- <bindPhoneNumber/> -->
   </div>
 </template>
 
 <script>
-import bindPhoneNumber from '@/components/bindPhoneNumber'
+import bindPhoneNumber from '@/components/bindPhoneNumber';
+import { get, showModal } from './../../utils/index';
 export default {
   data () {
     return {
         array: ['请选择 >', '1人', '2人','3人','4人','5人','6人','7人','8人','9人','10人','11人','12人','13人','14人','15人','16人','17人','18人','19人','20人','21人','22人','23人','24人','25人','26人','27人','28人','29人','30人'],
         index : 0,
         date : '请选择 >',
-        currentDate : ''
+        currentDate : '',
+        userInfo : {
+            nickName : ''
+        }
     }
   },
 
@@ -73,6 +88,22 @@ export default {
   },
 
   methods: {
+    // bindgetphonenumber (e) {
+    //     if (this.index>0&&this.date!== '请选择 >') {
+    //         showModal('错误','无手机号授权无法下单')
+    //     }else{
+    //         if (e.target.errMsg==="getPhoneNumber:ok") {
+    //             console.log(e.target.encryptedData);
+    //             get('/base/wechat/user/phone',{
+    //                 encryptedData : e.target.encryptedData,
+    //                 iv : e.target.iv
+    //             })
+    //         }else{
+    //             showModal('错误','无手机号授权无法下单')
+    //         }
+    //     }
+    //
+    // },
       bindHeadCountChange: function (e) {
         console.log('picker发送选择改变，携带值为',e.mp.detail.value)
         this.index = e.mp.detail.value;
@@ -88,6 +119,14 @@ export default {
         }
 
     }
+  },
+  onShow(){
+      const userInfo = getApp().globalData.userInfo
+      if (userInfo) {
+          this.userInfo.nickName = userInfo.nickName;
+      }
+      const userMobile = wx.getStorageSync('userMobile') || false;
+      this.userMobile = userMobile;
   },
   created () {
       const dateFormat = 'YYYY/MM/DD';

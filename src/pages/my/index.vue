@@ -1,23 +1,21 @@
 <template>
   <div class="container mine mine-container">
     <div class="index-top-box">
-          <div class="login-box">
-              <Image class="head" src="http://b.zol-img.com.cn/sjbizhi/images/6/320x510/138493998617.jpg"/>
-              <div class="user-name">翠花是朵花</div>
+          <div class="login-box" v-show="userInfo.nickName!==''">
+              <Image class="head" v-bind:src="userInfo.avatarUrl"/>
+              <div class="user-name">{{userInfo.nickName}}</div>
           </div>
-          <div class="get-user-info">
-             <button open-type="getUserInfo" @getuserinfo="bindGetUserInfo">获取用户信息</button>
-          </div>
+         <button v-show="userInfo.nickName===''" class="login-button" open-type="getUserInfo" @getuserinfo="bindGetUserInfo">立即登陆</button>
 
       </div>
       <div class="content">
           <div class="list-content">
-              <div class="list-item">
+              <div class="list-item" @click="toPage('../myorder/main')">
                   <img class="left-icon" src="http://static.sa-green.cn/image/jpg/kaka/%E8%AE%A2%E5%8D%95.svg" alt="">
                   <div class="content-text">订单</div>
                   <img class="left-right" src="http://static.sa-green.cn/image/jpg/kaka/%E7%AE%AD%E5%A4%B4%E5%8F%B3.svg" alt="">
               </div>
-              <div class="list-item">
+              <!-- <div class="list-item">
                   <img class="left-icon" src="http://static.sa-green.cn/image/jpg/kaka/%E5%96%9C%E6%AC%A2.svg" alt="">
                   <div class="content-text">喜欢</div>
                   <img class="left-right" src="http://static.sa-green.cn/image/jpg/kaka/%E7%AE%AD%E5%A4%B4%E5%8F%B3.svg" alt="">
@@ -31,7 +29,7 @@
                   <img class="left-icon" src="http://static.sa-green.cn/image/jpg/kaka/%E5%8F%8D%E9%A6%88.svg" alt="">
                   <div class="content-text">反馈</div>
                   <img class="left-right" src="http://static.sa-green.cn/image/jpg/kaka/%E7%AE%AD%E5%A4%B4%E5%8F%B3.svg" alt="">
-              </div>
+              </div> -->
           </div>
       </div>
       <!-- <moreInfo /> -->
@@ -47,13 +45,21 @@ export default {
   data () {
     return {
       motto: 'my',
-      userInfo: {}
+      userInfo: {
+          avatarUrl : "",
+          nickName : ""
+      }
     }
   },
   components: {
     card, moreInfo
   },
   methods: {
+      toPage(url) {
+        wx.navigateTo({
+          url
+        })
+      },
     binddivTap () {
       const url = '../logs/main'
       wx.navigateTo({ url })
@@ -75,7 +81,9 @@ export default {
                       success: (res) => {
                           // console.log(res);
                         // this.userInfo = res.userInfo
-                        console.log(res,'userInfo');
+                        // console.log(res,'userInfo');
+                        self.userInfo.avatarUrl = res.userInfo.avatarUrl;
+                        self.userInfo.nickName = res.userInfo.nickName;
                       }
                     })
               },
@@ -126,7 +134,13 @@ export default {
 // }
 
   },
-
+  onShow(){
+      const userInfo = getApp().globalData.userInfo
+      if (userInfo) {
+          this.userInfo.avatarUrl = userInfo.avatarUrl;
+          this.userInfo.nickName = userInfo.nickName;
+      }
+  },
   created () {
     // 调用应用实例的方法获取全局数据
   }
@@ -134,10 +148,29 @@ export default {
 </script>
 
 <style scoped>
+.login-button{
+    color: #FFE631;
+    background: #000;
+    width: 250rpx;
+    height: 100rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    border-radius: 50rpx;
+}
+.mine-container{
+    min-height: 100%;
+    background: rgb(241, 241, 241);
+}
 .mine-container .index-top-box {
   height: 340rpx;
   background: url('https://resource.sa-green.cn/static/jpg/%E6%88%91%E7%9A%84_%E9%A1%B6%E5%9B%BE.png') no-repeat top center;
-  background-size: 100% 100%;
+  background-size: 100% 100%;position: relative;
+
 }
 .mine-container .index-top-box .login-box {
   overflow: hidden;

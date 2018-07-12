@@ -82,6 +82,7 @@ if (false) {(function () {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_bindPhoneNumber__ = __webpack_require__(187);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__utils_index__ = __webpack_require__(16);
 //
 //
 //
@@ -140,6 +141,18 @@ if (false) {(function () {
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 
 
 /* harmony default export */ __webpack_exports__["a"] = ({
@@ -148,7 +161,10 @@ if (false) {(function () {
             array: ['请选择 >', '1人', '2人', '3人', '4人', '5人', '6人', '7人', '8人', '9人', '10人', '11人', '12人', '13人', '14人', '15人', '16人', '17人', '18人', '19人', '20人', '21人', '22人', '23人', '24人', '25人', '26人', '27人', '28人', '29人', '30人'],
             index: 0,
             date: '请选择 >',
-            currentDate: ''
+            currentDate: '',
+            userInfo: {
+                nickName: ''
+            }
         };
     },
 
@@ -158,6 +174,22 @@ if (false) {(function () {
     },
 
     methods: {
+        // bindgetphonenumber (e) {
+        //     if (this.index>0&&this.date!== '请选择 >') {
+        //         showModal('错误','无手机号授权无法下单')
+        //     }else{
+        //         if (e.target.errMsg==="getPhoneNumber:ok") {
+        //             console.log(e.target.encryptedData);
+        //             get('/base/wechat/user/phone',{
+        //                 encryptedData : e.target.encryptedData,
+        //                 iv : e.target.iv
+        //             })
+        //         }else{
+        //             showModal('错误','无手机号授权无法下单')
+        //         }
+        //     }
+        //
+        // },
         bindHeadCountChange: function bindHeadCountChange(e) {
             console.log('picker发送选择改变，携带值为', e.mp.detail.value);
             this.index = e.mp.detail.value;
@@ -171,6 +203,14 @@ if (false) {(function () {
                 wx.navigateTo({ url: url });
             }
         }
+    },
+    onShow: function onShow() {
+        var userInfo = getApp().globalData.userInfo;
+        if (userInfo) {
+            this.userInfo.nickName = userInfo.nickName;
+        }
+        var userMobile = wx.getStorageSync('userMobile') || false;
+        this.userMobile = userMobile;
     },
     created: function created() {
         var dateFormat = 'YYYY/MM/DD';
@@ -412,9 +452,15 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }
   }, [_c('view', {
     staticClass: "picker"
-  }, [_vm._v("\n                                " + _vm._s(_vm.date) + "\n                              ")])])], 1)])])]), _vm._v(" "), _c('div', {
+  }, [_vm._v("\n                                " + _vm._s(_vm.date) + "\n                              ")])])], 1)])]), _vm._v(" "), _vm._m(1)]), _vm._v(" "), _c('div', {
     staticClass: "bottom-bar"
   }, [_c('div', {}), _vm._v(" "), _c('div', {
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: (_vm.userMobile),
+      expression: "userMobile"
+    }],
     staticClass: "submit-btn",
     class: [_vm.index > 0 && _vm.date !== '请选择 >' ? 'active' : ''],
     attrs: {
@@ -425,11 +471,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
         _vm.toPage('../orderInfo/main')
       }
     }
-  }, [_vm._v("\n              立即预约\n          ")])]), _vm._v(" "), _c('bindPhoneNumber', {
-    attrs: {
-      "mpcomid": '0'
-    }
-  })], 1)
+  }, [_vm._v("\n              立即预约\n          ")])])])
 }
 var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
@@ -439,6 +481,22 @@ var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _
   }, [_vm._v("\n              国际婚纱摄影工作室\n          ")]), _vm._v(" "), _c('div', {
     staticClass: "desc"
   }, [_vm._v("\n              国际婚纱摄影连锁机构！一流的前期拍摄，顶尖的后期制作，一站式贴心服务，专注用镜头私人定制您的永恒幸福记忆。《芈月传》《摆渡人》《丑女无敌》《王牌逗王牌》扮演者毛俊杰倾力推荐，明星助力，品质保证。婚纱摄影行业知名品牌欢迎您\n          ")])])
+},function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "select-scope"
+  }, [_c('div', {
+    staticClass: "tips-text"
+  }, [_c('div', {
+    staticClass: "title"
+  }, [_vm._v("\n                      联系人手机号\n                  ")]), _vm._v(" "), _c('div', {
+    staticClass: "subTitle"
+  }, [_c('input', {
+    attrs: {
+      "type": "text",
+      "name": "",
+      "value": ""
+    }
+  })])])])
 }]
 render._withStripped = true
 var esExports = { render: render, staticRenderFns: staticRenderFns }

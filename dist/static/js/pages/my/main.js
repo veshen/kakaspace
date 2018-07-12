@@ -123,8 +123,6 @@ if (false) {(function () {
 //
 //
 //
-//
-//
 
 
 
@@ -133,7 +131,10 @@ if (false) {(function () {
   data: function data() {
     return {
       motto: 'my',
-      userInfo: {}
+      userInfo: {
+        avatarUrl: "",
+        nickName: ""
+      }
     };
   },
 
@@ -141,6 +142,11 @@ if (false) {(function () {
     card: __WEBPACK_IMPORTED_MODULE_0__components_card__["a" /* default */], moreInfo: __WEBPACK_IMPORTED_MODULE_1__components_moreInfo__["a" /* default */]
   },
   methods: {
+    toPage: function toPage(url) {
+      wx.navigateTo({
+        url: url
+      });
+    },
     binddivTap: function binddivTap() {
       var url = '../logs/main';
       wx.navigateTo({ url: url });
@@ -157,12 +163,14 @@ if (false) {(function () {
             wx.checkSession({
               success: function success() {
                 // 没过期 直接成功
-                Object(__WEBPACK_IMPORTED_MODULE_2__utils_index__["c" /* showSuccess */])('登录成功');
+                Object(__WEBPACK_IMPORTED_MODULE_2__utils_index__["d" /* showSuccess */])('登录成功');
                 wx.getUserInfo({
                   success: function success(res) {
                     // console.log(res);
                     // this.userInfo = res.userInfo
-                    console.log(res, 'userInfo');
+                    // console.log(res,'userInfo');
+                    self.userInfo.avatarUrl = res.userInfo.avatarUrl;
+                    self.userInfo.nickName = res.userInfo.nickName;
                   }
                 });
               },
@@ -181,7 +189,7 @@ if (false) {(function () {
 
             });
           } else {
-            Object(__WEBPACK_IMPORTED_MODULE_2__utils_index__["b" /* showModal */])('用户未授权', e.mp.detail.errMsg);
+            Object(__WEBPACK_IMPORTED_MODULE_2__utils_index__["c" /* showModal */])('用户未授权', e.mp.detail.errMsg);
           }
         }
 
@@ -208,7 +216,13 @@ if (false) {(function () {
       // }
     }
   },
-
+  onShow: function onShow() {
+    var userInfo = getApp().globalData.userInfo;
+    if (userInfo) {
+      this.userInfo.avatarUrl = userInfo.avatarUrl;
+      this.userInfo.nickName = userInfo.nickName;
+    }
+  },
   created: function created() {
     // 调用应用实例的方法获取全局数据
   }
@@ -226,18 +240,29 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
   }, [_c('div', {
     staticClass: "index-top-box"
   }, [_c('div', {
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: (_vm.userInfo.nickName !== ''),
+      expression: "userInfo.nickName!==''"
+    }],
     staticClass: "login-box"
   }, [_c('Image', {
     staticClass: "head",
     attrs: {
-      "src": "http://b.zol-img.com.cn/sjbizhi/images/6/320x510/138493998617.jpg",
+      "src": _vm.userInfo.avatarUrl,
       "mpcomid": '0'
     }
   }), _vm._v(" "), _c('div', {
     staticClass: "user-name"
-  }, [_vm._v("翠花是朵花")])]), _vm._v(" "), _c('div', {
-    staticClass: "get-user-info"
-  }, [_c('button', {
+  }, [_vm._v(_vm._s(_vm.userInfo.nickName))])]), _vm._v(" "), _c('button', {
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: (_vm.userInfo.nickName === ''),
+      expression: "userInfo.nickName===''"
+    }],
+    staticClass: "login-button",
     attrs: {
       "open-type": "getUserInfo",
       "eventid": '0'
@@ -245,20 +270,20 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     on: {
       "getuserinfo": _vm.bindGetUserInfo
     }
-  }, [_vm._v("获取用户信息")])], 1)]), _vm._v(" "), _vm._m(0), _vm._v(" "), _c('card', {
-    attrs: {
-      "text": _vm.motto,
-      "mpcomid": '1'
-    }
-  })], 1)
-}
-var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
+  }, [_vm._v("立即登陆")])], 1), _vm._v(" "), _c('div', {
     staticClass: "content"
   }, [_c('div', {
     staticClass: "list-content"
   }, [_c('div', {
-    staticClass: "list-item"
+    staticClass: "list-item",
+    attrs: {
+      "eventid": '1'
+    },
+    on: {
+      "click": function($event) {
+        _vm.toPage('../myorder/main')
+      }
+    }
   }, [_c('img', {
     staticClass: "left-icon",
     attrs: {
@@ -273,56 +298,14 @@ var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _
       "src": "http://static.sa-green.cn/image/jpg/kaka/%E7%AE%AD%E5%A4%B4%E5%8F%B3.svg",
       "alt": ""
     }
-  })]), _vm._v(" "), _c('div', {
-    staticClass: "list-item"
-  }, [_c('img', {
-    staticClass: "left-icon",
+  })])])]), _vm._v(" "), _c('card', {
     attrs: {
-      "src": "http://static.sa-green.cn/image/jpg/kaka/%E5%96%9C%E6%AC%A2.svg",
-      "alt": ""
+      "text": _vm.motto,
+      "mpcomid": '1'
     }
-  }), _vm._v(" "), _c('div', {
-    staticClass: "content-text"
-  }, [_vm._v("喜欢")]), _vm._v(" "), _c('img', {
-    staticClass: "left-right",
-    attrs: {
-      "src": "http://static.sa-green.cn/image/jpg/kaka/%E7%AE%AD%E5%A4%B4%E5%8F%B3.svg",
-      "alt": ""
-    }
-  })]), _vm._v(" "), _c('div', {
-    staticClass: "list-item"
-  }, [_c('img', {
-    staticClass: "left-icon",
-    attrs: {
-      "src": "http://static.sa-green.cn/image/jpg/kaka/%E7%9B%B8%E5%86%8C.svg",
-      "alt": ""
-    }
-  }), _vm._v(" "), _c('div', {
-    staticClass: "content-text"
-  }, [_vm._v("相册")]), _vm._v(" "), _c('img', {
-    staticClass: "left-right",
-    attrs: {
-      "src": "http://static.sa-green.cn/image/jpg/kaka/%E7%AE%AD%E5%A4%B4%E5%8F%B3.svg",
-      "alt": ""
-    }
-  })]), _vm._v(" "), _c('div', {
-    staticClass: "list-item"
-  }, [_c('img', {
-    staticClass: "left-icon",
-    attrs: {
-      "src": "http://static.sa-green.cn/image/jpg/kaka/%E5%8F%8D%E9%A6%88.svg",
-      "alt": ""
-    }
-  }), _vm._v(" "), _c('div', {
-    staticClass: "content-text"
-  }, [_vm._v("反馈")]), _vm._v(" "), _c('img', {
-    staticClass: "left-right",
-    attrs: {
-      "src": "http://static.sa-green.cn/image/jpg/kaka/%E7%AE%AD%E5%A4%B4%E5%8F%B3.svg",
-      "alt": ""
-    }
-  })])])])
-}]
+  })], 1)
+}
+var staticRenderFns = []
 render._withStripped = true
 var esExports = { render: render, staticRenderFns: staticRenderFns }
 /* harmony default export */ __webpack_exports__["a"] = (esExports);

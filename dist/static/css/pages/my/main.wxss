@@ -1,9 +1,28 @@
 @import "/static/css/vendor.wxss";
 
+.login-button.data-v-51295288 {
+  color: #FFE631;
+  background: #000;
+  width: 250rpx;
+  height: 100rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  border-radius: 50rpx;
+}
+.mine-container.data-v-51295288 {
+  min-height: 100%;
+  background: rgb(241, 241, 241);
+}
 .mine-container .index-top-box.data-v-51295288 {
   height: 340rpx;
   background: url('https://resource.sa-green.cn/static/jpg/%E6%88%91%E7%9A%84_%E9%A1%B6%E5%9B%BE.png') no-repeat top center;
   background-size: 100% 100%;
+  position: relative;
 }
 .mine-container .index-top-box .login-box.data-v-51295288 {
   overflow: hidden;
