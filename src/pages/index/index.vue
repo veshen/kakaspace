@@ -98,11 +98,12 @@ export default {
   position: relative;
   width: 750rpx;
   height: 860rpx;
-  background: url("https://resource.sa-green.cn/image/jpg/kaka/%E9%A6%96%E9%A1%B5%E5%A4%B4%E5%9B%BE.png") no-repeat left center;
+  background: url("https://resource.sa-green.cn/image/jpg/WechatIMG113.jpeg") no-repeat left center;
   background-size: 100% 100%;
   overflow: hidden;
   text-align: center;
   color: #FFFFFF;
+  box-shadow:0 200px 1860px #000 inset; 
 }
 .index-container .index-top-box .title {
   font-size: 34rpx;

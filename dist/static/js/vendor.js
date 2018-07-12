@@ -11905,41 +11905,7 @@ var index_esm = {
 /* 168 */,
 /* 169 */,
 /* 170 */,
-/* 171 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (immutable) */ __webpack_exports__["a"] = listToStyles;
-/**
- * Translates the list format produced by css-loader into something
- * easier to manipulate.
- */
-function listToStyles (parentId, list) {
-  var styles = []
-  var newStyles = {}
-  for (var i = 0; i < list.length; i++) {
-    var item = list[i]
-    var id = item[0]
-    var css = item[1]
-    var media = item[2]
-    var sourceMap = item[3]
-    var part = {
-      id: parentId + ':' + i,
-      css: css,
-      media: media,
-      sourceMap: sourceMap
-    }
-    if (!newStyles[id]) {
-      styles.push(newStyles[id] = { id: id, parts: [part] })
-    } else {
-      newStyles[id].parts.push(part)
-    }
-  }
-  return styles
-}
-
-
-/***/ }),
+/* 171 */,
 /* 172 */,
 /* 173 */,
 /* 174 */,
@@ -11964,14 +11930,13 @@ function listToStyles (parentId, list) {
 /* 193 */,
 /* 194 */,
 /* 195 */,
-/* 196 */,
-/* 197 */
+/* 196 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var canPromise = __webpack_require__(198)
-var QRCode = __webpack_require__(200)
-var CanvasRenderer = __webpack_require__(216)
-var SvgRenderer = __webpack_require__(217)
+var canPromise = __webpack_require__(197)
+var QRCode = __webpack_require__(199)
+var CanvasRenderer = __webpack_require__(215)
+var SvgRenderer = __webpack_require__(216)
 
 function renderCanvas (renderFunc, canvas, text, opts, cb) {
   var args = [].slice.call(arguments, 1)
@@ -12045,13 +12010,13 @@ exports.toString = renderCanvas.bind(null, function (data, _, opts) {
 
 
 /***/ }),
-/* 198 */
+/* 197 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var G = __webpack_require__(199)
+var G = __webpack_require__(198)
 
 module.exports = function() {
   return (
@@ -12062,7 +12027,7 @@ module.exports = function() {
 
 
 /***/ }),
-/* 199 */
+/* 198 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12074,23 +12039,23 @@ module.exports = (typeof self === 'object' && self.self === self && self) ||
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(35)))
 
 /***/ }),
-/* 200 */
+/* 199 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var Buffer = __webpack_require__(12)
 var Utils = __webpack_require__(9)
 var ECLevel = __webpack_require__(34)
-var BitBuffer = __webpack_require__(201)
-var BitMatrix = __webpack_require__(202)
-var AlignmentPattern = __webpack_require__(203)
-var FinderPattern = __webpack_require__(204)
-var MaskPattern = __webpack_require__(205)
+var BitBuffer = __webpack_require__(200)
+var BitMatrix = __webpack_require__(201)
+var AlignmentPattern = __webpack_require__(202)
+var FinderPattern = __webpack_require__(203)
+var MaskPattern = __webpack_require__(204)
 var ECCode = __webpack_require__(55)
-var ReedSolomonEncoder = __webpack_require__(206)
+var ReedSolomonEncoder = __webpack_require__(205)
 var Version = __webpack_require__(56)
-var FormatInfo = __webpack_require__(209)
+var FormatInfo = __webpack_require__(208)
 var Mode = __webpack_require__(10)
-var Segments = __webpack_require__(210)
+var Segments = __webpack_require__(209)
 var isArray = __webpack_require__(33)
 
 /**
@@ -12579,7 +12544,7 @@ exports.create = function create (data, options) {
 
 
 /***/ }),
-/* 201 */
+/* 200 */
 /***/ (function(module, exports) {
 
 function BitBuffer () {
@@ -12622,7 +12587,7 @@ module.exports = BitBuffer
 
 
 /***/ }),
-/* 202 */
+/* 201 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var Buffer = __webpack_require__(12)
@@ -12697,7 +12662,7 @@ module.exports = BitMatrix
 
 
 /***/ }),
-/* 203 */
+/* 202 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /**
@@ -12786,7 +12751,7 @@ exports.getPositions = function getPositions (version) {
 
 
 /***/ }),
-/* 204 */
+/* 203 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var getSymbolSize = __webpack_require__(9).getSymbolSize
@@ -12814,7 +12779,7 @@ exports.getPositions = function getPositions (version) {
 
 
 /***/ }),
-/* 205 */
+/* 204 */
 /***/ (function(module, exports) {
 
 /**
@@ -13054,11 +13019,11 @@ exports.getBestMask = function getBestMask (data, setupFormatFunc) {
 
 
 /***/ }),
-/* 206 */
+/* 205 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var Buffer = __webpack_require__(12)
-var Polynomial = __webpack_require__(207)
+var Polynomial = __webpack_require__(206)
 
 function ReedSolomonEncoder (degree) {
   this.genPoly = undefined
@@ -13119,11 +13084,11 @@ module.exports = ReedSolomonEncoder
 
 
 /***/ }),
-/* 207 */
+/* 206 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var Buffer = __webpack_require__(12)
-var GF = __webpack_require__(208)
+var GF = __webpack_require__(207)
 
 /**
  * Multiplies two polynomials inside Galois Field
@@ -13189,7 +13154,7 @@ exports.generateECPolynomial = function generateECPolynomial (degree) {
 
 
 /***/ }),
-/* 208 */
+/* 207 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var Buffer = __webpack_require__(12)
@@ -13267,7 +13232,7 @@ exports.mul = function mul (x, y) {
 
 
 /***/ }),
-/* 209 */
+/* 208 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var Utils = __webpack_require__(9)
@@ -13302,17 +13267,17 @@ exports.getEncodedBits = function getEncodedBits (errorCorrectionLevel, mask) {
 
 
 /***/ }),
-/* 210 */
+/* 209 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var Mode = __webpack_require__(10)
-var NumericData = __webpack_require__(211)
-var AlphanumericData = __webpack_require__(212)
-var ByteData = __webpack_require__(213)
-var KanjiData = __webpack_require__(214)
+var NumericData = __webpack_require__(210)
+var AlphanumericData = __webpack_require__(211)
+var ByteData = __webpack_require__(212)
+var KanjiData = __webpack_require__(213)
 var Regex = __webpack_require__(57)
 var Utils = __webpack_require__(9)
-var dijkstra = __webpack_require__(215)
+var dijkstra = __webpack_require__(214)
 
 /**
  * Returns UTF8 byte length
@@ -13638,7 +13603,7 @@ exports.rawSplit = function rawSplit (data) {
 
 
 /***/ }),
-/* 211 */
+/* 210 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var Mode = __webpack_require__(10)
@@ -13687,7 +13652,7 @@ module.exports = NumericData
 
 
 /***/ }),
-/* 212 */
+/* 211 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var Mode = __webpack_require__(10)
@@ -13752,7 +13717,7 @@ module.exports = AlphanumericData
 
 
 /***/ }),
-/* 213 */
+/* 212 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var Buffer = __webpack_require__(12)
@@ -13785,7 +13750,7 @@ module.exports = ByteData
 
 
 /***/ }),
-/* 214 */
+/* 213 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var Mode = __webpack_require__(10)
@@ -13845,7 +13810,7 @@ module.exports = KanjiData
 
 
 /***/ }),
-/* 215 */
+/* 214 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14017,7 +13982,7 @@ if (true) {
 
 
 /***/ }),
-/* 216 */
+/* 215 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var Utils = __webpack_require__(58)
@@ -14086,7 +14051,7 @@ exports.renderToDataURL = function renderToDataURL (qrData, canvas, options) {
 
 
 /***/ }),
-/* 217 */
+/* 216 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var Utils = __webpack_require__(58)
@@ -14173,6 +14138,7 @@ exports.render = function render (qrData, options, cb) {
 
 
 /***/ }),
+/* 217 */,
 /* 218 */,
 /* 219 */,
 /* 220 */,
@@ -14287,7 +14253,7 @@ function toComment(sourceMap) {
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (immutable) */ __webpack_exports__["default"] = addStylesClient;
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__listToStyles__ = __webpack_require__(171);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__listToStyles__ = __webpack_require__(246);
 /*
   MIT License http://www.opensource.org/licenses/mit-license.php
   Author Tobias Koppers @sokra
@@ -14509,6 +14475,41 @@ function applyToTag (styleElement, obj) {
     }
     styleElement.appendChild(document.createTextNode(css))
   }
+}
+
+
+/***/ }),
+/* 246 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (immutable) */ __webpack_exports__["a"] = listToStyles;
+/**
+ * Translates the list format produced by css-loader into something
+ * easier to manipulate.
+ */
+function listToStyles (parentId, list) {
+  var styles = []
+  var newStyles = {}
+  for (var i = 0; i < list.length; i++) {
+    var item = list[i]
+    var id = item[0]
+    var css = item[1]
+    var media = item[2]
+    var sourceMap = item[3]
+    var part = {
+      id: parentId + ':' + i,
+      css: css,
+      media: media,
+      sourceMap: sourceMap
+    }
+    if (!newStyles[id]) {
+      styles.push(newStyles[id] = { id: id, parts: [part] })
+    } else {
+      newStyles[id].parts.push(part)
+    }
+  }
+  return styles
 }
 
 
