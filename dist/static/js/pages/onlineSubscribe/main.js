@@ -164,7 +164,8 @@ if (false) {(function () {
             currentDate: '',
             userInfo: {
                 nickName: ''
-            }
+            },
+            userMobile: ''
         };
     },
 
@@ -452,7 +453,39 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }
   }, [_c('view', {
     staticClass: "picker"
-  }, [_vm._v("\n                                " + _vm._s(_vm.date) + "\n                              ")])])], 1)])]), _vm._v(" "), _vm._m(1)]), _vm._v(" "), _c('div', {
+  }, [_vm._v("\n                                " + _vm._s(_vm.date) + "\n                              ")])])], 1)])]), _vm._v(" "), _c('div', {
+    staticClass: "select-scope"
+  }, [_c('div', {
+    staticClass: "tips-text"
+  }, [_c('div', {
+    staticClass: "title"
+  }, [_vm._v("\n                      联系人手机号\n                  ")]), _vm._v(" "), _c('div', {
+    staticClass: "subTitle"
+  }, [_c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.userMobile),
+      expression: "userMobile"
+    }],
+    attrs: {
+      "type": "text",
+      "name": "",
+      "value": _vm.userMobile,
+      "maxlength": "11",
+      "placeholder": "请输入11位手机号码",
+      "eventid": '2'
+    },
+    domProps: {
+      "value": (_vm.userMobile)
+    },
+    on: {
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.userMobile = $event.target.value
+      }
+    }
+  })])])])]), _vm._v(" "), _c('div', {
     staticClass: "bottom-bar"
   }, [_c('div', {}), _vm._v(" "), _c('div', {
     directives: [{
@@ -464,14 +497,14 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticClass: "submit-btn",
     class: [_vm.index > 0 && _vm.date !== '请选择 >' ? 'active' : ''],
     attrs: {
-      "eventid": '2'
+      "eventid": '3'
     },
     on: {
       "click": function($event) {
         _vm.toPage('../orderInfo/main')
       }
     }
-  }, [_vm._v("\n              立即预约\n          ")])])])
+  }, [_vm._v("\n              立即预约" + _vm._s(_vm.userMobile) + "\n          ")])])])
 }
 var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
@@ -481,22 +514,6 @@ var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _
   }, [_vm._v("\n              国际婚纱摄影工作室\n          ")]), _vm._v(" "), _c('div', {
     staticClass: "desc"
   }, [_vm._v("\n              国际婚纱摄影连锁机构！一流的前期拍摄，顶尖的后期制作，一站式贴心服务，专注用镜头私人定制您的永恒幸福记忆。《芈月传》《摆渡人》《丑女无敌》《王牌逗王牌》扮演者毛俊杰倾力推荐，明星助力，品质保证。婚纱摄影行业知名品牌欢迎您\n          ")])])
-},function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    staticClass: "select-scope"
-  }, [_c('div', {
-    staticClass: "tips-text"
-  }, [_c('div', {
-    staticClass: "title"
-  }, [_vm._v("\n                      联系人手机号\n                  ")]), _vm._v(" "), _c('div', {
-    staticClass: "subTitle"
-  }, [_c('input', {
-    attrs: {
-      "type": "text",
-      "name": "",
-      "value": ""
-    }
-  })])])])
 }]
 render._withStripped = true
 var esExports = { render: render, staticRenderFns: staticRenderFns }

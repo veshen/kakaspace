@@ -48,7 +48,7 @@
                         联系人手机号
                     </div>
                     <div class="subTitle">
-                        <input type="text" name="" value="">
+                        <input type="text" name="" :value="userMobile" maxlength="11" v-model="userMobile" placeholder="请输入11位手机号码">
                     </div>
                 </div>
             </div>
@@ -59,7 +59,7 @@
 
             </div>
             <div class="submit-btn" v-show="userMobile" v-bind:class="[index>0&&date!== '请选择 >'? 'active' : '']" @click="toPage('../orderInfo/main')">
-                立即预约
+                立即预约{{userMobile}}
             </div>
              <!-- <button class="submit-btn" v-show="!userMobile" v-bind:class="[index>0&&date!== '请选择 >'? 'active' : '']" open-type="getPhoneNumber" @getphonenumber="bindgetphonenumber">立即预约</button> -->
         </div>
@@ -79,7 +79,8 @@ export default {
         currentDate : '',
         userInfo : {
             nickName : ''
-        }
+        },
+        userMobile : ''
     }
   },
 
