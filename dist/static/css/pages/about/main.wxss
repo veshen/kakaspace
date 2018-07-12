@@ -54,6 +54,7 @@
   border-radius: 20rpx 20rpx 0 0;
   overflow: hidden;
   padding: 0 40rpx;
+  background: #f1f1f1;
 }
 .about-space.data-v-e8ad13f2 {
   border-radius: 20rpx 20rpx 0 0;
@@ -76,4 +77,8 @@
 .about-space.data-v-e8ad13f2,
 .address-box.data-v-e8ad13f2 {
   padding-top: 60rpx;
+}
+.about-space.data-v-e8ad13f2,
+.address-box .desc.data-v-e8ad13f2 {
+  margin-bottom: 20rpx;
 }

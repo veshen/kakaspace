@@ -1,13 +1,13 @@
 {
   "pages": [
-    "pages/my/main",
+    "pages/index/main",
     "pages/about/main",
     "pages/counter/main",
     "pages/depth/main",
     "pages/find/main",
     "pages/ilike/main",
-    "pages/index/main",
     "pages/logs/main",
+    "pages/my/main",
     "pages/myalbum/main",
     "pages/myorder/main",
     "pages/onlineSubscribe/main",

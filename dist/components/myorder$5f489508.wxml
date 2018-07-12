@@ -1,0 +1,28 @@
+<template name="myorder$5f489508">
+  <view class="_div data-v-4af6d59c container my-order-container">
+    <view class="_div data-v-4af6d59c title-box">
+      <view class="_div data-v-4af6d59c text"> 选择订单 </view>
+    </view>
+    <view class="_div data-v-4af6d59c order-list-box">
+      <view class="_div data-v-4af6d59c order-item">
+        <view class="_div data-v-4af6d59c line-left"></view>
+        <view class="_div data-v-4af6d59c img-box">
+          <image class="_img data-v-4af6d59c image" src="https://resource.sa-green.cn/image/jpg/kaka/Bitmap.png" alt></image>
+        </view>
+        <view class="_div data-v-4af6d59c order-info-box">
+          <view class="_div data-v-4af6d59c order-info-top sub-content">
+            <view class="_div data-v-4af6d59c order-no"> 订单号：123123123123123 </view>
+            <view class="_div data-v-4af6d59c order-status"> 已完成 </view>
+          </view>
+          <view class="_div data-v-4af6d59c order-info-center sub-content">
+            <view class="_div data-v-4af6d59c shop-time"> 到店时间：2018-08-07 15:00 </view>
+          </view>
+          <view class="_div data-v-4af6d59c order-info-bottom sub-content">
+            <view class="_div data-v-4af6d59c head-count"> 人数：2 </view>
+            <view class="_div data-v-4af6d59c order-price"> ￥3999 </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</template>
