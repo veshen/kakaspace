@@ -3,6 +3,7 @@
 # dependencies
 # node_modules
 /node_modules
+/dist
 # misc
 .DS_Store
 .env.local
