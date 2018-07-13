@@ -1,31 +1,36 @@
 global.webpackJsonp([10],{
 
-/***/ 192:
+/***/ 197:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__index__ = __webpack_require__(193);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__index__ = __webpack_require__(198);
 
 
 
 var app = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a(__WEBPACK_IMPORTED_MODULE_1__index__["a" /* default */]);
 app.$mount();
+/* harmony default export */ __webpack_exports__["default"] = ({
+  config: {
+    navigationBarTitleText: '订单详情'
+  }
+});
 
 /***/ }),
 
-/***/ 193:
+/***/ 198:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_lib_selector_type_script_index_0_index_vue__ = __webpack_require__(195);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_lib_template_compiler_index_id_data_v_027b0d56_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_mpvue_loader_lib_selector_type_template_index_0_index_vue__ = __webpack_require__(217);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_lib_selector_type_script_index_0_index_vue__ = __webpack_require__(200);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_lib_template_compiler_index_id_data_v_027b0d56_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_mpvue_loader_lib_selector_type_template_index_0_index_vue__ = __webpack_require__(222);
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(194)
+  __webpack_require__(199)
 }
 var normalizeComponent = __webpack_require__(0)
 /* script */
@@ -70,19 +75,18 @@ if (false) {(function () {
 
 /***/ }),
 
-/***/ 194:
+/***/ 199:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
 
-/***/ 195:
+/***/ 200:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_qrcode__ = __webpack_require__(196);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_qrcode___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_qrcode__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__utils_index__ = __webpack_require__(6);
 //
 //
 //
@@ -154,10 +158,12 @@ if (false) {(function () {
 //
 //
 
+// import QRCode from 'qrcode';
 
 /* harmony default export */ __webpack_exports__["a"] = ({
     data: function data() {
         return {
+            orderInfo: {},
             imgUrl: 'https://ss0.bdstatic.com/94oJfD_bAAcT8t7mm9GUKT-xh_/timg?image&quality=100&size=b4000_4000&sec=1531328531&di=6f578a310aacfc611b3ce4e41b661f95&src=http://img1.ph.126.net/KCG0wwnes5Oh8nzyGYp_Dg==/1564156445598554981.jpg'
         };
     },
@@ -167,18 +173,23 @@ if (false) {(function () {
 
     methods: {},
     created: function created() {},
-    onLoad: function onLoad() {
-        // let That = this;
-        // QRCode.toDataURL('https://www.baidu.com', {margin:0,scale:10}, (err, url)=> {
-        //     That.imgUrl=url;
-        //     console.log(url,err);
-        // });
+    onLoad: function onLoad(option) {
+        var _this = this;
+
+        var token = wx.getStorageSync('token');
+        var orderId = option.orderId;
+        Object(__WEBPACK_IMPORTED_MODULE_0__utils_index__["b" /* get */])('/order/orderDetail', { token: token, orderId: orderId }).then(function (res) {
+            console.log(res);
+            _this.orderInfo = res;
+        }).catch(function (e) {
+            console.log(e);
+        });
     }
 });
 
 /***/ }),
 
-/***/ 217:
+/***/ 222:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -189,20 +200,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticClass: "main"
   }, [_c('div', {
     staticClass: "line-box"
-  }), _vm._v(" "), _vm._m(0), _vm._v(" "), _vm._m(1), _vm._v(" "), _c('div', {
-    staticClass: "qrcode-box"
-  }, [_c('img', {
-    staticClass: "image",
-    attrs: {
-      "src": _vm.imgUrl,
-      "alt": ""
-    }
-  })]), _vm._v(" "), _c('div', {
-    staticClass: "tips"
-  }, [_vm._v("\n            · 请到店后出示并验证入场 ·\n        ")])])])
-}
-var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
+  }), _vm._v(" "), _c('div', {
     staticClass: "order-info"
   }, [_c('div', {
     staticClass: "order-info-line"
@@ -210,31 +208,31 @@ var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _
     staticClass: "label"
   }, [_vm._v("\n                    订单号\n                ")]), _vm._v(" "), _c('div', {
     staticClass: "content"
-  }, [_vm._v("\n                      DX0299993888\n                ")])]), _vm._v(" "), _c('div', {
+  }, [_vm._v("\n                      " + _vm._s(_vm.orderInfo.orderId) + "\n                ")])]), _vm._v(" "), _c('div', {
     staticClass: "order-info-line"
   }, [_c('div', {
     staticClass: "label"
   }, [_vm._v("\n                    下单时间\n                ")]), _vm._v(" "), _c('div', {
     staticClass: "content"
-  }, [_vm._v("\n                      2018-08-20  13:00\n                ")])]), _vm._v(" "), _c('div', {
+  }, [_vm._v("\n                      " + _vm._s(_vm.orderInfo.createOrderTime) + "\n                ")])]), _vm._v(" "), _c('div', {
     staticClass: "order-info-line"
   }, [_c('div', {
     staticClass: "label"
   }, [_vm._v("\n                    人数\n                ")]), _vm._v(" "), _c('div', {
     staticClass: "content"
-  }, [_vm._v("\n                      2\n                ")])]), _vm._v(" "), _c('div', {
+  }, [_vm._v("\n                      " + _vm._s(_vm.orderInfo.peerNumber) + "\n                ")])]), _vm._v(" "), _c('div', {
     staticClass: "order-info-line"
   }, [_c('div', {
     staticClass: "label"
   }, [_vm._v("\n                    到店时间\n                ")]), _vm._v(" "), _c('div', {
     staticClass: "content"
-  }, [_vm._v("\n                      2018-08-20  13:00\n                ")])]), _vm._v(" "), _c('div', {
+  }, [_vm._v("\n                      " + _vm._s(_vm.orderInfo.bookDay) + "\n                ")])]), _vm._v(" "), _c('div', {
     staticClass: "order-info-line"
   }, [_c('div', {
     staticClass: "label"
   }, [_vm._v("\n                    订单状态\n                ")]), _vm._v(" "), _c('div', {
     staticClass: "content"
-  }, [_vm._v("\n                      待消费\n                ")])]), _vm._v(" "), _c('div', {
+  }, [_vm._v("\n                      " + _vm._s(_vm.orderInfo.orderStatusDesc) + "\n                ")])]), _vm._v(" "), _c('div', {
     staticClass: "order-info-line"
   }, [_c('div', {
     staticClass: "label"
@@ -242,14 +240,13 @@ var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _
     staticClass: "content"
   }, [_vm._v("\n                  ￥\n                  "), _c('span', {
     staticClass: "price"
-  }, [_vm._v("300")])])])])
-},function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
+  }, [_vm._v(_vm._s(_vm.orderInfo.payAmount))])])])]), _vm._v(" "), _c('div', {
     staticClass: "no"
   }, [_vm._v("\n            票号 "), _c('span', {
     staticClass: "number"
-  }, [_vm._v("KUW2888829")])])
-}]
+  }, [_vm._v(_vm._s(_vm.orderInfo.voucherNo))])])])])
+}
+var staticRenderFns = []
 render._withStripped = true
 var esExports = { render: render, staticRenderFns: staticRenderFns }
 /* harmony default export */ __webpack_exports__["a"] = (esExports);
@@ -262,5 +259,5 @@ if (false) {
 
 /***/ })
 
-},[192]);
+},[197]);
 //# sourceMappingURL=main.js.map

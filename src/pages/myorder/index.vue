@@ -6,32 +6,32 @@
       </div>
   </div>
   <div class="order-list-box">
-    <div class="order-item">
+    <div class="order-item" v-for="(data, index) in orderList" wx:key={index} @click="toPage(`../orderInfo/main?orderId=${data.orderId}`)">
         <div class="line-left">
         </div>
         <div class="img-box">
-            <img class="image" src="https://resource.sa-green.cn/image/jpg/kaka/Bitmap.png" alt="">
+            <img class="image" src="https://resource.sa-green.cn/kk/20180712/logologo.jpeg" alt="">
         </div>
         <div class="order-info-box">
             <div class="order-info-top sub-content">
                 <div class="order-no">
-                    订单号：123123123123123
+                    订单号：{{data.orderId}}
                 </div>
                 <div class="order-status">
-                    已完成
+                    {{data.orderStatus}}
                 </div>
             </div>
             <div class="order-info-center sub-content">
                 <div class="shop-time">
-                    到店时间：2018-08-07  15:00
+                    到店时间：{{data.bookingDay}}
                 </div>
             </div>
             <div class="order-info-bottom sub-content">
                 <div class="head-count">
-                    人数：2
+                    人数：{{data.peerNumber}}
                 </div>
                 <div class="order-price">
-                    ￥3999
+                    ￥{{data.payAmount}}
                 </div>
             </div>
         </div>
@@ -42,12 +42,12 @@
 
 <script>
 import card from '@/components/card'
-
+import { get } from './../../utils/index'
 export default {
   data() {
     return {
       motto: 'Hello World 000',
-      userInfo: {}
+      orderList: []
     }
   },
 
@@ -56,9 +56,25 @@ export default {
   },
 
   methods: {
-
+      toPage(url) {
+        wx.navigateTo({
+          url
+        })
+      },
   },
-
+  onLoad(){
+      const token = wx.getStorageSync('token')
+      get('/my/order/myAllList',{token}).then((res)=>{
+          console.log(res);
+          this.orderList = res;
+          // this.mainPic = res.subjectMainPicUrl;
+          // this.subName = res.subjectName;
+          // this.subDesc = res.subjectDesc;
+          // this.subThumbList = res.sceneSmallInfoBeanList;
+      }).catch((e)=>{
+          console.log(e);
+      })
+  },
   created() {
     // 调用应用实例的方法获取全局数据
   }

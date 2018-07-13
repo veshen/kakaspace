@@ -1,31 +1,36 @@
 global.webpackJsonp([1],{
 
-/***/ 183:
+/***/ 188:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__index__ = __webpack_require__(184);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__index__ = __webpack_require__(189);
 
 
 
 var app = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a(__WEBPACK_IMPORTED_MODULE_1__index__["a" /* default */]);
 app.$mount();
+/* harmony default export */ __webpack_exports__["default"] = ({
+  config: {
+    navigationBarTitleText: '在线预订'
+  }
+});
 
 /***/ }),
 
-/***/ 184:
+/***/ 189:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_lib_selector_type_script_index_0_index_vue__ = __webpack_require__(186);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_lib_template_compiler_index_id_data_v_8c56011e_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_mpvue_loader_lib_selector_type_template_index_0_index_vue__ = __webpack_require__(191);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_lib_selector_type_script_index_0_index_vue__ = __webpack_require__(191);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_lib_template_compiler_index_id_data_v_8c56011e_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_mpvue_loader_lib_selector_type_template_index_0_index_vue__ = __webpack_require__(196);
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(185)
+  __webpack_require__(190)
 }
 var normalizeComponent = __webpack_require__(0)
 /* script */
@@ -70,19 +75,27 @@ if (false) {(function () {
 
 /***/ }),
 
-/***/ 185:
+/***/ 190:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
 
-/***/ 186:
+/***/ 191:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_bindPhoneNumber__ = __webpack_require__(187);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__utils_index__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__ = __webpack_require__(24);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator__ = __webpack_require__(25);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_bindPhoneNumber__ = __webpack_require__(192);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__utils_index__ = __webpack_require__(6);
+
+
+//
+//
 //
 //
 //
@@ -156,83 +169,184 @@ if (false) {(function () {
 
 
 /* harmony default export */ __webpack_exports__["a"] = ({
-    data: function data() {
-        return {
-            array: ['请选择 >', '1人', '2人', '3人', '4人', '5人', '6人', '7人', '8人', '9人', '10人', '11人', '12人', '13人', '14人', '15人', '16人', '17人', '18人', '19人', '20人', '21人', '22人', '23人', '24人', '25人', '26人', '27人', '28人', '29人', '30人'],
-            index: 0,
-            date: '请选择 >',
-            currentDate: '',
-            userInfo: {
-                nickName: ''
-            },
-            userMobile: ''
-        };
+  data: function data() {
+    return {
+      array: ['请选择 >', '1人', '2人', '3人', '4人', '5人', '6人', '7人', '8人', '9人', '10人', '11人', '12人', '13人', '14人', '15人', '16人', '17人', '18人', '19人', '20人', '21人', '22人', '23人', '24人', '25人', '26人', '27人', '28人', '29人', '30人'],
+      index: 0,
+      date: '请选择 >',
+      currentDate: '',
+      userInfo: {
+        nickName: ''
+      },
+      userMobile: '',
+      needPayAmountOffLine: 0
+    };
+  },
+
+
+  components: {
+    bindPhoneNumber: __WEBPACK_IMPORTED_MODULE_2__components_bindPhoneNumber__["a" /* default */]
+  },
+
+  methods: {
+    // bindgetphonenumber (e) {
+    //     if (this.index>0&&this.date!== '请选择 >') {
+    //         showModal('错误','无手机号授权无法下单')
+    //     }else{
+    //         if (e.target.errMsg==="getPhoneNumber:ok") {
+    //             console.log(e.target.encryptedData);
+    //             get('/base/wechat/user/phone',{
+    //                 encryptedData : e.target.encryptedData,
+    //                 iv : e.target.iv
+    //             })
+    //         }else{
+    //             showModal('错误','无手机号授权无法下单')
+    //         }
+    //     }
+    //
+    // },
+    bindHeadCountChange: function bindHeadCountChange(e) {
+      this.index = e.mp.detail.value;
+      if (this.index > 0 && this.date !== '请选择 >') {
+        this.computyed();
+      }
     },
-
-
-    components: {
-        bindPhoneNumber: __WEBPACK_IMPORTED_MODULE_0__components_bindPhoneNumber__["a" /* default */]
+    bindTimeChange: function bindTimeChange(e) {
+      this.date = e.mp.detail.value;
+      if (this.index > 0 && this.date !== '请选择 >') {
+        this.computyed();
+      }
     },
+    createOrder: function createOrder() {
+      var _this = this;
 
-    methods: {
-        // bindgetphonenumber (e) {
-        //     if (this.index>0&&this.date!== '请选择 >') {
-        //         showModal('错误','无手机号授权无法下单')
-        //     }else{
-        //         if (e.target.errMsg==="getPhoneNumber:ok") {
-        //             console.log(e.target.encryptedData);
-        //             get('/base/wechat/user/phone',{
-        //                 encryptedData : e.target.encryptedData,
-        //                 iv : e.target.iv
-        //             })
-        //         }else{
-        //             showModal('错误','无手机号授权无法下单')
-        //         }
-        //     }
-        //
-        // },
-        bindHeadCountChange: function bindHeadCountChange(e) {
-            console.log('picker发送选择改变，携带值为', e.mp.detail.value);
-            this.index = e.mp.detail.value;
-        },
-        bindTimeChange: function bindTimeChange(e) {
-            console.log('时间选择', e.mp.detail.value);
-            this.date = e.mp.detail.value;
-        },
-        toPage: function toPage(url) {
-            if (this.index > 0 && this.date !== '请选择 >') {
-                wx.navigateTo({ url: url });
+      return __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee() {
+        var bookingDay, peerNumber, mobile, token, res, url;
+        return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.prev = 0;
+
+                if (!(_this.index > 0 && _this.date !== '请选择 >' && _this.userMobile.length === 11)) {
+                  _context.next = 11;
+                  break;
+                }
+
+                bookingDay = _this.date;
+                peerNumber = _this.index;
+                mobile = _this.userMobile;
+                token = wx.getStorageSync('token');
+                _context.next = 8;
+                return Object(__WEBPACK_IMPORTED_MODULE_3__utils_index__["b" /* get */])('/order/create', { bookingDay: bookingDay, peerNumber: peerNumber, mobile: mobile, token: token });
+
+              case 8:
+                res = _context.sent;
+                url = '../orderInfo/main?orderId=' + res.orderId;
+
+                wx.navigateTo({
+                  url: url
+                });
+
+              case 11:
+                _context.next = 16;
+                break;
+
+              case 13:
+                _context.prev = 13;
+                _context.t0 = _context['catch'](0);
+
+                console.log(_context.t0);
+
+              case 16:
+                _context.prev = 16;
+                return _context.finish(16);
+
+              case 18:
+              case 'end':
+                return _context.stop();
             }
-        }
+          }
+        }, _callee, _this, [[0, 13, 16, 18]]);
+      }))();
     },
-    onShow: function onShow() {
-        var userInfo = getApp().globalData.userInfo;
-        if (userInfo) {
-            this.userInfo.nickName = userInfo.nickName;
-        }
-        var userMobile = wx.getStorageSync('userMobile') || false;
-        this.userMobile = userMobile;
+    computyed: function computyed() {
+      var _this2 = this;
+
+      return __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee2() {
+        var bookingDay, peerNumber, res;
+        return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                _context2.prev = 0;
+                bookingDay = _this2.date;
+                peerNumber = _this2.index;
+                _context2.next = 5;
+                return Object(__WEBPACK_IMPORTED_MODULE_3__utils_index__["b" /* get */])('/order/checkOrder', {
+                  bookingDay: bookingDay, peerNumber: peerNumber
+
+                });
+
+              case 5:
+                res = _context2.sent;
+
+                console.log(res);
+                _this2.needPayAmountOffLine = res.needPayAmountOffLine;
+                _context2.next = 13;
+                break;
+
+              case 10:
+                _context2.prev = 10;
+                _context2.t0 = _context2['catch'](0);
+
+                console.log(_context2.t0);
+
+              case 13:
+              case 'end':
+                return _context2.stop();
+            }
+          }
+        }, _callee2, _this2, [[0, 10]]);
+      }))();
     },
-    created: function created() {
-        var dateFormat = 'YYYY/MM/DD';
-        var myDate = new Date(); //获取系统当前时间
-        var currentDate = myDate.getFullYear() + '-' + (myDate.getMonth() + 1) + '-' + myDate.getDate();
-        this.currentDate = currentDate;
+    toPage: function toPage(url) {
+      if (this.index > 0 && this.date !== '请选择 >' && this.userMobile.length === 11) {
+
+        wx.navigateTo({
+          url: url
+        });
+      }
     }
+  },
+  onShow: function onShow() {
+    var userInfo = getApp().globalData.userInfo;
+    if (userInfo) {
+      this.userInfo.nickName = userInfo.nickName;
+    }
+    // const userMobile = wx.getStorageSync('userMobile') || false;
+    // this.userMobile = userMobile;
+  },
+  created: function created() {
+    var dateFormat = 'YYYY/MM/DD';
+    var myDate = new Date(); //获取系统当前时间
+    var currentDate = myDate.getFullYear() + '-' + (myDate.getMonth() + 1) + '-' + myDate.getDate();
+    this.currentDate = currentDate;
+  }
 });
 
 /***/ }),
 
-/***/ 187:
+/***/ 192:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_lib_selector_type_script_index_0_bindPhoneNumber_vue__ = __webpack_require__(189);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_lib_template_compiler_index_id_data_v_3db6f362_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_mpvue_loader_lib_selector_type_template_index_0_bindPhoneNumber_vue__ = __webpack_require__(190);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_lib_selector_type_script_index_0_bindPhoneNumber_vue__ = __webpack_require__(194);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_lib_template_compiler_index_id_data_v_3db6f362_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_mpvue_loader_lib_selector_type_template_index_0_bindPhoneNumber_vue__ = __webpack_require__(195);
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(188)
+  __webpack_require__(193)
 }
 var normalizeComponent = __webpack_require__(0)
 /* script */
@@ -277,14 +391,14 @@ if (false) {(function () {
 
 /***/ }),
 
-/***/ 188:
+/***/ 193:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
 
-/***/ 189:
+/***/ 194:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -341,7 +455,7 @@ if (false) {(function () {
 
 /***/ }),
 
-/***/ 190:
+/***/ 195:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -405,7 +519,7 @@ if (false) {
 
 /***/ }),
 
-/***/ 191:
+/***/ 196:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -414,14 +528,6 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticClass: "container online-subscribe-container"
   }, [_vm._m(0), _vm._v(" "), _c('div', {
     staticClass: "main"
-  }, [_c('div', {
-    staticClass: "select-scope"
-  }, [_c('div', {
-    staticClass: "tips-text"
-  }, [_c('div', {
-    staticClass: "title"
-  }, [_vm._v("\n                      到店人数\n                  ")]), _vm._v(" "), _c('div', {
-    staticClass: "subTitle"
   }, [_c('picker', {
     attrs: {
       "value": 0,
@@ -431,17 +537,17 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     on: {
       "change": _vm.bindHeadCountChange
     }
-  }, [_c('view', {
-    staticClass: "picker"
-  }, [_vm._v("\n                                " + _vm._s(_vm.array[_vm.index]) + "\n                              ")])])], 1)])]), _vm._v(" "), _c('div', {
+  }, [_c('div', {
     staticClass: "select-scope"
   }, [_c('div', {
     staticClass: "tips-text"
   }, [_c('div', {
     staticClass: "title"
-  }, [_vm._v("\n                      到店日期\n                  ")]), _vm._v(" "), _c('div', {
+  }, [_vm._v("\n            到店人数\n          ")]), _vm._v(" "), _c('div', {
     staticClass: "subTitle"
-  }, [_c('picker', {
+  }, [_c('view', {
+    staticClass: "picker"
+  }, [_vm._v("\n              " + _vm._s(_vm.array[_vm.index]) + "\n            ")])])])])]), _vm._v(" "), _c('picker', {
     attrs: {
       "value": 0,
       "mode": "date",
@@ -451,15 +557,23 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     on: {
       "change": _vm.bindTimeChange
     }
-  }, [_c('view', {
-    staticClass: "picker"
-  }, [_vm._v("\n                                " + _vm._s(_vm.date) + "\n                              ")])])], 1)])]), _vm._v(" "), _c('div', {
+  }, [_c('div', {
     staticClass: "select-scope"
   }, [_c('div', {
     staticClass: "tips-text"
   }, [_c('div', {
     staticClass: "title"
-  }, [_vm._v("\n                      联系人手机号\n                  ")]), _vm._v(" "), _c('div', {
+  }, [_vm._v("\n            到店日期\n          ")]), _vm._v(" "), _c('div', {
+    staticClass: "subTitle"
+  }, [_c('view', {
+    staticClass: "picker"
+  }, [_vm._v("\n              " + _vm._s(_vm.date) + "\n            ")])])])])]), _vm._v(" "), _c('div', {
+    staticClass: "select-scope"
+  }, [_c('div', {
+    staticClass: "tips-text"
+  }, [_c('div', {
+    staticClass: "title"
+  }, [_vm._v("\n          联系人手机号\n        ")]), _vm._v(" "), _c('div', {
     staticClass: "subTitle"
   }, [_c('input', {
     directives: [{
@@ -470,8 +584,6 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }],
     attrs: {
       "type": "text",
-      "name": "",
-      "value": _vm.userMobile,
       "maxlength": "11",
       "placeholder": "请输入11位手机号码",
       "eventid": '2'
@@ -485,35 +597,44 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
         _vm.userMobile = $event.target.value
       }
     }
-  })])])])]), _vm._v(" "), _c('div', {
+  })])])])], 1), _vm._v(" "), _c('div', {
     staticClass: "bottom-bar"
-  }, [_c('div', {}), _vm._v(" "), _c('div', {
+  }, [_c('div', {
     directives: [{
       name: "show",
       rawName: "v-show",
-      value: (_vm.userMobile),
-      expression: "userMobile"
+      value: (_vm.needPayAmountOffLine !== 0),
+      expression: "needPayAmountOffLine!==0"
     }],
+    staticClass: "left-price"
+  }, [_vm._v("\n        需到店支付   ¥ "), _c('span', {
+    staticClass: "price-box"
+  }, [_vm._v(_vm._s(_vm.needPayAmountOffLine))])]), _vm._v(" "), _c('div', {
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: (_vm.needPayAmountOffLine === 0),
+      expression: "needPayAmountOffLine===0"
+    }]
+  }), _vm._v(" "), _c('div', {
     staticClass: "submit-btn",
-    class: [_vm.index > 0 && _vm.date !== '请选择 >' ? 'active' : ''],
+    class: [_vm.index > 0 && _vm.date !== '请选择 >' && _vm.userMobile.length === 11 ? 'active' : ''],
     attrs: {
       "eventid": '3'
     },
     on: {
-      "click": function($event) {
-        _vm.toPage('../orderInfo/main')
-      }
+      "click": _vm.createOrder
     }
-  }, [_vm._v("\n              立即预约" + _vm._s(_vm.userMobile) + "\n          ")])])])
+  }, [_vm._v("\n      立即预约\n    ")])])])
 }
 var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
     staticClass: "top-box"
   }, [_c('div', {
     staticClass: "title"
-  }, [_vm._v("\n              国际婚纱摄影工作室\n          ")]), _vm._v(" "), _c('div', {
+  }, [_vm._v("\n      国际婚纱摄影工作室\n    ")]), _vm._v(" "), _c('div', {
     staticClass: "desc"
-  }, [_vm._v("\n              国际婚纱摄影连锁机构！一流的前期拍摄，顶尖的后期制作，一站式贴心服务，专注用镜头私人定制您的永恒幸福记忆。《芈月传》《摆渡人》《丑女无敌》《王牌逗王牌》扮演者毛俊杰倾力推荐，明星助力，品质保证。婚纱摄影行业知名品牌欢迎您\n          ")])])
+  }, [_vm._v("\n      国际婚纱摄影连锁机构！一流的前期拍摄，顶尖的后期制作，一站式贴心服务，专注用镜头私人定制您的永恒幸福记忆。《芈月传》《摆渡人》《丑女无敌》《王牌逗王牌》扮演者毛俊杰倾力推荐，明星助力，品质保证。婚纱摄影行业知名品牌欢迎您\n    ")])])
 }]
 render._withStripped = true
 var esExports = { render: render, staticRenderFns: staticRenderFns }
@@ -527,5 +648,5 @@ if (false) {
 
 /***/ })
 
-},[183]);
+},[188]);
 //# sourceMappingURL=main.js.map

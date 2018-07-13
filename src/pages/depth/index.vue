@@ -1,9 +1,8 @@
 <template>
 <div class='index depth-container'>
-  <div class="index-top-box" v-bind:style="{background: 'url('+'https://resource.sa-green.cn/image/jpg/kaka/%E9%A1%B6%E5%9B%BE.png'+') no-repeat top center',backgroundSize:'100% 100%'}">
-    <div class="title">KIKYO SPACE 123123</div>
-    <div class="sub-title">有人说，我喜欢你们的光影，尽致淋漓</div>
-    <div class="sub-title">有人说，我喜欢你们的人物氛围，情感细腻</div>
+  <div class="index-top-box" v-bind:style="{background: 'url('+mainPicUrl+') no-repeat top center',backgroundSize:'100% 100%'}">
+    <div class="title">{{title}}</div>
+    <div class="sub-title"  v-for="(data, index) in subTitleList" wx:key={index} >{{data}}</div>
   </div>
   <div class="content">
     <div class="list-title">
@@ -11,9 +10,10 @@
       <div class="text-box">视频示意</div>
     </div>
     <div class="list-content">
-      <div class="list-item" v-for="(data, index) in videoData" wx:key={index} @click="toPage('../videoinfo/main')">
+      <div class="list-item" v-for="(data, index) in deepList" wx:key={index} @click="toPage(`../videoinfo/main?deepId=${data.deepId}`)">
         <div class="video-box">
-          <img class="v-box" v-bind:src="data.poster" alt="">
+          <img class="v-box" v-bind:src="data.deepUrl" alt="">
+          <img class="play-icon" src="https://resource.sa-green.cn/image/jpg/kaka/%E8%A7%86%E9%A2%91%E6%92%AD%E6%94%BE.png" alt="">
           <!-- <video
                       class="v-box"
                       v-bind:poster="data.poster"
@@ -21,8 +21,8 @@
                       /> -->
         </div>
         <div class="video-desc">
-          <div class="title">你是所有美好的起因你是所有美好的起因</div>
-          <div class="sub-title">闺蜜就是西瓜分你一半闺蜜就是西瓜分你一半闺蜜就是西瓜分你一半</div>
+          <div class="title">{{data.deepName}}</div>
+          <div class="sub-title">{{data.deepDesc}}</div>
         </div>
       </div>
     </div>
@@ -42,21 +42,11 @@ export default {
   data() {
     return {
       motto: 'depth',
+      mainPicUrl : 'https://resource.sa-green.cn/image/jpg/kaka/%E9%A1%B6%E5%9B%BE.png',
+      title : 'KIKYO SPACE',
+      subTitleList : ['有人说，我喜欢你们的光影，尽致淋漓','有人说，我喜欢你们的人物氛围，情感细腻'],
+      deepList : [],
       userInfo: {},
-      imgUrl: 'https://resource.sa-green.cn/image/jpg/kaka/%E9%A1%B6%E5%9B%BE.png',
-      videoData: [{
-          poster: 'https://resource.sa-green.cn/image/jpg/kaka/Bitmap%20Copy.png',
-          videoUrl: 'http://wxsnsdy.tc.qq.com/105/20210/snsdyvideodownload?filekey=30280201010421301f0201690402534804102ca905ce620b1241b726bc41dcff44e00204012882540400&bizid=1023&hy=SH&fileparam=302c020101042530230204136ffd93020457e3c4ff02024ef202031e8d7f02030f42400204045a320a0201000400'
-        },
-        {
-          poster: 'https://resource.sa-green.cn/image/jpg/kakaBitmap%202.png',
-          videoUrl: 'http://wxsnsdy.tc.qq.com/105/20210/snsdyvideodownload?filekey=30280201010421301f0201690402534804102ca905ce620b1241b726bc41dcff44e00204012882540400&bizid=1023&hy=SH&fileparam=302c020101042530230204136ffd93020457e3c4ff02024ef202031e8d7f02030f42400204045a320a0201000400'
-        },
-        {
-          poster: 'https://resource.sa-green.cn/image/jpg/kakaBitmap%203.png',
-          videoUrl: 'http://wxsnsdy.tc.qq.com/105/20210/snsdyvideodownload?filekey=30280201010421301f0201690402534804102ca905ce620b1241b726bc41dcff44e00204012882540400&bizid=1023&hy=SH&fileparam=302c020101042530230204136ffd93020457e3c4ff02024ef202031e8d7f02030f42400204045a320a0201000400'
-        },
-      ]
     }
   },
 
@@ -73,8 +63,10 @@ export default {
     },
     async getPageData() {
       try {
-        // const res = await get('/mainPage/mainPageInfo');
-        // console.log(res);
+        const res = await get('/deepPage/deepAll');
+        this.mainPicUrl = res.mainPicUrl;
+        this.deepList = res.deepList;
+        this.title = res.title;
       } catch (e) {
         console.log('6666', e);
       }
@@ -89,6 +81,7 @@ export default {
 <style scoped>
 .depth-container {
   background: rgb(241, 241, 241);
+  min-height: 100%;
 }
 
 .depth-container .index-top-box {
@@ -99,7 +92,21 @@ export default {
   color: #FFFFFF;
   margin-bottom: 30rpx;
 }
-
+.depth-container .index-top-box::before{
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 1;
+    content: '';
+    background: linear-gradient(to bottom, rgba(0,0,0,0.9), rgba(0,0,0,0));
+}
+.depth-container .index-top-box > view {
+    position: relative;
+    z-index: 2;
+}
 .depth-container .index-top-box .title {
   font-size: 60rpx;
   line-height: 60rpx;
@@ -153,15 +160,23 @@ export default {
 }
 
 .depth-container .content .list-content .list-item .video-box {
-  background: yellow;
   height: 250rpx;
+  position: relative;
 }
 
 .depth-container .content .list-content .list-item .video-box .v-box {
   height: 250rpx;
   width: 100%;
 }
-
+.play-icon{
+    width: 80rpx;
+    height: 80rpx;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 9;
+}
 .depth-container .content .list-content .list-item .video-desc {
   background: rgb(229, 229, 229);
   padding: 30rpx 20rpx 18rpx;

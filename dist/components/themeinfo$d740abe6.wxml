@@ -2,46 +2,19 @@
 <template name="themeinfo$d740abe6">
   <view class="_div data-v-61e9bc71 index theme-info-container">
     <view class="_div data-v-61e9bc71 swiper-content">
-      <swiper class="_swiper data-v-61e9bc71 swiper" indicator-dots="true" autoplay="true" interval="5000" duration="1000" indicator-color="rgba(255,255,255,0.5)" indicator-active-color="#FFE631">
-        <block index="{{index}}" wx:key="key" key="{{key}}" wx:for="{{movies}}" wx:for-index="index" wx:for-item="item">
-          <swiper-item class="_swiper-item data-v-61e9bc71">
-            <image src="{{item.url}}" class="_image data-v-61e9bc71 slide-image" mode="aspectFill"></image>
-          </swiper-item>
-        </block>
-      </swiper>
+      <image src="{{mainPic}}" class="_image data-v-61e9bc71 slide-image" mode="aspectFill"></image>
     </view>
     <view class="_div data-v-61e9bc71 warp">
       <view class="_div data-v-61e9bc71 main">
-        <view class="_div data-v-61e9bc71 title"> 关于空间 </view>
-        <view class="_div data-v-61e9bc71 desc"> 这里是主题描述，再多几个字。 云虹很像彩虹，但颜色更浅。事实上，它们往往不会呈现出任何 可辨别的颜色，看起来就像白化的彩虹，或是彩虹的鬼魂经过。 </view>
+        <view class="_div data-v-61e9bc71 title"> {{subName}} </view>
+        <view class="_div data-v-61e9bc71 desc">{{subDesc}}</view>
         <view class="_div data-v-61e9bc71 scene-list">
-          <view class="_div data-v-61e9bc71 scene-item">
-            <image class="_img data-v-61e9bc71 item-pic" src="http://b.zol-img.com.cn/sjbizhi/images/6/320x510/138493998617.jpg" alt></image>
-            <view class="_div data-v-61e9bc71 text">这是文字描述这是文字描述这是文字描述这是文字描述</view>
-          </view>
-          <view class="_div data-v-61e9bc71 scene-item">
-            <image class="_img data-v-61e9bc71 item-pic" src="http://b.zol-img.com.cn/sjbizhi/images/6/320x510/138493998617.jpg" alt></image>
-            <view class="_div data-v-61e9bc71 text">这是文字描述这是文字描述这是文字描述这是文字描述</view>
-          </view>
-          <view class="_div data-v-61e9bc71 scene-item">
-            <image class="_img data-v-61e9bc71 item-pic" src="http://b.zol-img.com.cn/sjbizhi/images/6/320x510/138493998617.jpg" alt></image>
-            <view class="_div data-v-61e9bc71 text">这是文字描述这是文字描述这是文字描述这是文字描述</view>
-          </view>
-          <view class="_div data-v-61e9bc71 scene-item">
-            <image class="_img data-v-61e9bc71 item-pic" src="http://b.zol-img.com.cn/sjbizhi/images/6/320x510/138493998617.jpg" alt></image>
-            <view class="_div data-v-61e9bc71 text">这是文字描述这是文字描述这是文字描述这是文字描述</view>
-          </view>
-          <view class="_div data-v-61e9bc71 scene-item">
-            <image class="_img data-v-61e9bc71 item-pic" src="http://b.zol-img.com.cn/sjbizhi/images/6/320x510/138493998617.jpg" alt></image>
-            <view class="_div data-v-61e9bc71 text">这是文字描述这是文字描述这是文字描述这是文字描述</view>
-          </view>
-          <view class="_div data-v-61e9bc71 scene-item">
-            <image class="_img data-v-61e9bc71 item-pic" src="http://b.zol-img.com.cn/sjbizhi/images/6/320x510/138493998617.jpg" alt></image>
-            <view class="_div data-v-61e9bc71 text">这是文字描述这是文字描述这是文字描述这是文字描述</view>
+          <view class="_div data-v-61e9bc71 scene-item" wx:key="{index}" wx:for="{{subThumbList}}" wx:for-index="index" wx:for-item="data">
+            <image class="_img data-v-61e9bc71 item-pic" mode="aspectFill" bindtap="handleProxy" src="{{data.picUrl}}" alt data-eventid="{{'0-'+index}}" data-comkey="{{$k}}"></image>
           </view>
         </view>
       </view>
     </view>
-    <template data="{{...$root[$kk+'1'], $root}}" is="moreInfo$44b7d31a"></template>
+    <template data="{{...$root[$kk+'0'], $root}}" is="moreInfo$44b7d31a"></template>
   </view>
 </template>

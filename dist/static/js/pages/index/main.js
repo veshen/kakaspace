@@ -1,13 +1,13 @@
 global.webpackJsonp([2],{
 
-/***/ 154:
+/***/ 158:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__index__ = __webpack_require__(155);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__index__ = __webpack_require__(159);
 
 
 
@@ -16,16 +16,16 @@ app.$mount();
 
 /***/ }),
 
-/***/ 155:
+/***/ 159:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_lib_selector_type_script_index_0_index_vue__ = __webpack_require__(157);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_lib_template_compiler_index_id_data_v_ec7d2de8_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_mpvue_loader_lib_selector_type_template_index_0_index_vue__ = __webpack_require__(162);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_lib_selector_type_script_index_0_index_vue__ = __webpack_require__(162);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_lib_template_compiler_index_id_data_v_ec7d2de8_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_mpvue_loader_lib_selector_type_template_index_0_index_vue__ = __webpack_require__(167);
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(156)
+  __webpack_require__(160)
 }
 var normalizeComponent = __webpack_require__(0)
 /* script */
@@ -70,22 +70,27 @@ if (false) {(function () {
 
 /***/ }),
 
-/***/ 156:
+/***/ 160:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
 
-/***/ 157:
+/***/ 162:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_card__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_subscribe__ = __webpack_require__(158);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_moreInfo__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__utils_index__ = __webpack_require__(16);
-//
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__ = __webpack_require__(24);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator__ = __webpack_require__(25);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_card__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_subscribe__ = __webpack_require__(163);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_moreInfo__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__utils_index__ = __webpack_require__(6);
+
+
 //
 //
 //
@@ -127,14 +132,16 @@ if (false) {(function () {
   data: function data() {
     return {
       motto: 'index',
+      mainPic: '',
+      mainDesc: '',
       userInfo: {},
-      listData: [{ imgUrl: 'https://resource.sa-green.cn/image/jpg/kaka/Bitmap.png', title: '这是主标题', desc: '这是描述 好多个字的描述,这是描述 好多个字的描述,这是描述 好多个字的描述' }, { imgUrl: 'https://resource.sa-green.cn/image/jpg/kaka/Bitmap%202.png', title: '这是主标题', desc: '这是描述 好多个字的描述' }, { imgUrl: 'https://resource.sa-green.cn/image/jpg/kaka/Bitmap%203.png', title: '这是主标题', desc: '这是描述 好多个字的描述' }, { imgUrl: 'https://resource.sa-green.cn/image/jpg/kaka/Bitmap%204.png', title: '这是主标题', desc: '这是描述 好多个字的描述' }]
+      listData: []
     };
   },
 
 
   components: {
-    card: __WEBPACK_IMPORTED_MODULE_0__components_card__["a" /* default */], subscribe: __WEBPACK_IMPORTED_MODULE_1__components_subscribe__["a" /* default */], moreInfo: __WEBPACK_IMPORTED_MODULE_2__components_moreInfo__["a" /* default */]
+    card: __WEBPACK_IMPORTED_MODULE_2__components_card__["a" /* default */], subscribe: __WEBPACK_IMPORTED_MODULE_3__components_subscribe__["a" /* default */], moreInfo: __WEBPACK_IMPORTED_MODULE_4__components_moreInfo__["a" /* default */]
   },
 
   methods: {
@@ -151,7 +158,6 @@ if (false) {(function () {
       // 调用登录接口
       wx.login({
         success: function success(re) {
-          console.log(re);
           var code = re.code;
           // get('/base/wechant/login',{code})
           wx.getUserInfo({
@@ -163,6 +169,42 @@ if (false) {(function () {
         }
       });
     },
+    getPage: function getPage() {
+      var _this2 = this;
+
+      return __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee() {
+        var pageData;
+        return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.prev = 0;
+                _context.next = 3;
+                return Object(__WEBPACK_IMPORTED_MODULE_5__utils_index__["b" /* get */])('/mainPage/mainPageInfo');
+
+              case 3:
+                pageData = _context.sent;
+
+                _this2.mainPic = pageData.mainPicUrl;
+                _this2.mainDesc = pageData.mainDesc;
+                _this2.listData = pageData.subjectInfoOverViewBeanList;
+                _context.next = 12;
+                break;
+
+              case 9:
+                _context.prev = 9;
+                _context.t0 = _context['catch'](0);
+
+                console.log(_context.t0);
+
+              case 12:
+              case 'end':
+                return _context.stop();
+            }
+          }
+        }, _callee, _this2, [[0, 9]]);
+      }))();
+    },
     clickHandle: function clickHandle(msg, ev) {
       console.log('clickHandle:', msg, ev);
     }
@@ -170,22 +212,24 @@ if (false) {(function () {
 
   created: function created() {
     // 调用应用实例的方法获取全局数据
-    // this.getUserInfo()
+    this.getUserInfo();
+    this.getPage();
+    // console.log(getApp());
   }
 });
 
 /***/ }),
 
-/***/ 158:
+/***/ 163:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_lib_selector_type_script_index_0_subscribe_vue__ = __webpack_require__(160);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_lib_template_compiler_index_id_data_v_7edca102_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_mpvue_loader_lib_selector_type_template_index_0_subscribe_vue__ = __webpack_require__(161);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_lib_selector_type_script_index_0_subscribe_vue__ = __webpack_require__(165);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_lib_template_compiler_index_id_data_v_7edca102_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_mpvue_loader_lib_selector_type_template_index_0_subscribe_vue__ = __webpack_require__(166);
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(159)
+  __webpack_require__(164)
 }
 var normalizeComponent = __webpack_require__(0)
 /* script */
@@ -230,14 +274,14 @@ if (false) {(function () {
 
 /***/ }),
 
-/***/ 159:
+/***/ 164:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
 
-/***/ 160:
+/***/ 165:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -259,7 +303,7 @@ if (false) {(function () {
 
 /***/ }),
 
-/***/ 161:
+/***/ 166:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -295,7 +339,7 @@ if (false) {
 
 /***/ }),
 
-/***/ 162:
+/***/ 167:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -304,6 +348,10 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticClass: "container index index-container"
   }, [_c('div', {
     staticClass: "index-top-box",
+    style: ({
+      background: 'url(' + _vm.mainPic + ') no-repeat top center',
+      backgroundSize: '100% 100%'
+    }),
     attrs: {
       "eventid": '0'
     },
@@ -318,7 +366,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticClass: "city-name"
   }, [_vm._v("上海")]), _vm._v(" "), _c('div', {
     staticClass: "description"
-  }, [_vm._v("有人说，我喜欢你们的光影，尽致淋漓有人说，我喜欢你们的人物氛围，情感细腻")]), _vm._v(" "), _c('div', {
+  }, [_vm._v(_vm._s(_vm.mainDesc))]), _vm._v(" "), _c('div', {
     staticClass: "about-button"
   }, [_vm._v("关于KIKYO")])]), _vm._v(" "), _c('div', {
     staticClass: "content"
@@ -328,7 +376,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     return _c('div', {
       staticClass: "list-item",
       style: ({
-        background: 'url(' + data.imgUrl + ') no-repeat top center',
+        background: 'url(' + data.subjectMainPicUrl + ') no-repeat top center',
         backgroundSize: '100% 100%'
       }),
       attrs: {
@@ -337,14 +385,14 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       },
       on: {
         "click": function($event) {
-          _vm.toPage('../themeinfo/main')
+          _vm.toPage(("../themeinfo/main?id=" + (data.subjectId)))
         }
       }
     }, [_c('div', {
       staticClass: "title"
-    }, [_vm._v(_vm._s(data.title))]), _vm._v(" "), _c('div', {
+    }, [_vm._v(_vm._s(data.subjectName))]), _vm._v(" "), _c('div', {
       staticClass: "desc"
-    }, [_vm._v(_vm._s(data.desc))])])
+    }, [_vm._v(_vm._s(data.subjectDesc))])])
   }))]), _vm._v(" "), _c('card', {
     attrs: {
       "text": _vm.motto,
@@ -381,5 +429,5 @@ if (false) {
 
 /***/ })
 
-},[154]);
+},[158]);
 //# sourceMappingURL=main.js.map

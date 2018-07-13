@@ -3,10 +3,10 @@
 <import src="subscribe$5f199e63" />
 <template name="index$9cb2f6b0">
   <view class="_div data-v-ec7d2de8 container index index-container">
-    <view class="_div data-v-ec7d2de8 index-top-box" bindtap="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}">
+    <view class="_div data-v-ec7d2de8 index-top-box" bindtap="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}" style=" {{(  'background:' +  ('url(' + mainPic + ') no-repeat top center') +  ';' +  'background-size:' +  '100% 100%' +  ';')}}">
       <view class="_div data-v-ec7d2de8 title">KIKYO SPACE</view>
       <view class="_div data-v-ec7d2de8 city-name">上海</view>
-      <view class="_div data-v-ec7d2de8 description">有人说，我喜欢你们的光影，尽致淋漓有人说，我喜欢你们的人物氛围，情感细腻</view>
+      <view class="_div data-v-ec7d2de8 description">{{mainDesc}}</view>
       <view class="_div data-v-ec7d2de8 about-button">关于KIKYO</view>
     </view>
     <view class="_div data-v-ec7d2de8 content">
@@ -15,9 +15,9 @@
         <view class="_div data-v-ec7d2de8 text-box">主题场馆</view>
       </view>
       <view class="_div data-v-ec7d2de8 list-content">
-        <view class="_div data-v-ec7d2de8 list-item" wx:key="{index}" bindtap="handleProxy" data-eventid="{{'1-'+index}}" data-comkey="{{$k}}" wx:for="{{listData}}" wx:for-index="index" wx:for-item="data" style=" {{(  'background:' +  ('url(' + data.imgUrl + ') no-repeat top center') +  ';' +  'background-size:' +  '100% 100%' +  ';')}}">
-          <view class="_div data-v-ec7d2de8 title">{{data.title}}</view>
-          <view class="_div data-v-ec7d2de8 desc">{{data.desc}}</view>
+        <view class="_div data-v-ec7d2de8 list-item" wx:key="{index}" bindtap="handleProxy" data-eventid="{{'1-'+index}}" data-comkey="{{$k}}" wx:for="{{listData}}" wx:for-index="index" wx:for-item="data" style=" {{(  'background:' +  ('url(' + data.subjectMainPicUrl + ') no-repeat top center') +  ';' +  'background-size:' +  '100% 100%' +  ';')}}">
+          <view class="_div data-v-ec7d2de8 title">{{data.subjectName}}</view>
+          <view class="_div data-v-ec7d2de8 desc">{{data.subjectDesc}}</view>
         </view>
       </view>
     </view>

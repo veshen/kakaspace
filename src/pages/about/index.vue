@@ -3,13 +3,13 @@
   	<div class="header">
   		<div class="content">
   			<div class="img-box">
-  				<img class="image" src="https://resource.sa-green.cn/image/jpg/kaka/%E9%A1%B6%E5%9B%BE.png">
+  				<img class="image" v-bind:src="mainPic">
   			</div>
   			<div class="img-desc">
   				<h3 class="title">KILKYO  SPACE</h3>
   				<div class="desc">
   					<div class="left-box">拍照艺术空间</div>
-  					<div class="right-box">30元/半小时</div>
+  					<div class="right-box">{{priceDes}}</div>
   				</div>
   			</div>
   		</div>
@@ -17,17 +17,17 @@
   	<div class="main">
   		<div class="about-space">
   			<div class="title">关于空间</div>
-  			<div class="desc">KIKYO SPACE 是一家关于拍照的艺术空间为用户提供很多不同场景的。
-说一句是一句，清早上火车站长街黑暗无行人卖豆浆的小店冒着热气 从前的日色变得慢 车马邮件都慢 。</div>
+  			<div class="desc">{{desc}}</div>
   		</div>
   		<div class="address-box">
   			<div class="title">地址</div>
-  			<div class="desc">上海市黄浦区局门路411号（8号桥2期）9号线马当路站步行8分钟可到</div>
+  			<div class="desc">{{addr}}</div>
   			<div class="map-box">
   				<map
   					id="map"
-  					longitude="36.0614156482"
-  					latitude="89.3853189945"
+  					:longitude="lng"
+  					:latitude="lat"
+                    :markers="markers"
   					scale="14"
   					bindcontroltap="controltap"
   					bindregionchange="regionchange"
@@ -46,27 +46,18 @@
 <script>
 import card from '@/components/card'
 import moreInfo from '@/components/moreInfo'
+import { get } from './../../utils/index'
 
 export default {
   data () {
     return {
-      motto: 'Hello World 000',
-      userInfo: {},
-      imgUrl : 'https://resource.sa-green.cn/image/jpg/kaka/%E9%A1%B6%E5%9B%BE.png',
-      videoData : [
-        {
-          poster : 'https://resource.sa-green.cn/image/jpg/kaka/Bitmap%20Copy.png',
-          videoUrl : 'http://wxsnsdy.tc.qq.com/105/20210/snsdyvideodownload?filekey=30280201010421301f0201690402534804102ca905ce620b1241b726bc41dcff44e00204012882540400&bizid=1023&hy=SH&fileparam=302c020101042530230204136ffd93020457e3c4ff02024ef202031e8d7f02030f42400204045a320a0201000400'
-        },
-        {
-          poster : 'https://resource.sa-green.cn/image/jpg/kakaBitmap%202.png',
-          videoUrl : 'http://wxsnsdy.tc.qq.com/105/20210/snsdyvideodownload?filekey=30280201010421301f0201690402534804102ca905ce620b1241b726bc41dcff44e00204012882540400&bizid=1023&hy=SH&fileparam=302c020101042530230204136ffd93020457e3c4ff02024ef202031e8d7f02030f42400204045a320a0201000400'
-        },
-        {
-          poster : 'https://resource.sa-green.cn/image/jpg/kakaBitmap%203.png',
-          videoUrl : 'http://wxsnsdy.tc.qq.com/105/20210/snsdyvideodownload?filekey=30280201010421301f0201690402534804102ca905ce620b1241b726bc41dcff44e00204012882540400&bizid=1023&hy=SH&fileparam=302c020101042530230204136ffd93020457e3c4ff02024ef202031e8d7f02030f42400204045a320a0201000400'
-        },
-      ]
+        addr:'',
+        desc:'',
+        priceDes:'',
+        lat:'',
+        lng:'',
+        markers:[],
+        mainPic: '',
     }
   },
 
@@ -77,7 +68,29 @@ export default {
   methods: {
 
   },
-
+  onLoad(option){
+      console.log(option);
+  },
+  onShow(){
+      get('/mainPage/withUs').then((res)=>{
+          console.log(res);
+          this.addr=res.address;
+          this.desc=res.introduce;
+          this.priceDes=res.priceDes;
+          this.lat=res.latitude;
+          this.lng=res.longitude;
+          this.mainPic=res.picUrl;
+          this.markers = [{
+              id: 0,
+              latitude: res.latitude,
+              longitude: res.longitude,
+              width: 50,
+              height: 50
+          }]
+      }).catch((e)=>{
+          console.log(e);
+      })
+  },
   created () {
   }
 }
@@ -140,6 +153,7 @@ export default {
 	border-radius: 20rpx 20rpx 0 0;
 	overflow: hidden;
 	padding: 0 40rpx;
+    background: #f1f1f1;
 }
 .about-space{
 	border-radius: 20rpx 20rpx 0 0;
@@ -161,5 +175,8 @@ export default {
 }
 .about-space, .address-box{
 	padding-top: 60rpx;
+}
+.about-space, .address-box .desc {
+    margin-bottom: 20rpx;
 }
 </style>

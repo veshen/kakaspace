@@ -1,13 +1,11 @@
 import Vue from 'vue'
 import App from './App'
-import {getCode} from './axios/index.js'
 
 Vue.config.productionTip = false
 App.mpType = 'app'
 
 const app = new Vue(App)
 app.$mount()
-getCode()
 export default {
   // 这个字段走 app.json
   config: {
@@ -20,19 +18,31 @@ export default {
       'pages/photoinfo/main',
       'pages/photobrowse/main',
       'pages/depth/main',
-      'pages/index/main',
+      '^pages/index/main',
       'pages/myorder/main',
       'pages/ilike/main',
       'pages/myalbum/main',
       'pages/about/main',
-      '^pages/onlineSubscribe/main',
+      'pages/onlineSubscribe/main',
       'pages/orderInfo/main',
       ],
-    window: {
+    'window': {
       backgroundTextStyle: 'light',
       navigationBarBackgroundColor: '#000',
-      navigationBarTitleText: 'WeChat',
+      navigationBarTitleText: 'KIKYO空间',
       navigationBarTextStyle: '#fff'
-    }
+    },
+    // tabBar : {
+    //     list : [
+    //         {
+    //           pagePath: 'pages/depth/main',
+    //           text: '图书',
+    //         },
+    //         {
+    //           pagePath: 'pages/index/main',
+    //           text: '图书',
+    //         },
+    //     ]
+    // }
 },
 }

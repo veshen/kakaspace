@@ -5,11 +5,8 @@
   background: #000;
 }
 .slide-image.data-v-61e9bc71 {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%,-50%);
-  border-radius: 8rpx;
+  display: block;
+  margin: 0 auto;
 }
 .warp.data-v-61e9bc71 {
   background: #000;

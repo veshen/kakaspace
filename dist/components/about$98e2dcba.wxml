@@ -4,13 +4,13 @@
     <view class="_div data-v-e8ad13f2 header">
       <view class="_div data-v-e8ad13f2 content">
         <view class="_div data-v-e8ad13f2 img-box">
-          <image class="_img data-v-e8ad13f2 image" src="https://resource.sa-green.cn/image/jpg/kaka/%E9%A1%B6%E5%9B%BE.png"></image>
+          <image class="_img data-v-e8ad13f2 image" src="{{mainPic}}"></image>
         </view>
         <view class="_div data-v-e8ad13f2 img-desc">
           <view class="_h3 data-v-e8ad13f2 title">KILKYO SPACE</view>
           <view class="_div data-v-e8ad13f2 desc">
             <view class="_div data-v-e8ad13f2 left-box">拍照艺术空间</view>
-            <view class="_div data-v-e8ad13f2 right-box">30元/半小时</view>
+            <view class="_div data-v-e8ad13f2 right-box">{{priceDes}}</view>
           </view>
         </view>
       </view>
@@ -18,13 +18,13 @@
     <view class="_div data-v-e8ad13f2 main">
       <view class="_div data-v-e8ad13f2 about-space">
         <view class="_div data-v-e8ad13f2 title">关于空间</view>
-        <view class="_div data-v-e8ad13f2 desc">KIKYO SPACE 是一家关于拍照的艺术空间为用户提供很多不同场景的。 说一句是一句，清早上火车站长街黑暗无行人卖豆浆的小店冒着热气 从前的日色变得慢 车马邮件都慢 。</view>
+        <view class="_div data-v-e8ad13f2 desc">{{desc}}</view>
       </view>
       <view class="_div data-v-e8ad13f2 address-box">
         <view class="_div data-v-e8ad13f2 title">地址</view>
-        <view class="_div data-v-e8ad13f2 desc">上海市黄浦区局门路411号（8号桥2期）9号线马当路站步行8分钟可到</view>
+        <view class="_div data-v-e8ad13f2 desc">{{addr}}</view>
         <view class="_div data-v-e8ad13f2 map-box">
-          <map id="map" longitude="36.0614156482" latitude="89.3853189945" scale="14" bindcontroltap="controltap" bindregionchange="regionchange" show-location style="width: 670rpx; height: 440rpx;" class="_map data-v-e8ad13f2"></map>
+          <map id="map" longitude="{{lng}}" latitude="{{lat}}" markers="{{markers}}" scale="14" bindcontroltap="controltap" bindregionchange="regionchange" show-location style="width: 670rpx; height: 440rpx;" class="_map data-v-e8ad13f2"></map>
         </view>
       </view>
     </view>

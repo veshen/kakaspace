@@ -16,8 +16,8 @@ export default {
             const code = re.code;
             const loginRes = await get('/base/wechat/user/login',{code});
             if (loginRes.userId) {
-                wx.setStorageSync('userId', loginRes.userId)
-                wx.setStorageSync('userMobile', loginRes.userMobile)
+                wx.setStorageSync('token', loginRes.token)
+                wx.setStorageSync('mobile', loginRes.mobile)
             }
             // wx.getUserInfo({
             //   success: (res) => {
@@ -32,9 +32,9 @@ export default {
     }
   },
   created() {
-    const userId = wx.getStorageSync('userId') || false;
+    const token = wx.getStorageSync('token') || false;
     let that = this;
-    if (!userId) {
+    if (!token) {
       this.login()
     } else {
       wx.checkSession({

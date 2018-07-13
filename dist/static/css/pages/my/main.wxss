@@ -1,5 +1,18 @@
 @import "/static/css/vendor.wxss";
 
+.login-out-btn.data-v-51295288 {
+  background: #000;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100rpx;
+  border-radius: 50rpx;
+  margin: 120rpx 50rpx 0;
+}
+.hide.data-v-51295288 {
+  display: none;
+}
 .login-button.data-v-51295288 {
   color: #FFE631;
   background: #000;

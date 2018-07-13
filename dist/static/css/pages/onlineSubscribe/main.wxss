@@ -60,6 +60,14 @@
   align-items: center;
   background: #1B1B1B;
 }
+.left-price.data-v-8c56011e {
+  font-size: 30rpx;
+  color: #FFE631;
+  padding-left: 30rpx;
+}
+.price-box.data-v-8c56011e {
+  font-size: 40rpx;
+}
 .submit-btn.data-v-8c56011e {
   background: #B6B7BE;
   width: 190rpx;

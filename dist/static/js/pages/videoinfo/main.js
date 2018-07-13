@@ -1,13 +1,13 @@
 global.webpackJsonp([5],{
 
-/***/ 238:
+/***/ 243:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__index__ = __webpack_require__(239);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__index__ = __webpack_require__(244);
 
 
 
@@ -16,16 +16,16 @@ app.$mount();
 
 /***/ }),
 
-/***/ 239:
+/***/ 244:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_lib_selector_type_script_index_0_index_vue__ = __webpack_require__(241);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_lib_template_compiler_index_id_data_v_31ac88ba_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_mpvue_loader_lib_selector_type_template_index_0_index_vue__ = __webpack_require__(242);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_lib_selector_type_script_index_0_index_vue__ = __webpack_require__(246);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_lib_template_compiler_index_id_data_v_31ac88ba_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_mpvue_loader_lib_selector_type_template_index_0_index_vue__ = __webpack_require__(247);
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(240)
+  __webpack_require__(245)
 }
 var normalizeComponent = __webpack_require__(0)
 /* script */
@@ -70,18 +70,19 @@ if (false) {(function () {
 
 /***/ }),
 
-/***/ 240:
+/***/ 245:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
 
-/***/ 241:
+/***/ 246:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_moreInfo__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_moreInfo__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__utils_index__ = __webpack_require__(6);
 //
 //
 //
@@ -101,60 +102,83 @@ if (false) {(function () {
 //
 //
 //
+//
+//
+
 
 
 /* harmony default export */ __webpack_exports__["a"] = ({
-  data: function data() {
-    return {
-      motto: 'Hello World 000',
-      userInfo: {},
-      arrData: [{ id: 1, title: 'Hello World', content: 'Welcome to learning Taro!' }, { id: 2, title: 'Installation', content: 'You can install Taro from npm.' }, { id: 3, title: 'Hello World', content: 'Welcome to learning Taro!' }]
-    };
-  },
+    data: function data() {
+        return {
+            videoUrl: '',
+            videoName: '',
+            videoDesc: '',
+            videoTime: '',
+            deepUrl: ''
+        };
+    },
 
-  components: {
-    moreInfo: __WEBPACK_IMPORTED_MODULE_0__components_moreInfo__["a" /* default */]
-  },
-  methods: {},
+    components: {
+        moreInfo: __WEBPACK_IMPORTED_MODULE_0__components_moreInfo__["a" /* default */]
+    },
+    methods: {},
+    onLoad: function onLoad(option) {
+        var _this = this;
 
-  created: function created() {}
+        Object(__WEBPACK_IMPORTED_MODULE_1__utils_index__["b" /* get */])('/deepPage/deepDetail', { deepId: option.deepId || this.id }).then(function (res) {
+            console.log(res);
+            _this.videoUrl = res.videoUrl;
+            _this.videoName = res.videoName;
+            _this.videoDesc = res.videoDesc;
+            _this.videoTime = res.videoTime;
+            _this.deepUrl = res.deepUrl;
+        }).catch(function (e) {
+            console.log(e);
+        });
+    },
+    created: function created() {}
 });
 
 /***/ }),
 
-/***/ 242:
+/***/ 247:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
     staticClass: "index video-info-container"
-  }, [_vm._m(0), _vm._v(" "), _c('moreInfo', {
-    attrs: {
-      "mpcomid": '0'
-    }
-  })], 1)
-}
-var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
+  }, [_c('div', {
     staticClass: "content"
   }, [_c('div', {
     staticClass: "video-box"
   }, [_c('video', {
     staticClass: "v-box",
     attrs: {
-      "src": "http://wxsnsdy.tc.qq.com/105/20210/snsdyvideodownload?filekey=30280201010421301f0201690402534804102ca905ce620b1241b726bc41dcff44e00204012882540400&bizid=1023&hy=SH&fileparam=302c020101042530230204136ffd93020457e3c4ff02024ef202031e8d7f02030f42400204045a320a0201000400"
+      "src": _vm.videoUrl,
+      "poster": _vm.deepUrl
     }
   })]), _vm._v(" "), _c('div', {
     staticClass: "video-desc"
   }, [_c('div', {
     staticClass: "title"
-  }, [_vm._v("你是所有美好的起因你是所有美好的起因")]), _vm._v(" "), _c('div', {
+  }, [_vm._v(_vm._s(_vm.videoName))]), _vm._v(" "), _c('div', {
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: (_vm.videoTime && _vm.videoTime !== ''),
+      expression: "videoTime&&videoTime!==''"
+    }],
     staticClass: "time-box"
-  }, [_vm._v("时长：10m 37s")]), _vm._v(" "), _c('div', {
+  }, [_vm._v("时长：" + _vm._s(_vm.videoTime))]), _vm._v(" "), _c('div', {
     staticClass: "content-text"
-  }, [_vm._v("闺蜜就是西瓜分你一半闺蜜就是西瓜分你一半闺蜜就是西瓜分你一半")])])])
-}]
+  }, [_vm._v(_vm._s(_vm.videoDesc))])])]), _vm._v(" "), _c('moreInfo', {
+    attrs: {
+      "mpcomid": '0'
+    }
+  })], 1)
+}
+var staticRenderFns = []
 render._withStripped = true
 var esExports = { render: render, staticRenderFns: staticRenderFns }
 /* harmony default export */ __webpack_exports__["a"] = (esExports);
@@ -167,5 +191,5 @@ if (false) {
 
 /***/ })
 
-},[238]);
+},[243]);
 //# sourceMappingURL=main.js.map

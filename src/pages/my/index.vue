@@ -30,6 +30,10 @@
                   <div class="content-text">反馈</div>
                   <img class="left-right" src="http://static.sa-green.cn/image/jpg/kaka/%E7%AE%AD%E5%A4%B4%E5%8F%B3.svg" alt="">
               </div> -->
+
+          </div>
+          <div class="login-out-btn" v-bind:class="[userInfo.nickName===''? 'hide' : '']" @click="loginOut">
+              退出登录
           </div>
       </div>
       <!-- <moreInfo /> -->
@@ -47,7 +51,8 @@ export default {
       motto: 'my',
       userInfo: {
           avatarUrl : "",
-          nickName : ""
+          nickName : "",
+          active : false
       }
     }
   },
@@ -55,6 +60,15 @@ export default {
     card, moreInfo
   },
   methods: {
+      loginOut(){
+          wx.removeStorageSync('token');
+          this.userInfo.nickName = '';
+          if (getApp().globalData.userInfo) {
+              getApp().globalData.userInfo.avatarUrl = "";
+              getApp().globalData.userInfo.nickName = "";
+          };
+
+      },
       toPage(url) {
         wx.navigateTo({
           url
@@ -148,6 +162,20 @@ export default {
 </script>
 
 <style scoped>
+
+.login-out-btn{
+    background: #000;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100rpx;
+    border-radius: 50rpx;
+    margin: 120rpx 50rpx 0;
+}
+.hide{
+    display: none;
+}
 .login-button{
     color: #FFE631;
     background: #000;

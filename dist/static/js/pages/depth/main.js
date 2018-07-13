@@ -1,31 +1,36 @@
 global.webpackJsonp([17],{
 
-/***/ 139:
+/***/ 143:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__index__ = __webpack_require__(140);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__index__ = __webpack_require__(144);
 
 
 
 var app = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a(__WEBPACK_IMPORTED_MODULE_1__index__["a" /* default */]);
 app.$mount();
+/* harmony default export */ __webpack_exports__["default"] = ({
+  config: {
+    navigationBarTitleText: '深度'
+  }
+});
 
 /***/ }),
 
-/***/ 140:
+/***/ 144:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_lib_selector_type_script_index_0_index_vue__ = __webpack_require__(142);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_lib_template_compiler_index_id_data_v_2aee11bd_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_mpvue_loader_lib_selector_type_template_index_0_index_vue__ = __webpack_require__(143);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_lib_selector_type_script_index_0_index_vue__ = __webpack_require__(146);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_lib_template_compiler_index_id_data_v_2aee11bd_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_mpvue_loader_lib_selector_type_template_index_0_index_vue__ = __webpack_require__(147);
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(141)
+  __webpack_require__(145)
 }
 var normalizeComponent = __webpack_require__(0)
 /* script */
@@ -70,24 +75,24 @@ if (false) {(function () {
 
 /***/ }),
 
-/***/ 141:
+/***/ 145:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
 
-/***/ 142:
+/***/ 146:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__ = __webpack_require__(268);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__ = __webpack_require__(24);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator__ = __webpack_require__(271);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator__ = __webpack_require__(25);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_card__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_moreInfo__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__utils_index__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_moreInfo__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__utils_index__ = __webpack_require__(6);
 
 
 //
@@ -132,18 +137,11 @@ if (false) {(function () {
   data: function data() {
     return {
       motto: 'depth',
-      userInfo: {},
-      imgUrl: 'https://resource.sa-green.cn/image/jpg/kaka/%E9%A1%B6%E5%9B%BE.png',
-      videoData: [{
-        poster: 'https://resource.sa-green.cn/image/jpg/kaka/Bitmap%20Copy.png',
-        videoUrl: 'http://wxsnsdy.tc.qq.com/105/20210/snsdyvideodownload?filekey=30280201010421301f0201690402534804102ca905ce620b1241b726bc41dcff44e00204012882540400&bizid=1023&hy=SH&fileparam=302c020101042530230204136ffd93020457e3c4ff02024ef202031e8d7f02030f42400204045a320a0201000400'
-      }, {
-        poster: 'https://resource.sa-green.cn/image/jpg/kakaBitmap%202.png',
-        videoUrl: 'http://wxsnsdy.tc.qq.com/105/20210/snsdyvideodownload?filekey=30280201010421301f0201690402534804102ca905ce620b1241b726bc41dcff44e00204012882540400&bizid=1023&hy=SH&fileparam=302c020101042530230204136ffd93020457e3c4ff02024ef202031e8d7f02030f42400204045a320a0201000400'
-      }, {
-        poster: 'https://resource.sa-green.cn/image/jpg/kakaBitmap%203.png',
-        videoUrl: 'http://wxsnsdy.tc.qq.com/105/20210/snsdyvideodownload?filekey=30280201010421301f0201690402534804102ca905ce620b1241b726bc41dcff44e00204012882540400&bizid=1023&hy=SH&fileparam=302c020101042530230204136ffd93020457e3c4ff02024ef202031e8d7f02030f42400204045a320a0201000400'
-      }]
+      mainPicUrl: 'https://resource.sa-green.cn/image/jpg/kaka/%E9%A1%B6%E5%9B%BE.png',
+      title: 'KIKYO SPACE',
+      subTitleList: ['有人说，我喜欢你们的光影，尽致淋漓', '有人说，我喜欢你们的人物氛围，情感细腻'],
+      deepList: [],
+      userInfo: {}
     };
   },
 
@@ -163,23 +161,36 @@ if (false) {(function () {
       var _this = this;
 
       return __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee() {
+        var res;
         return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                try {
-                  // const res = await get('/mainPage/mainPageInfo');
-                  // console.log(res);
-                } catch (e) {
-                  console.log('6666', e);
-                }
+                _context.prev = 0;
+                _context.next = 3;
+                return Object(__WEBPACK_IMPORTED_MODULE_4__utils_index__["b" /* get */])('/deepPage/deepAll');
 
-              case 1:
+              case 3:
+                res = _context.sent;
+
+                _this.mainPicUrl = res.mainPicUrl;
+                _this.deepList = res.deepList;
+                _this.title = res.title;
+                _context.next = 12;
+                break;
+
+              case 9:
+                _context.prev = 9;
+                _context.t0 = _context['catch'](0);
+
+                console.log('6666', _context.t0);
+
+              case 12:
               case 'end':
                 return _context.stop();
             }
           }
-        }, _callee, _this);
+        }, _callee, _this, [[0, 9]]);
       }))();
     }
   },
@@ -190,7 +201,7 @@ if (false) {(function () {
 
 /***/ }),
 
-/***/ 143:
+/***/ 147:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -200,20 +211,23 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
   }, [_c('div', {
     staticClass: "index-top-box",
     style: ({
-      background: 'url(' + 'https://resource.sa-green.cn/image/jpg/kaka/%E9%A1%B6%E5%9B%BE.png' + ') no-repeat top center',
+      background: 'url(' + _vm.mainPicUrl + ') no-repeat top center',
       backgroundSize: '100% 100%'
     })
   }, [_c('div', {
     staticClass: "title"
-  }, [_vm._v("KIKYO SPACE 123123")]), _vm._v(" "), _c('div', {
-    staticClass: "sub-title"
-  }, [_vm._v("有人说，我喜欢你们的光影，尽致淋漓")]), _vm._v(" "), _c('div', {
-    staticClass: "sub-title"
-  }, [_vm._v("有人说，我喜欢你们的人物氛围，情感细腻")])]), _vm._v(" "), _c('div', {
+  }, [_vm._v(_vm._s(_vm.title))]), _vm._v(" "), _vm._l((_vm.subTitleList), function(data, index) {
+    return _c('div', {
+      staticClass: "sub-title",
+      attrs: {
+        "wx:key": "{index}"
+      }
+    }, [_vm._v(_vm._s(data))])
+  })], 2), _vm._v(" "), _c('div', {
     staticClass: "content"
   }, [_vm._m(0), _vm._v(" "), _c('div', {
     staticClass: "list-content"
-  }, _vm._l((_vm.videoData), function(data, index) {
+  }, _vm._l((_vm.deepList), function(data, index) {
     return _c('div', {
       staticClass: "list-item",
       attrs: {
@@ -222,7 +236,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       },
       on: {
         "click": function($event) {
-          _vm.toPage('../videoinfo/main')
+          _vm.toPage(("../videoinfo/main?deepId=" + (data.deepId)))
         }
       }
     }, [_c('div', {
@@ -230,10 +244,22 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }, [_c('img', {
       staticClass: "v-box",
       attrs: {
-        "src": data.poster,
+        "src": data.deepUrl,
         "alt": ""
       }
-    })]), _vm._v(" "), _vm._m(1, true)])
+    }), _vm._v(" "), _c('img', {
+      staticClass: "play-icon",
+      attrs: {
+        "src": "https://resource.sa-green.cn/image/jpg/kaka/%E8%A7%86%E9%A2%91%E6%92%AD%E6%94%BE.png",
+        "alt": ""
+      }
+    })]), _vm._v(" "), _c('div', {
+      staticClass: "video-desc"
+    }, [_c('div', {
+      staticClass: "title"
+    }, [_vm._v(_vm._s(data.deepName))]), _vm._v(" "), _c('div', {
+      staticClass: "sub-title"
+    }, [_vm._v(_vm._s(data.deepDesc))])])])
   }))]), _vm._v(" "), _c('card', {
     attrs: {
       "text": _vm.motto,
@@ -253,14 +279,6 @@ var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _
   }), _vm._v(" "), _c('div', {
     staticClass: "text-box"
   }, [_vm._v("视频示意")])])
-},function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    staticClass: "video-desc"
-  }, [_c('div', {
-    staticClass: "title"
-  }, [_vm._v("你是所有美好的起因你是所有美好的起因")]), _vm._v(" "), _c('div', {
-    staticClass: "sub-title"
-  }, [_vm._v("闺蜜就是西瓜分你一半闺蜜就是西瓜分你一半闺蜜就是西瓜分你一半")])])
 }]
 render._withStripped = true
 var esExports = { render: render, staticRenderFns: staticRenderFns }
@@ -274,5 +292,5 @@ if (false) {
 
 /***/ })
 
-},[139]);
+},[143]);
 //# sourceMappingURL=main.js.map

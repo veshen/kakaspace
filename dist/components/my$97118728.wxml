@@ -16,6 +16,7 @@
           <image class="_img data-v-51295288 left-right" src="http://static.sa-green.cn/image/jpg/kaka/%E7%AE%AD%E5%A4%B4%E5%8F%B3.svg" alt></image>
         </view>
       </view>
+      <view class="_div data-v-51295288 login-out-btn {{[userInfo.nickName === '' ? 'hide' : '']}}" bindtap="handleProxy" data-eventid="{{'2'}}" data-comkey="{{$k}}"> 退出登录 </view>
     </view>
     <template data="{{...$root[$kk+'1'], $root}}" is="card$103c7587"></template>
   </view>

@@ -5,38 +5,41 @@
       <view class="_div data-v-8c56011e desc"> 国际婚纱摄影连锁机构！一流的前期拍摄，顶尖的后期制作，一站式贴心服务，专注用镜头私人定制您的永恒幸福记忆。《芈月传》《摆渡人》《丑女无敌》《王牌逗王牌》扮演者毛俊杰倾力推荐，明星助力，品质保证。婚纱摄影行业知名品牌欢迎您 </view>
     </view>
     <view class="_div data-v-8c56011e main">
-      <view class="_div data-v-8c56011e select-scope">
-        <view class="_div data-v-8c56011e tips-text">
-          <view class="_div data-v-8c56011e title"> 到店人数 </view>
-          <view class="_div data-v-8c56011e subTitle">
-            <picker bindchange="handleProxy" value="{{0}}" range="{{array}}" data-eventid="{{'0'}}" data-comkey="{{$k}}" class="_picker data-v-8c56011e">
+      <picker bindchange="handleProxy" value="{{0}}" range="{{array}}" data-eventid="{{'0'}}" data-comkey="{{$k}}" class="_picker data-v-8c56011e">
+        <view class="_div data-v-8c56011e select-scope">
+          <view class="_div data-v-8c56011e tips-text">
+            <view class="_div data-v-8c56011e title"> 到店人数 </view>
+            <view class="_div data-v-8c56011e subTitle">
               <view class="_view data-v-8c56011e picker"> {{array[index]}} </view>
-            </picker>
+            </view>
           </view>
         </view>
-      </view>
-      <view class="_div data-v-8c56011e select-scope">
-        <view class="_div data-v-8c56011e tips-text">
-          <view class="_div data-v-8c56011e title"> 到店日期 </view>
-          <view class="_div data-v-8c56011e subTitle">
-            <picker bindchange="handleProxy" value="{{0}}" mode="date" start="{{currentDate}}" data-eventid="{{'1'}}" data-comkey="{{$k}}" class="_picker data-v-8c56011e">
+      </picker>
+      <picker bindchange="handleProxy" value="{{0}}" mode="date" start="{{currentDate}}" data-eventid="{{'1'}}" data-comkey="{{$k}}" class="_picker data-v-8c56011e">
+        <view class="_div data-v-8c56011e select-scope">
+          <view class="_div data-v-8c56011e tips-text">
+            <view class="_div data-v-8c56011e title"> 到店日期 </view>
+            <view class="_div data-v-8c56011e subTitle">
               <view class="_view data-v-8c56011e picker"> {{date}} </view>
-            </picker>
+            </view>
           </view>
         </view>
-      </view>
+      </picker>
       <view class="_div data-v-8c56011e select-scope">
         <view class="_div data-v-8c56011e tips-text">
           <view class="_div data-v-8c56011e title"> 联系人手机号 </view>
           <view class="_div data-v-8c56011e subTitle">
-            <input type="text" name value="{{userMobile}}" maxlength="11" bindinput="handleProxy" placeholder="请输入11位手机号码" data-eventid="{{'2'}}" data-comkey="{{$k}}" class="_input data-v-8c56011e" />
+            <input type="text" maxlength="11" value="{{userMobile}}" bindinput="handleProxy" placeholder="请输入11位手机号码" data-eventid="{{'2'}}" data-comkey="{{$k}}" class="_input data-v-8c56011e" />
           </view>
         </view>
       </view>
     </view>
     <view class="_div data-v-8c56011e bottom-bar">
-      <view class="_div data-v-8c56011e"></view>
-      <view class="_div data-v-8c56011e submit-btn {{[index > 0 && date !== '请选择 >' ? 'active' : '']}}" hidden="{{!(userMobile)}}" bindtap="handleProxy" data-eventid="{{'3'}}" data-comkey="{{$k}}"> 立即预约{{userMobile}} </view>
+      <view class="_div data-v-8c56011e left-price" hidden="{{!(needPayAmountOffLine!==0)}}"> 需到店支付 ¥
+        <label class="_span data-v-8c56011e price-box">{{needPayAmountOffLine}}</label>
+      </view>
+      <view hidden="{{!(needPayAmountOffLine===0)}}" class="_div data-v-8c56011e"></view>
+      <view class="_div data-v-8c56011e submit-btn {{[index > 0 && date !== '请选择 >' && userMobile.length === 11 ? 'active' : '']}}" bindtap="handleProxy" data-eventid="{{'3'}}" data-comkey="{{$k}}"> 立即预约 </view>
     </view>
   </view>
 </template>

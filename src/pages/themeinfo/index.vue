@@ -1,48 +1,25 @@
 <template>
     <div class='index theme-info-container'>
         <div class="swiper-content">
-            <swiper class="swiper" indicator-dots="true" autoplay="true" interval="5000" duration="1000" indicator-color="rgba(255,255,255,0.5)" indicator-active-color="#FFE631">
+            <image :src="mainPic" class="slide-image" mode="aspectFill"/>
+            <!-- <swiper class="swiper" indicator-dots="true" autoplay="true" interval="5000" duration="1000" indicator-color="rgba(255,255,255,0.5)" indicator-active-color="#FFE631">
                 <block v-for="(item, index) in movies" :index="index" :key="key">
                     <swiper-item>
-                        <image :src="item.url" class="slide-image" mode="aspectFill"/>
+                        <image :src="mainPic" class="slide-image" mode="aspectFill"/>
                     </swiper-item>
                 </block>
-            </swiper>
+            </swiper> -->
         </div>
         <div class="warp">
             <div class="main">
                 <div class="title">
-                    关于空间
+                    {{subName}}
                 </div>
-                <div class="desc">
-                    这里是主题描述，再多几个字。
-云虹很像彩虹，但颜色更浅。事实上，它们往往不会呈现出任何
-可辨别的颜色，看起来就像白化的彩虹，或是彩虹的鬼魂经过。
-                </div>
+                <div class="desc">{{subDesc}}</div>
                 <div class="scene-list">
-                    <div class="scene-item">
-                        <img class="item-pic" src="http://b.zol-img.com.cn/sjbizhi/images/6/320x510/138493998617.jpg" alt=""/>
-                        <div class="text">这是文字描述这是文字描述这是文字描述这是文字描述</div>
-                    </div>
-                    <div class="scene-item">
-                        <img class="item-pic" src="http://b.zol-img.com.cn/sjbizhi/images/6/320x510/138493998617.jpg" alt=""/>
-                        <div class="text">这是文字描述这是文字描述这是文字描述这是文字描述</div>
-                    </div>
-                    <div class="scene-item">
-                        <img class="item-pic" src="http://b.zol-img.com.cn/sjbizhi/images/6/320x510/138493998617.jpg" alt=""/>
-                        <div class="text">这是文字描述这是文字描述这是文字描述这是文字描述</div>
-                    </div>
-                    <div class="scene-item">
-                        <img class="item-pic" src="http://b.zol-img.com.cn/sjbizhi/images/6/320x510/138493998617.jpg" alt=""/>
-                        <div class="text">这是文字描述这是文字描述这是文字描述这是文字描述</div>
-                    </div>
-                    <div class="scene-item">
-                        <img class="item-pic" src="http://b.zol-img.com.cn/sjbizhi/images/6/320x510/138493998617.jpg" alt=""/>
-                        <div class="text">这是文字描述这是文字描述这是文字描述这是文字描述</div>
-                    </div>
-                    <div class="scene-item">
-                        <img class="item-pic" src="http://b.zol-img.com.cn/sjbizhi/images/6/320x510/138493998617.jpg" alt=""/>
-                        <div class="text">这是文字描述这是文字描述这是文字描述这是文字描述</div>
+                    <div class="scene-item" v-for="(data, index) in subThumbList" wx:key={index}>
+                        <img class="item-pic" mode="aspectFill" @click="previewImage(data.picUrl)" :src="data.picUrl" alt=""/>
+                        <!-- <div class="text">{{data.name||''}}</div> -->
                     </div>
                 </div>
             </div>
@@ -53,20 +30,45 @@
 
 <script>
 import moreInfo from '@/components/moreInfo'
+import { get } from './../../utils/index'
 export default {
   data () {
     return {
-      motto: 'Hello World 000',
-      userInfo: {},
-      movies: [{id: 1, title: 'Hello World', url: 'http://b.zol-img.com.cn/sjbizhi/images/6/320x510/138493998617.jpg'}, {id: 2, title: 'Installation', url: 'http://b.zol-img.com.cn/sjbizhi/images/6/320x510/138493998617.jpg'}, {id: 3, title: 'Hello World', url: 'http://b.zol-img.com.cn/sjbizhi/images/6/320x510/138493998617.jpg'}]
+      id:0,
+      mainPic:'',
+      subName:'',
+      subDesc:'',
+      subThumbList:[]
     }
   },
-
   methods: {
-
+      previewImage(curImg){
+          console.log(curImg);
+          var imgs = [];
+          this.subThumbList.map((item,index)=>{
+              console.log(item,index);
+              imgs.push(item.picUrl);
+          });
+          console.log(imgs);
+        wx.previewImage({
+            current: curImg, // 当前显示图片的http链接
+            urls: imgs // 需要预览的图片http链接列表
+        })
+      }
   },
   components: {
     moreInfo
+  },
+  onLoad(option){
+      get('/mainPage/subjectDetail',{subjectId:option.id||this.id}).then((res)=>{
+          console.log(res);
+          this.mainPic = res.subjectMainPicUrl;
+          this.subName = res.subjectName;
+          this.subDesc = res.subjectDesc;
+          this.subThumbList = res.sceneSmallInfoBeanList;
+      }).catch((e)=>{
+          console.log(e);
+      })
   },
   created () {
   }
@@ -79,11 +81,13 @@ export default {
     background: #000;
 }
 .slide-image{
-    position: absolute;
+    /* position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
-    border-radius: 8rpx;
+    border-radius: 8rpx; */
+    display: block;
+    margin: 0 auto;
 }
 .warp{
     background: #000;

@@ -10,7 +10,7 @@
                       订单号
                   </div>
                   <div class="content">
-                        DX0299993888
+                        {{orderInfo.orderId}}
                   </div>
               </div>
               <div class="order-info-line">
@@ -18,7 +18,7 @@
                       下单时间
                   </div>
                   <div class="content">
-                        2018-08-20  13:00
+                        {{orderInfo.createOrderTime}}
                   </div>
               </div>
               <div class="order-info-line">
@@ -26,7 +26,7 @@
                       人数
                   </div>
                   <div class="content">
-                        2
+                        {{orderInfo.peerNumber}}
                   </div>
               </div>
               <div class="order-info-line">
@@ -34,7 +34,7 @@
                       到店时间
                   </div>
                   <div class="content">
-                        2018-08-20  13:00
+                        {{orderInfo.bookDay}}
                   </div>
               </div>
               <div class="order-info-line">
@@ -42,7 +42,7 @@
                       订单状态
                   </div>
                   <div class="content">
-                        待消费
+                        {{orderInfo.orderStatusDesc}}
                   </div>
               </div>
               <div class="order-info-line">
@@ -51,28 +51,30 @@
                   </div>
                   <div class="content">
                     ￥
-                    <span class="price">300</span>
+                    <span class="price">{{orderInfo.payAmount}}</span>
                   </div>
               </div>
           </div>
           <div class="no">
-              票号 <span class="number">KUW2888829</span>
+              票号 <span class="number">{{orderInfo.voucherNo}}</span>
           </div>
-          <div class="qrcode-box">
+          <!-- <div class="qrcode-box">
               <img class="image" v-bind:src="imgUrl" alt="">
           </div>
           <div class="tips">
               · 请到店后出示并验证入场 ·
-          </div>
+          </div> -->
       </div>
   </div>
 </template>
 
 <script>
-import QRCode from 'qrcode'
+// import QRCode from 'qrcode';
+import { get } from './../../utils/index'
 export default {
   data () {
     return {
+        orderInfo : {},
         imgUrl : 'https://ss0.bdstatic.com/94oJfD_bAAcT8t7mm9GUKT-xh_/timg?image&quality=100&size=b4000_4000&sec=1531328531&di=6f578a310aacfc611b3ce4e41b661f95&src=http://img1.ph.126.net/KCG0wwnes5Oh8nzyGYp_Dg==/1564156445598554981.jpg'
     }
   },
@@ -86,12 +88,15 @@ export default {
   created () {
 
   },
-  onLoad(){
-      // let That = this;
-      // QRCode.toDataURL('https://www.baidu.com', {margin:0,scale:10}, (err, url)=> {
-      //     That.imgUrl=url;
-      //     console.log(url,err);
-      // });
+  onLoad(option){
+      const token = wx.getStorageSync('token')
+      const orderId = option.orderId;
+      get('/order/orderDetail',{token,orderId}).then((res)=>{
+          console.log(res);
+          this.orderInfo = res;
+      }).catch((e)=>{
+          console.log(e);
+      })
   },
 }
 </script>
