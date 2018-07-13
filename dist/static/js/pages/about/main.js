@@ -210,11 +210,11 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticClass: "img-desc"
   }, [_c('h3', {
     staticClass: "title"
-  }, [_vm._v("KILKYO  SPACE")]), _vm._v(" "), _c('div', {
+  }, [_vm._v("KIKYO  SPACE")]), _vm._v(" "), _c('div', {
     staticClass: "desc"
   }, [_c('div', {
     staticClass: "left-box"
-  }, [_vm._v("拍照艺术空间")]), _vm._v(" "), _c('div', {
+  }, [_vm._v("艺术空间")]), _vm._v(" "), _c('div', {
     staticClass: "right-box"
   }, [_vm._v(_vm._s(_vm.priceDes))])])], 1)])]), _vm._v(" "), _c('div', {
     staticClass: "main"

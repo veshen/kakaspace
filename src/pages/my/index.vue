@@ -44,7 +44,7 @@
 <script>
 import card from '@/components/card'
 import moreInfo from '@/components/moreInfo'
-import {showSuccess, post, showModal} from './../../utils/index'
+import {get,showSuccess, post, showModal} from './../../utils/index'
 export default {
   data () {
     return {
@@ -80,6 +80,17 @@ export default {
     },
     bindGetUserInfo (e) {
       const self = this
+
+      wx.login({
+        success: async (re) => {
+            console.log(re,'rererere');
+          const code = re.code;
+          const loginRes = await get('/base/wechat/user/login',{code});
+          console.log();
+          wx.setStorageSync('token', loginRes.token)
+          wx.setStorageSync('mobile', loginRes.mobile)
+        }
+      })
       console.log(e);
       // 查看是否授权
       wx.getSetting({
@@ -91,9 +102,10 @@ export default {
               success: function () {
                 // 没过期 直接成功
                 showSuccess('登录成功')
+
                     wx.getUserInfo({
-                      success: (res) => {
-                          // console.log(res);
+                      success: async (res) => {
+                          console.log(res);
                         // this.userInfo = res.userInfo
                         // console.log(res,'userInfo');
                         self.userInfo.avatarUrl = res.userInfo.avatarUrl;

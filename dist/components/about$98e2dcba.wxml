@@ -7,9 +7,9 @@
           <image class="_img data-v-e8ad13f2 image" src="{{mainPic}}"></image>
         </view>
         <view class="_div data-v-e8ad13f2 img-desc">
-          <view class="_h3 data-v-e8ad13f2 title">KILKYO SPACE</view>
+          <view class="_h3 data-v-e8ad13f2 title">KIKYO SPACE</view>
           <view class="_div data-v-e8ad13f2 desc">
-            <view class="_div data-v-e8ad13f2 left-box">拍照艺术空间</view>
+            <view class="_div data-v-e8ad13f2 left-box">艺术空间</view>
             <view class="_div data-v-e8ad13f2 right-box">{{priceDes}}</view>
           </view>
         </view>

@@ -165,6 +165,21 @@ if (false) {(function () {
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -632,9 +647,19 @@ var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _
     staticClass: "top-box"
   }, [_c('div', {
     staticClass: "title"
-  }, [_vm._v("\n      国际婚纱摄影工作室\n    ")]), _vm._v(" "), _c('div', {
+  }, [_vm._v("\n      购票须知：\n    ")]), _vm._v(" "), _c('div', {
     staticClass: "desc"
-  }, [_vm._v("\n      国际婚纱摄影连锁机构！一流的前期拍摄，顶尖的后期制作，一站式贴心服务，专注用镜头私人定制您的永恒幸福记忆。《芈月传》《摆渡人》《丑女无敌》《王牌逗王牌》扮演者毛俊杰倾力推荐，明星助力，品质保证。婚纱摄影行业知名品牌欢迎您\n    ")])])
+  }, [_vm._v("\n      1. 票价：99元/人\n    ")]), _vm._v(" "), _c('div', {
+    staticClass: "desc"
+  }, [_vm._v("\n      2. 场馆开放时间：10:00-21:00\n    ")]), _vm._v(" "), _c('div', {
+    staticClass: "desc"
+  }, [_vm._v("\n      3. 场馆凭预约电子票入场，出馆后需再次购票才能入馆\n    ")]), _vm._v(" "), _c('div', {
+    staticClass: "desc"
+  }, [_vm._v("\n      4. 门票一经售出，概不退款\n    ")]), _vm._v(" "), _c('div', {
+    staticClass: "desc"
+  }, [_vm._v("\n      5. 请勿携带宠物及危险物品，尊重公共秩序\n    ")]), _vm._v(" "), _c('div', {
+    staticClass: "desc"
+  }, [_vm._v("\n      6. 图片仅供参考\n    ")])])
 }]
 render._withStripped = true
 var esExports = { render: render, staticRenderFns: staticRenderFns }

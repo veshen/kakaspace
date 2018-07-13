@@ -6,9 +6,9 @@
   				<img class="image" v-bind:src="mainPic">
   			</div>
   			<div class="img-desc">
-  				<h3 class="title">KILKYO  SPACE</h3>
+  				<h3 class="title">KIKYO  SPACE</h3>
   				<div class="desc">
-  					<div class="left-box">拍照艺术空间</div>
+  					<div class="left-box">艺术空间</div>
   					<div class="right-box">{{priceDes}}</div>
   				</div>
   			</div>

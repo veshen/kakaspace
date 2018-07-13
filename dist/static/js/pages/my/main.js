@@ -86,9 +86,15 @@ if (false) {(function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_card__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_moreInfo__ = __webpack_require__(7);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__utils_index__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__ = __webpack_require__(24);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator__ = __webpack_require__(25);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_card__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_moreInfo__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__utils_index__ = __webpack_require__(6);
+
+
 //
 //
 //
@@ -149,7 +155,7 @@ if (false) {(function () {
   },
 
   components: {
-    card: __WEBPACK_IMPORTED_MODULE_0__components_card__["a" /* default */], moreInfo: __WEBPACK_IMPORTED_MODULE_1__components_moreInfo__["a" /* default */]
+    card: __WEBPACK_IMPORTED_MODULE_2__components_card__["a" /* default */], moreInfo: __WEBPACK_IMPORTED_MODULE_3__components_moreInfo__["a" /* default */]
   },
   methods: {
     loginOut: function loginOut() {
@@ -170,7 +176,43 @@ if (false) {(function () {
       wx.navigateTo({ url: url });
     },
     bindGetUserInfo: function bindGetUserInfo(e) {
+      var _this = this;
+
       var self = this;
+
+      wx.login({
+        success: function () {
+          var _ref = __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee(re) {
+            var code, loginRes;
+            return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
+              while (1) {
+                switch (_context.prev = _context.next) {
+                  case 0:
+                    console.log(re, 'rererere');
+                    code = re.code;
+                    _context.next = 4;
+                    return Object(__WEBPACK_IMPORTED_MODULE_4__utils_index__["b" /* get */])('/base/wechat/user/login', { code: code });
+
+                  case 4:
+                    loginRes = _context.sent;
+
+                    console.log();
+                    wx.setStorageSync('token', loginRes.token);
+                    wx.setStorageSync('mobile', loginRes.mobile);
+
+                  case 8:
+                  case 'end':
+                    return _context.stop();
+                }
+              }
+            }, _callee, _this);
+          }));
+
+          return function success(_x) {
+            return _ref.apply(this, arguments);
+          };
+        }()
+      });
       console.log(e);
       // 查看是否授权
       wx.getSetting({
@@ -180,16 +222,36 @@ if (false) {(function () {
             // 检查用户登录是否过期
             wx.checkSession({
               success: function success() {
+                var _this2 = this;
+
                 // 没过期 直接成功
-                Object(__WEBPACK_IMPORTED_MODULE_2__utils_index__["d" /* showSuccess */])('登录成功');
+                Object(__WEBPACK_IMPORTED_MODULE_4__utils_index__["d" /* showSuccess */])('登录成功');
+
                 wx.getUserInfo({
-                  success: function success(res) {
-                    // console.log(res);
-                    // this.userInfo = res.userInfo
-                    // console.log(res,'userInfo');
-                    self.userInfo.avatarUrl = res.userInfo.avatarUrl;
-                    self.userInfo.nickName = res.userInfo.nickName;
-                  }
+                  success: function () {
+                    var _ref2 = __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee2(res) {
+                      return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee2$(_context2) {
+                        while (1) {
+                          switch (_context2.prev = _context2.next) {
+                            case 0:
+                              console.log(res);
+                              // this.userInfo = res.userInfo
+                              // console.log(res,'userInfo');
+                              self.userInfo.avatarUrl = res.userInfo.avatarUrl;
+                              self.userInfo.nickName = res.userInfo.nickName;
+
+                            case 3:
+                            case 'end':
+                              return _context2.stop();
+                          }
+                        }
+                      }, _callee2, _this2);
+                    }));
+
+                    return function success(_x2) {
+                      return _ref2.apply(this, arguments);
+                    };
+                  }()
                 });
               },
               fail: function fail() {
@@ -207,7 +269,7 @@ if (false) {(function () {
 
             });
           } else {
-            Object(__WEBPACK_IMPORTED_MODULE_2__utils_index__["c" /* showModal */])('用户未授权', e.mp.detail.errMsg);
+            Object(__WEBPACK_IMPORTED_MODULE_4__utils_index__["c" /* showModal */])('用户未授权', e.mp.detail.errMsg);
           }
         }
 
