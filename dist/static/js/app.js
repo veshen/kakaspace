@@ -1,13 +1,13 @@
-global.webpackJsonp([3],{
+global.webpackJsonp([19],{
 
-/***/ 61:
+/***/ 43:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__App__ = __webpack_require__(62);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__App__ = __webpack_require__(45);
 
 
 
@@ -20,7 +20,7 @@ app.$mount();
   // 这个字段走 app.json
   config: {
     // 页面前带有 ^ 符号的，会被编译成首页，其他页面可以选填，我们会自动把 webpack entry 里面的入口页面加进去
-    pages: ['pages/my/main', 'pages/themeinfo/main', 'pages/videoinfo/main', 'pages/find/main', 'pages/photoinfo/main', 'pages/photobrowse/main', 'pages/depth/main', '^pages/index/main', 'pages/myorder/main', 'pages/ilike/main', 'pages/myalbum/main', 'pages/about/main', 'pages/onlineSubscribe/main', 'pages/orderInfo/main'],
+    pages: ['pages/my/main', 'pages/themeinfo/main', 'pages/videoinfo/main', 'pages/find/main', 'pages/photoinfo/main', 'pages/photobrowse/main', 'pages/depth/main', 'pages/index/main', 'pages/myorder/main', 'pages/ilike/main', 'pages/myalbum/main', 'pages/about/main', 'pages/onlineSubscribe/main', 'pages/orderInfo/main', '^pages/orderPay/main'],
     'window': {
       backgroundTextStyle: 'light',
       navigationBarBackgroundColor: '#000',
@@ -44,15 +44,15 @@ app.$mount();
 
 /***/ }),
 
-/***/ 62:
+/***/ 45:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_lib_selector_type_script_index_0_App_vue__ = __webpack_require__(64);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_lib_selector_type_script_index_0_App_vue__ = __webpack_require__(47);
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(63)
+  __webpack_require__(46)
 }
 var normalizeComponent = __webpack_require__(0)
 /* script */
@@ -96,22 +96,22 @@ if (false) {(function () {
 
 /***/ }),
 
-/***/ 63:
+/***/ 46:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
 
-/***/ 64:
+/***/ 47:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__ = __webpack_require__(24);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator__ = __webpack_require__(25);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__utils_index__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__utils_index__ = __webpack_require__(3);
 
 
 
@@ -223,5 +223,5 @@ if (false) {(function () {
 
 /***/ })
 
-},[61]);
+},[43]);
 //# sourceMappingURL=app.js.map

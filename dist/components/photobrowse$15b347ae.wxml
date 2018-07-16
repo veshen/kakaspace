@@ -1,0 +1,12 @@
+<template name="photobrowse$15b347ae">
+  <view class="_div data-v-236b7094 index photo-browse-container">
+    <view class="_div data-v-236b7094 img-box">
+      <image class="_img data-v-236b7094 bir-img" src="http://b.zol-img.com.cn/sjbizhi/images/6/320x510/138493998617.jpg"></image>
+    </view>
+    <view class="_div data-v-236b7094 img-desc">没有时间丧，这周是忙碌充实的快乐女孩 韩说：“因为我们想进步啊！” 瞬间有点儿想哭。 </view>
+    <view class="_div data-v-236b7094 img-info-box">
+      <view class="_div data-v-236b7094">20180707</view>
+      <view class="_div data-v-236b7094">icon 277</view>
+    </view>
+  </view>
+</template>

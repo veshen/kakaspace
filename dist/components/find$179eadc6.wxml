@@ -1,0 +1,53 @@
+<import src="card$f95cca3a" />
+<template name="find$179eadc6">
+  <view class="_div data-v-3d262215 index find-container">
+    <view class="_div data-v-3d262215 filter-box">
+      <view class="_div data-v-3d262215 left-btn active" bindtap="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}"> 本周最热
+        <icon class="_icon data-v-3d262215 down" size="10" type="success"></icon>
+        <view class="_div data-v-3d262215 line"></view>
+        <view class="_ul data-v-3d262215 check-list {{[isActive ? 'check-list-active' : '', errorClass]}}">
+          <view class="_li data-v-3d262215 check-list-item">本日最热</view>
+          <view class="_li data-v-3d262215 check-list-item">本周最热</view>
+          <view class="_li data-v-3d262215 check-list-item">本月最热</view>
+        </view>
+      </view>
+      <view class="_div data-v-3d262215 center-line"></view>
+      <view class="_div data-v-3d262215 right-btn">时间倒序</view>
+    </view>
+    <view class="_div data-v-3d262215 content">
+      <view class="_div data-v-3d262215 list-content">
+        <view class="_div data-v-3d262215 list-item" bindtap="handleProxy" wx:key="{item.id}" data-eventid="{{'1-'+index}}" data-comkey="{{$k}}" wx:for="{{arrData}}" wx:for-index="index" wx:for-item="item">
+          <view class="_div data-v-3d262215 like-box"> {{item.id}}
+            <label class="_span data-v-3d262215 like"></label>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="_div data-v-3d262215 add-photo-btn" bindtap="handleProxy" data-eventid="{{'2'}}" data-comkey="{{$k}}">
+      <image class="_img data-v-3d262215 image" src="https://resource.sa-green.cn/image/jpg/kaka%E5%8F%91%E7%8E%B0_%E7%9B%B8%E6%9C%BA.png"></image>
+    </view>
+    <view class="_div data-v-3d262215 updata-photo-box" hidden="{{!(updataPhoto)}}">
+      <view class="_div data-v-3d262215 update-block">
+        <view class="_div data-v-3d262215 off-btn-box" bindtap="handleProxy" data-eventid="{{'3'}}" data-comkey="{{$k}}">
+          <image class="_img data-v-3d262215 off-btn" src="https://resource.sa-green.cn/image/jpg/%E5%85%B3%E9%97%AD.svg"></image>
+        </view>
+        <view class="_div data-v-3d262215 update-img-list">
+          <view class="_div data-v-3d262215 update-img-item" wx:key="{index}" wx:for="{{tempFilePaths}}" wx:for-index="index" wx:for-item="item">
+            <image class="_img data-v-3d262215 image" src="{{item}}"></image>
+            <view class="_div data-v-3d262215 del-btn">x</view>
+          </view>
+          <view class="_div data-v-3d262215 keep-update-btn" bindtap="handleProxy" wx:if="{{tempFilePaths.length<9&&tempFilePaths.length!==0}}" data-eventid="{{'4'}}" data-comkey="{{$k}}">
+            <label class="_span data-v-3d262215 add-icon">+</label>
+          </view>
+        </view>
+        <view class="_div data-v-3d262215 update-file-btn-box" bindtap="handleProxy" wx:if="{{tempFilePaths.length===0}}" data-eventid="{{'5'}}" data-comkey="{{$k}}">
+          <image class="_img data-v-3d262215 update-file-img" src="https://resource.sa-green.cn/image/jpg/%E4%B8%8A%E4%BC%A0%E7%85%A7%E7%89%87.png"></image>
+          <view class="_div data-v-3d262215 text">上传照片</view>
+        </view>
+        <view class="_div data-v-3d262215 photo-desc-input-box"></view>
+        <view class="_div data-v-3d262215 submit-btn">提交</view>
+      </view>
+    </view>
+    <template data="{{...$root[$kk+'1'], $root}}" is="card$f95cca3a"></template>
+  </view>
+</template>

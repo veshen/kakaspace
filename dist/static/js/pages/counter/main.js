@@ -1,13 +1,127 @@
-global.webpackJsonp([4],{
+global.webpackJsonp([3],{
 
-/***/ 136:
+/***/ 100:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__store__ = __webpack_require__(101);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+// Use Vuex
+
+
+/* harmony default export */ __webpack_exports__["a"] = ({
+  computed: {
+    count: function count() {
+      return __WEBPACK_IMPORTED_MODULE_0__store__["a" /* default */].state.count;
+    }
+  },
+  methods: {
+    increment: function increment() {
+      __WEBPACK_IMPORTED_MODULE_0__store__["a" /* default */].commit('increment');
+    },
+    decrement: function decrement() {
+      __WEBPACK_IMPORTED_MODULE_0__store__["a" /* default */].commit('decrement');
+    }
+  }
+});
+
+/***/ }),
+
+/***/ 101:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vuex__ = __webpack_require__(102);
+// https://vuex.vuejs.org/zh-cn/intro.html
+// make sure to call Vue.use(Vuex) if using a module system
+
+
+
+__WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vuex__["a" /* default */]);
+
+var store = new __WEBPACK_IMPORTED_MODULE_1_vuex__["a" /* default */].Store({
+  state: {
+    count: 0
+  },
+  mutations: {
+    increment: function increment(state) {
+      var obj = state;
+      obj.count += 1;
+    },
+    decrement: function decrement(state) {
+      var obj = state;
+      obj.count -= 1;
+    }
+  }
+});
+
+/* harmony default export */ __webpack_exports__["a"] = (store);
+
+/***/ }),
+
+/***/ 103:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "counter-warp"
+  }, [_c('p', [_vm._v("Vuex counter：" + _vm._s(_vm.count) + "111")]), _vm._v(" "), _c('p', [_c('button', {
+    attrs: {
+      "eventid": '0'
+    },
+    on: {
+      "click": _vm.increment
+    }
+  }, [_vm._v("+")]), _vm._v(" "), _c('button', {
+    attrs: {
+      "eventid": '1'
+    },
+    on: {
+      "click": _vm.decrement
+    }
+  }, [_vm._v("-")])], 1), _vm._v(" "), _c('a', {
+    staticClass: "home",
+    attrs: {
+      "href": "/pages/index/main"
+    }
+  }, [_vm._v("去往首页")])], 1)
+}
+var staticRenderFns = []
+render._withStripped = true
+var esExports = { render: render, staticRenderFns: staticRenderFns }
+/* harmony default export */ __webpack_exports__["a"] = (esExports);
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-hot-reload-api").rerender("data-v-5f018414", esExports)
+  }
+}
+
+/***/ }),
+
+/***/ 97:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__index__ = __webpack_require__(137);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__index__ = __webpack_require__(98);
 
 
 
@@ -16,16 +130,16 @@ app.$mount();
 
 /***/ }),
 
-/***/ 137:
+/***/ 98:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_lib_selector_type_script_index_0_index_vue__ = __webpack_require__(139);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_lib_template_compiler_index_id_data_v_5f018414_hasScoped_false_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_mpvue_loader_lib_selector_type_template_index_0_index_vue__ = __webpack_require__(142);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_lib_selector_type_script_index_0_index_vue__ = __webpack_require__(100);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_lib_template_compiler_index_id_data_v_5f018414_hasScoped_false_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_mpvue_loader_lib_selector_type_template_index_0_index_vue__ = __webpack_require__(103);
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(138)
+  __webpack_require__(99)
 }
 var normalizeComponent = __webpack_require__(0)
 /* script */
@@ -70,126 +184,12 @@ if (false) {(function () {
 
 /***/ }),
 
-/***/ 138:
+/***/ 99:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
-/***/ }),
-
-/***/ 139:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__store__ = __webpack_require__(140);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-// Use Vuex
-
-
-/* harmony default export */ __webpack_exports__["a"] = ({
-  computed: {
-    count: function count() {
-      return __WEBPACK_IMPORTED_MODULE_0__store__["a" /* default */].state.count;
-    }
-  },
-  methods: {
-    increment: function increment() {
-      __WEBPACK_IMPORTED_MODULE_0__store__["a" /* default */].commit('increment');
-    },
-    decrement: function decrement() {
-      __WEBPACK_IMPORTED_MODULE_0__store__["a" /* default */].commit('decrement');
-    }
-  }
-});
-
-/***/ }),
-
-/***/ 140:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vuex__ = __webpack_require__(141);
-// https://vuex.vuejs.org/zh-cn/intro.html
-// make sure to call Vue.use(Vuex) if using a module system
-
-
-
-__WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vuex__["a" /* default */]);
-
-var store = new __WEBPACK_IMPORTED_MODULE_1_vuex__["a" /* default */].Store({
-  state: {
-    count: 0
-  },
-  mutations: {
-    increment: function increment(state) {
-      var obj = state;
-      obj.count += 1;
-    },
-    decrement: function decrement(state) {
-      var obj = state;
-      obj.count -= 1;
-    }
-  }
-});
-
-/* harmony default export */ __webpack_exports__["a"] = (store);
-
-/***/ }),
-
-/***/ 142:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    staticClass: "counter-warp"
-  }, [_c('p', [_vm._v("Vuex counter：" + _vm._s(_vm.count) + "111")]), _vm._v(" "), _c('p', [_c('button', {
-    attrs: {
-      "eventid": '0'
-    },
-    on: {
-      "click": _vm.increment
-    }
-  }, [_vm._v("+")]), _vm._v(" "), _c('button', {
-    attrs: {
-      "eventid": '1'
-    },
-    on: {
-      "click": _vm.decrement
-    }
-  }, [_vm._v("-")])], 1), _vm._v(" "), _c('a', {
-    staticClass: "home",
-    attrs: {
-      "href": "/pages/index/main"
-    }
-  }, [_vm._v("去往首页")])], 1)
-}
-var staticRenderFns = []
-render._withStripped = true
-var esExports = { render: render, staticRenderFns: staticRenderFns }
-/* harmony default export */ __webpack_exports__["a"] = (esExports);
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-     require("vue-hot-reload-api").rerender("data-v-5f018414", esExports)
-  }
-}
-
 /***/ })
 
-},[136]);
+},[97]);
 //# sourceMappingURL=main.js.map

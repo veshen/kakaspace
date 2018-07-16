@@ -1,0 +1,7 @@
+<template name="myalbum$7d78d375">
+  <view class="_div data-v-693dd106 container ilike-container">
+    <view class="_div data-v-693dd106 like-list">
+      <view class="_div data-v-693dd106 like-item" wx:key="{index}" wx:for="{{listData}}" wx:for-index="index" wx:for-item="data" style=" {{(  'background:' +  ('url(' + data.imgUrl + ') no-repeat top center') +  ';' +  'background-size:' +  '100% 100%' +  ';')}}"></view>
+    </view>
+  </view>
+</template>
