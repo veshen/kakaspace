@@ -1,5 +1,8 @@
 @import "/static/css/vendor.wxss";
 
+.find-container.data-v-3d262215 {
+  padding-top: 100rpx;
+}
 .photo-desc-input-box.data-v-3d262215 {
   width: 510rpx;
   height: 170rpx;
@@ -158,6 +161,10 @@
 .find-container .filter-box .active.data-v-3d262215 {
   color: #FFE631;
 }
+.find-container .filter-box .left-btn .icon-down.data-v-3d262215 {
+  width: 16rpx;
+  height: 16rpx;
+}
 .find-container .filter-box .left-btn .line.data-v-3d262215 {
   height: 4rpx;
   width: 70rpx;
@@ -224,7 +231,6 @@
 .find-container .content .list-content .list-item.data-v-3d262215 {
   width: 228rpx;
   height: 228rpx;
-  background: yellow;
   border-radius: 8rpx;
   overflow: hidden;
   margin-bottom: 2rpx;
@@ -241,4 +247,8 @@
 }
 .find-container .content .list-content .list-item .like-box .like.data-v-3d262215 {
   padding-left: 13rpx;
+}
+.find-container .content .list-content .list-item .like-box .icon-white-heart.data-v-3d262215 {
+  width: 32rpx;
+  height: 32rpx;
 }

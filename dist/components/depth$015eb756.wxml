@@ -1,0 +1,30 @@
+<import src="card$ab3908fa" />
+<import src="moreInfo$709909d4" />
+<template name="depth$015eb756">
+  <view class="_div data-v-2aee11bd index depth-container">
+    <view class="_div data-v-2aee11bd index-top-box" style=" {{(  'background:' +  ('url(' + mainPicUrl + ') no-repeat top center') +  ';' +  'background-size:' +  '100% 100%' +  ';')}}">
+      <view class="_div data-v-2aee11bd title">{{title}}</view>
+      <view class="_div data-v-2aee11bd sub-title" wx:key="{index}" wx:for="{{subTitleList}}" wx:for-index="index" wx:for-item="data">{{data}}</view>
+    </view>
+    <view class="_div data-v-2aee11bd content">
+      <view class="_div data-v-2aee11bd list-title">
+        <view class="_div data-v-2aee11bd line-box"></view>
+        <view class="_div data-v-2aee11bd text-box">视频示意</view>
+      </view>
+      <view class="_div data-v-2aee11bd list-content">
+        <view class="_div data-v-2aee11bd list-item" wx:key="{index}" bindtap="handleProxy" data-eventid="{{'0-'+index}}" data-comkey="{{$k}}" wx:for="{{deepList}}" wx:for-index="index" wx:for-item="data">
+          <view class="_div data-v-2aee11bd video-box">
+            <image class="_img data-v-2aee11bd v-box" src="{{data.deepUrl}}" alt></image>
+            <image class="_img data-v-2aee11bd play-icon" src="https://resource.sa-green.cn/image/jpg/kaka/%E8%A7%86%E9%A2%91%E6%92%AD%E6%94%BE.png" alt></image>
+          </view>
+          <view class="_div data-v-2aee11bd video-desc">
+            <view class="_div data-v-2aee11bd title">{{data.deepName}}</view>
+            <view class="_div data-v-2aee11bd sub-title">{{data.deepDesc}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <template data="{{...$root[$kk+'0'], $root}}" is="card$ab3908fa"></template>
+    <template data="{{...$root[$kk+'1'], $root}}" is="moreInfo$709909d4"></template>
+  </view>
+</template>

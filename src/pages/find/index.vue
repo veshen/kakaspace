@@ -2,13 +2,16 @@
     <div class='index find-container'>
         <div class="filter-box">
             <div class="left-btn active" @click="isActive=!isActive">
-                本周最热
-                <Icon class="down" size='10' type='success'/>
+                {{filterText}}
+                <img class="icon-down" src="https://resource.sa-green.cn/image/jpg/kaka/%E4%B8%8B%E6%8B%89%E7%AE%AD%E5%A4%B4.svg" alt=""/>
                 <div class="line"></div>
                 <ul class="check-list" v-bind:class="[isActive ? 'check-list-active' : '', errorClass]">
-                  <li class="check-list-item">本日最热</li>
-                  <li class="check-list-item">本周最热</li>
-                  <li class="check-list-item">本月最热</li>
+                  <li
+                    class="check-list-item"
+                    v-for="(item, index) in filterList"
+                    wx:key={index}
+                    :key="index"
+                  >{{item.label}}</li>
                 </ul>
             </div>
             <div class="center-line"></div>
@@ -23,7 +26,10 @@
                   wx:key={item.id}
                   >
                     <div class="like-box">
-                        {{item.id}} <span class="like"></span>
+                        {{item.id}}
+                        <span class="like">  </span>
+                        <!-- <img class="icon-white-heart" src="https://resource.sa-green.cn/image/jpg/kaka/%E5%BF%83_%E7%99%BD.svg" alt=""> -->
+                        <img class="icon-white-heart" src="https://resource.sa-green.cn/image/jpg/%E5%BF%83_%E9%BB%84.svg" alt="">
                     </div>
                 </div>
             </div>
@@ -78,6 +84,18 @@ export default {
       isActive : false,
       updataPhoto : false,
       tempFilePaths : [
+      ],
+      filterText : '本周最热',
+      filterList : [
+          {
+              label : '本日最热'
+          },
+          {
+              label : '本周最热'
+          },
+          {
+              label : '本月最热'
+          },
       ]
     }
   },
@@ -120,6 +138,7 @@ export default {
 
 <style scoped>
 .find-container {
+    padding-top: 100rpx;
 }
 
 .photo-desc-input-box{
@@ -281,8 +300,9 @@ export default {
 .find-container .filter-box .active {
   color: #FFE631;
 }
-.find-container .filter-box .left-btn{
-
+.find-container .filter-box .left-btn .icon-down{
+    width: 16rpx;
+    height: 16rpx;
 }
 .find-container .filter-box .left-btn .line {
   height: 4rpx;
@@ -361,7 +381,6 @@ export default {
 .find-container .content .list-content .list-item {
   width: 228rpx;
   height: 228rpx;
-  background: yellow;
   border-radius: 8rpx;
   overflow: hidden;
   margin-bottom: 2rpx;
@@ -377,7 +396,12 @@ export default {
   display: flex;
   align-items: center;
 }
+
 .find-container .content .list-content .list-item .like-box .like {
   padding-left: 13rpx;
+}
+.find-container .content .list-content .list-item .like-box .icon-white-heart{
+    width: 32rpx;
+    height: 32rpx;
 }
 </style>

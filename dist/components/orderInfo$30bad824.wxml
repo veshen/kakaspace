@@ -1,4 +1,4 @@
-<template name="orderInfo$e4d8a964">
+<template name="orderInfo$30bad824">
   <view class="_div data-v-027b0d56 container order-info-container">
     <view class="_div data-v-027b0d56 main">
       <view class="_div data-v-027b0d56 line-box"></view>
@@ -33,10 +33,6 @@
       <view class="_div data-v-027b0d56 no"> 票号
         <label class="_span data-v-027b0d56 number">{{orderInfo.voucherNo}}</label>
       </view>
-      <view class="_div data-v-027b0d56 qrcode-box">
-        <canvas class="_canvas data-v-027b0d56 canvas image" canvas-id="canvas" bindlongtap="save"></canvas>
-      </view>
-      <view class="_div data-v-027b0d56 tips"> · 请到店后出示并验证入场 · </view>
     </view>
   </view>
 </template>

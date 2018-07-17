@@ -14,7 +14,7 @@ export default {
       'pages/my/main',
       'pages/themeinfo/main',
       'pages/videoinfo/main',
-      'pages/find/main',
+      '^pages/find/main',
       'pages/photoinfo/main',
       'pages/photobrowse/main',
       'pages/depth/main',
@@ -25,7 +25,7 @@ export default {
       'pages/about/main',
       'pages/onlineSubscribe/main',
       'pages/orderInfo/main',
-      '^pages/orderPay/main',
+      'pages/orderPay/main',
       ],
     'window': {
       backgroundTextStyle: 'light',

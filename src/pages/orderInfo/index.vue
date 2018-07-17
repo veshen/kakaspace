@@ -58,12 +58,13 @@
           <div class="no">
               票号 <span class="number">{{orderInfo.voucherNo}}</span>
           </div>
-          <!-- <div class="qrcode-box">
-              <img class="image" v-bind:src="imgUrl" alt="">
+          <div class="qrcode-box">
+              <!-- <img class="image" v-bind:src="imgUrl" alt=""> -->
+              <canvas class='canvas image' canvas-id='canvas' bindlongtap='save'></canvas>
           </div>
           <div class="tips">
               · 请到店后出示并验证入场 ·
-          </div> -->
+          </div>
       </div>
   </div>
 </template>
@@ -71,6 +72,7 @@
 <script>
 // import QRCode from 'qrcode';
 import { get } from './../../utils/index'
+var QRCode = require('./../../utils/weapp-qrcode.js')
 export default {
   data () {
     return {
@@ -94,9 +96,19 @@ export default {
       get('/order/orderDetail',{token,orderId}).then((res)=>{
           console.log(res);
           this.orderInfo = res;
+          var qrcode = new QRCode('canvas', {
+              // usingIn: this,
+              text: "http://www.sa-green.cn",
+              width: 150,
+              height: 150,
+              colorDark: "#000000",
+              colorLight: "#ffffff",
+              correctLevel: QRCode.CorrectLevel.H,
+          });
       }).catch((e)=>{
           console.log(e);
       })
+      
   },
 }
 </script>

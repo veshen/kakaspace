@@ -1,0 +1,26 @@
+<template name="bindPhoneNumber$6dbd4292">
+  <view class="_div data-v-3db6f362 mark">
+    <view class="_div data-v-3db6f362 main">
+      <view class="_div data-v-3db6f362 content">
+        <view class="_div data-v-3db6f362 tips"> 验证手机号 </view>
+        <view class="_div data-v-3db6f362 line-box">
+          <view class="_div data-v-3db6f362 label"> 手机号 </view>
+          <view class="_div data-v-3db6f362 in-box">
+            <input class="_input data-v-3db6f362 input-h" type="number" name value />
+          </view>
+        </view>
+        <view class="_div data-v-3db6f362 line-box">
+          <view class="_div data-v-3db6f362 label"> 验证码 </view>
+          <view class="_div data-v-3db6f362 in-box">
+            <input class="_input data-v-3db6f362 input-f input-h" type="number" name value />
+          </view>
+          <view class="_div data-v-3db6f362 get-code-btn"> 获取验证码 </view>
+        </view>
+      </view>
+      <view class="_div data-v-3db6f362 button-box">
+        <view class="_div data-v-3db6f362 cancel-box btn-box"> 取消 </view>
+        <view class="_div data-v-3db6f362 cofrom-box btn-box"> 确认 </view>
+      </view>
+    </view>
+  </view>
+</template>

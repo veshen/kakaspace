@@ -155,53 +155,67 @@ if (false) {(function () {
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 
 
 /* harmony default export */ __webpack_exports__["a"] = ({
-  data: function data() {
-    return {
-      motto: 'find',
-      userInfo: {},
-      arrData: [{ id: 1, title: 'Hello World', content: 'Welcome to learning Taro!' }, { id: 2, title: 'Installation', content: 'You can install Taro from npm.' }, { id: 3, title: 'Hello World', content: 'Welcome to learning Taro!' }],
-      isActive: false,
-      updataPhoto: false,
-      tempFilePaths: []
-    };
-  },
-
-
-  components: {
-    card: __WEBPACK_IMPORTED_MODULE_0__components_card__["a" /* default */]
-  },
-
-  methods: {
-    toPage: function toPage(url) {
-      wx.navigateTo({ url: url });
+    data: function data() {
+        return {
+            motto: 'find',
+            userInfo: {},
+            arrData: [{ id: 1, title: 'Hello World', content: 'Welcome to learning Taro!' }, { id: 2, title: 'Installation', content: 'You can install Taro from npm.' }, { id: 3, title: 'Hello World', content: 'Welcome to learning Taro!' }],
+            isActive: false,
+            updataPhoto: false,
+            tempFilePaths: [],
+            filterText: '本周最热',
+            filterList: [{
+                label: '本日最热'
+            }, {
+                label: '本周最热'
+            }, {
+                label: '本月最热'
+            }]
+        };
     },
-    listenerButtonChooseImage: function listenerButtonChooseImage() {
-      var that = this;
-      wx.chooseImage({
-        count: 9,
-        //original原图，compressed压缩图
-        sizeType: ['original'],
-        //album来源相册 camera相机
-        sourceType: ['album', 'camera'],
-        //成功时会回调
-        success: function success(res) {
-          //重绘视图
-          console.log(res);
-          that.tempFilePaths = that.tempFilePaths.concat(res.tempFilePaths);
 
-          // that.setData({
-          //     source: res.tempFilePaths
-          // })
+
+    components: {
+        card: __WEBPACK_IMPORTED_MODULE_0__components_card__["a" /* default */]
+    },
+
+    methods: {
+        toPage: function toPage(url) {
+            wx.navigateTo({ url: url });
+        },
+        listenerButtonChooseImage: function listenerButtonChooseImage() {
+            var that = this;
+            wx.chooseImage({
+                count: 9,
+                //original原图，compressed压缩图
+                sizeType: ['original'],
+                //album来源相册 camera相机
+                sourceType: ['album', 'camera'],
+                //成功时会回调
+                success: function success(res) {
+                    //重绘视图
+                    console.log(res);
+                    that.tempFilePaths = that.tempFilePaths.concat(res.tempFilePaths);
+
+                    // that.setData({
+                    //     source: res.tempFilePaths
+                    // })
+                }
+            });
         }
-      });
-    }
-  },
+    },
 
-  created: function created() {}
+    created: function created() {}
 });
 
 /***/ }),
@@ -225,25 +239,26 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
         _vm.isActive = !_vm.isActive
       }
     }
-  }, [_vm._v("\n            本周最热\n            "), _c('Icon', {
-    staticClass: "down",
+  }, [_vm._v("\n            " + _vm._s(_vm.filterText) + "\n            "), _c('img', {
+    staticClass: "icon-down",
     attrs: {
-      "size": "10",
-      "type": "success",
-      "mpcomid": '0'
+      "src": "https://resource.sa-green.cn/image/jpg/kaka/%E4%B8%8B%E6%8B%89%E7%AE%AD%E5%A4%B4.svg",
+      "alt": ""
     }
   }), _vm._v(" "), _c('div', {
     staticClass: "line"
   }), _vm._v(" "), _c('ul', {
     staticClass: "check-list",
     class: [_vm.isActive ? 'check-list-active' : '', _vm.errorClass]
-  }, [_c('li', {
-    staticClass: "check-list-item"
-  }, [_vm._v("本日最热")]), _vm._v(" "), _c('li', {
-    staticClass: "check-list-item"
-  }, [_vm._v("本周最热")]), _vm._v(" "), _c('li', {
-    staticClass: "check-list-item"
-  }, [_vm._v("本月最热")])], 1)], 1), _vm._v(" "), _c('div', {
+  }, _vm._l((_vm.filterList), function(item, index) {
+    return _c('li', {
+      key: index,
+      staticClass: "check-list-item",
+      attrs: {
+        "wx:key": "{index}"
+      }
+    }, [_vm._v(_vm._s(item.label))])
+  }))], 1), _vm._v(" "), _c('div', {
     staticClass: "center-line"
   }), _vm._v(" "), _c('div', {
     staticClass: "right-btn"
@@ -265,8 +280,14 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       }
     }, [_c('div', {
       staticClass: "like-box"
-    }, [_vm._v("\n                    " + _vm._s(item.id) + " "), _c('span', {
+    }, [_vm._v("\n                    " + _vm._s(item.id) + "\n                    "), _c('span', {
       staticClass: "like"
+    }), _vm._v(" "), _c('img', {
+      staticClass: "icon-white-heart",
+      attrs: {
+        "src": "https://resource.sa-green.cn/image/jpg/%E5%BF%83_%E9%BB%84.svg",
+        "alt": ""
+      }
     })])])
   }))]), _vm._v(" "), _c('div', {
     staticClass: "add-photo-btn",
@@ -356,7 +377,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
   }, [_vm._v("提交")])])]), _vm._v(" "), _c('card', {
     attrs: {
       "text": _vm.motto,
-      "mpcomid": '1'
+      "mpcomid": '0'
     }
   })], 1)
 }
