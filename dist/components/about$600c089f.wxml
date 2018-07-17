@@ -1,0 +1,33 @@
+<import src="moreInfo$709909d4" />
+<template name="about$600c089f">
+  <view class="_div data-v-e8ad13f2 index about-container">
+    <view class="_div data-v-e8ad13f2 header">
+      <view class="_div data-v-e8ad13f2 content">
+        <view class="_div data-v-e8ad13f2 img-box">
+          <image class="_img data-v-e8ad13f2 image" src="{{mainPic}}"></image>
+        </view>
+        <view class="_div data-v-e8ad13f2 img-desc">
+          <view class="_h3 data-v-e8ad13f2 title">KIKYO SPACE</view>
+          <view class="_div data-v-e8ad13f2 desc">
+            <view class="_div data-v-e8ad13f2 left-box">艺术空间</view>
+            <view class="_div data-v-e8ad13f2 right-box">{{priceDes}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="_div data-v-e8ad13f2 main">
+      <view class="_div data-v-e8ad13f2 about-space">
+        <view class="_div data-v-e8ad13f2 title">关于空间</view>
+        <view class="_div data-v-e8ad13f2 desc">{{desc}}</view>
+      </view>
+      <view class="_div data-v-e8ad13f2 address-box">
+        <view class="_div data-v-e8ad13f2 title">地址</view>
+        <view class="_div data-v-e8ad13f2 desc">{{addr}}</view>
+        <view class="_div data-v-e8ad13f2 map-box">
+          <map id="map" longitude="{{lng}}" latitude="{{lat}}" markers="{{markers}}" scale="14" bindcontroltap="controltap" bindregionchange="regionchange" show-location style="width: 670rpx; height: 440rpx;" class="_map data-v-e8ad13f2"></map>
+        </view>
+      </view>
+    </view>
+    <template data="{{...$root[$kk+'0'], $root}}" is="moreInfo$709909d4"></template>
+  </view>
+</template>

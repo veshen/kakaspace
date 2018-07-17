@@ -1,0 +1,8 @@
+<template name="moreInfo$709909d4">
+  <view class="_div data-v-fca9a304 more-info {{[isIphoneX ? 'isIphoneX' : '']}}">
+    <view class="_div data-v-fca9a304">
+      <image class="_img data-v-fca9a304 images" src="http://static.sa-green.cn/image/jpg/kaka/KIKYO%20SPACE%20%C2%B7%20SHANGH.png" alt></image>
+    </view>
+    <view class="_p data-v-fca9a304">更多场馆敬请期待</view>
+  </view>
+</template>

@@ -1,0 +1,28 @@
+<template name="myorder$de01bb98">
+  <view class="_div data-v-4af6d59c container my-order-container">
+    <view class="_div data-v-4af6d59c title-box">
+      <view class="_div data-v-4af6d59c text"> 选择订单 </view>
+    </view>
+    <view class="_div data-v-4af6d59c order-list-box">
+      <view class="_div data-v-4af6d59c order-item" wx:key="{index}" bindtap="handleProxy" data-eventid="{{'0-'+index}}" data-comkey="{{$k}}" wx:for="{{orderList}}" wx:for-index="index" wx:for-item="data">
+        <view class="_div data-v-4af6d59c line-left"></view>
+        <view class="_div data-v-4af6d59c img-box">
+          <image class="_img data-v-4af6d59c image" src="https://resource.sa-green.cn/kk/20180712/logologo.jpeg" alt></image>
+        </view>
+        <view class="_div data-v-4af6d59c order-info-box">
+          <view class="_div data-v-4af6d59c order-info-top sub-content">
+            <view class="_div data-v-4af6d59c order-no"> 订单号：{{data.orderId}} </view>
+            <view class="_div data-v-4af6d59c order-status"> {{data.orderStatus}} </view>
+          </view>
+          <view class="_div data-v-4af6d59c order-info-center sub-content">
+            <view class="_div data-v-4af6d59c shop-time"> 到店时间：{{data.bookingDay}} </view>
+          </view>
+          <view class="_div data-v-4af6d59c order-info-bottom sub-content">
+            <view class="_div data-v-4af6d59c head-count"> 人数：{{data.peerNumber}} </view>
+            <view class="_div data-v-4af6d59c order-price"> ￥{{data.payAmount}} </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</template>

@@ -1,0 +1,38 @@
+<template name="orderInfo$30bad824">
+  <view class="_div data-v-027b0d56 container order-info-container">
+    <view class="_div data-v-027b0d56 main">
+      <view class="_div data-v-027b0d56 line-box"></view>
+      <view class="_div data-v-027b0d56 order-info">
+        <view class="_div data-v-027b0d56 order-info-line">
+          <view class="_div data-v-027b0d56 label"> 订单号 </view>
+          <view class="_div data-v-027b0d56 content"> {{orderInfo.orderId}} </view>
+        </view>
+        <view class="_div data-v-027b0d56 order-info-line">
+          <view class="_div data-v-027b0d56 label"> 下单时间 </view>
+          <view class="_div data-v-027b0d56 content"> {{orderInfo.createOrderTime}} </view>
+        </view>
+        <view class="_div data-v-027b0d56 order-info-line">
+          <view class="_div data-v-027b0d56 label"> 人数 </view>
+          <view class="_div data-v-027b0d56 content"> {{orderInfo.peerNumber}} </view>
+        </view>
+        <view class="_div data-v-027b0d56 order-info-line">
+          <view class="_div data-v-027b0d56 label"> 到店时间 </view>
+          <view class="_div data-v-027b0d56 content"> {{orderInfo.bookDay}} </view>
+        </view>
+        <view class="_div data-v-027b0d56 order-info-line">
+          <view class="_div data-v-027b0d56 label"> 订单状态 </view>
+          <view class="_div data-v-027b0d56 content"> {{orderInfo.orderStatusDesc}} </view>
+        </view>
+        <view class="_div data-v-027b0d56 order-info-line">
+          <view class="_div data-v-027b0d56 label"> 支付金额 </view>
+          <view class="_div data-v-027b0d56 content"> ￥
+            <label class="_span data-v-027b0d56 price">{{orderInfo.payAmount}}</label>
+          </view>
+        </view>
+      </view>
+      <view class="_div data-v-027b0d56 no"> 票号
+        <label class="_span data-v-027b0d56 number">{{orderInfo.voucherNo}}</label>
+      </view>
+    </view>
+  </view>
+</template>

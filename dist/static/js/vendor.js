@@ -8598,6 +8598,43 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     },
     on: {
       "click": function($event) {
+        _vm.toPage('../find/main')
+      }
+    }
+  }, [_c('img', {
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: (_vm.text !== 'find'),
+      expression: "text!=='find'"
+    }],
+    staticClass: "nav-icon",
+    attrs: {
+      "src": "http://static.sa-green.cn/image/jpg/kaka/tab_%E5%8F%91%E7%8E%B0_off.svg",
+      "alt": ""
+    }
+  }), _vm._v(" "), _c('img', {
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: (_vm.text === 'find'),
+      expression: "text==='find'"
+    }],
+    staticClass: "nav-icon",
+    attrs: {
+      "src": "http://static.sa-green.cn/image/jpg/kaka/tab_%E5%8F%91%E7%8E%B0_on.svg",
+      "alt": ""
+    }
+  }), _vm._v(" "), _c('div', {
+    staticClass: "nav-text",
+    class: [_vm.text === 'find' ? 'active' : '']
+  }, [_vm._v("发现")])]), _vm._v(" "), _c('div', {
+    staticClass: "nav-item",
+    attrs: {
+      "eventid": '3'
+    },
+    on: {
+      "click": function($event) {
         _vm.toPage('../my/main')
       }
     }

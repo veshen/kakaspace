@@ -1,1 +1,1 @@
-<import src="../../components/orderPay$f0075fc4" /><template is="orderPay$f0075fc4" data="{{ ...$root['0'], $root }}"/>
+<import src="../../components/orderPay$721dd37e" /><template is="orderPay$721dd37e" data="{{ ...$root['0'], $root }}"/>

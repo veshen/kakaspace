@@ -1,0 +1,5 @@
+<template name="subscribe$3b92f5e7">
+  <view class="_div data-v-7edca102 subscribe-btn" bindtap="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}">
+    <image class="_img data-v-7edca102 image" src="http://static.sa-green.cn/image/jpg/kaka/%E9%A2%84%E7%BA%A6.png" alt></image>
+  </view>
+</template>
