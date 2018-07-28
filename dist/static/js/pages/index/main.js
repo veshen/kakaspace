@@ -123,6 +123,8 @@ if (false) {(function () {
 //
 //
 //
+//
+//
 
 
 
@@ -135,7 +137,8 @@ if (false) {(function () {
       mainPic: '',
       mainDesc: '',
       userInfo: {},
-      listData: []
+      listData: [],
+      mainDescList: []
     };
   },
 
@@ -188,21 +191,22 @@ if (false) {(function () {
                 _this2.mainPic = pageData.mainPicUrl;
                 _this2.mainDesc = pageData.mainDesc;
                 _this2.listData = pageData.subjectInfoOverViewBeanList;
-                _context.next = 12;
+                _this2.mainDescList = pageData.mainDescList || [];
+                _context.next = 13;
                 break;
 
-              case 9:
-                _context.prev = 9;
+              case 10:
+                _context.prev = 10;
                 _context.t0 = _context['catch'](0);
 
                 console.log(_context.t0);
 
-              case 12:
+              case 13:
               case 'end':
                 return _context.stop();
             }
           }
-        }, _callee, _this2, [[0, 9]]);
+        }, _callee, _this2, [[0, 10]]);
       }))();
     },
     clickHandle: function clickHandle(msg, ev) {
@@ -364,11 +368,16 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticClass: "title"
   }, [_vm._v("KIKYO SPACE")]), _vm._v(" "), _c('div', {
     staticClass: "city-name"
-  }, [_vm._v("上海")]), _vm._v(" "), _c('div', {
-    staticClass: "description"
-  }, [_vm._v(_vm._s(_vm.mainDesc))]), _vm._v(" "), _c('div', {
+  }, [_vm._v("上海")]), _vm._v(" "), _vm._l((_vm.mainDescList), function(data, index) {
+    return _c('div', {
+      staticClass: "description",
+      attrs: {
+        "wx:key": "{index}"
+      }
+    }, [_vm._v("\n        " + _vm._s(data))])
+  }), _vm._v(" "), _c('div', {
     staticClass: "about-button"
-  }, [_vm._v("关于KIKYO")])]), _vm._v(" "), _c('div', {
+  }, [_vm._v("关于KIKYO")])], 2), _vm._v(" "), _c('div', {
     staticClass: "content"
   }, [_vm._m(0), _vm._v(" "), _c('div', {
     staticClass: "list-content"

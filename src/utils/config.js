@@ -1,6 +1,7 @@
 // 配置项
 
 const host = 'https://kk.sa-green.cn'
+// const host = 'https://kt.sa-green.cn'
 
 const config = {
   host,

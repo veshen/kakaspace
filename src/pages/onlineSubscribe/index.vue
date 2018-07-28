@@ -4,23 +4,8 @@
     <div class="title">
       购票须知：
     </div>
-    <div class="desc">
-      1. 票价：99元/人
-    </div>
-    <div class="desc">
-      2. 场馆开放时间：10:00-21:00
-    </div>
-    <div class="desc">
-      3. 场馆凭预约电子票入场，出馆后需再次购票才能入馆
-    </div>
-    <div class="desc">
-      4. 门票一经售出，概不退款
-    </div>
-    <div class="desc">
-      5. 请勿携带宠物及危险物品，尊重公共秩序
-    </div>
-    <div class="desc">
-      6. 图片仅供参考
+    <div class="desc" v-for="(data, index) in noticeList" wx:key={index} >
+      {{data}}
     </div>
   </div>
   <div class="main">
@@ -70,7 +55,7 @@
   </div>
   <div class="bottom-bar">
     <div class="left-price" v-show="needPayAmountOffLine!==0">
-        需到店支付   ¥ <span class="price-box">{{needPayAmountOffLine}}</span>
+        需支付   ¥ <span class="price-box">{{needPayAmountOffLine}}</span>
     </div>
     <div v-show="needPayAmountOffLine===0">
 
@@ -101,7 +86,8 @@ export default {
         nickName: ''
       },
       userMobile: '',
-      needPayAmountOffLine : 0
+      needPayAmountOffLine : 0,
+      noticeList : []
     }
   },
 
@@ -146,10 +132,32 @@ export default {
                 const mobile = this.userMobile;
                 const token = wx.getStorageSync('token')
                 const res = await get('/order/create',{bookingDay, peerNumber, mobile, token});
-                const url = `../orderInfo/main?orderId=${res.orderId}`;
-                wx.navigateTo({
-                  url
-                })
+                console.log(res);
+                if (res.needPay) {
+                    const {nonceStr, paySign, prePay_package, signType, timestamp} = res.prePayResultDto;
+                    wx.requestPayment({
+                        timeStamp:timestamp,
+                        nonceStr,
+                        package: prePay_package,
+                        signType,
+                        paySign,
+                        success : ()=>{
+                            console.log('成功');
+                        },
+                        fail :()=>{
+                            console.log('失败');
+                        },
+                        complete : ()=>{
+                            console.log('调用结束');
+                            const url = `../orderInfo/main?orderId=${res.orderId}`;
+                            wx.navigateTo({
+                              url
+                            })
+                        }
+                    })
+                }
+
+
             }
         } catch (e) {
             console.log(e);
@@ -167,7 +175,7 @@ export default {
 
             })
             console.log(res);
-            this.needPayAmountOffLine = res.needPayAmountOffLine;
+            this.needPayAmountOffLine = res.needPayAmountOnLine;
         } catch (e) {
             console.log(e);
         }
@@ -189,11 +197,20 @@ export default {
     // const userMobile = wx.getStorageSync('userMobile') || false;
     // this.userMobile = userMobile;
   },
-  created() {
-    const dateFormat = 'YYYY/MM/DD';
-    var myDate = new Date(); //获取系统当前时间
-    const currentDate = myDate.getFullYear() + '-' + (myDate.getMonth() + 1) + '-' + myDate.getDate();
-    this.currentDate = currentDate;
+  async created() {
+    try {
+        const dateFormat = 'YYYY/MM/DD';
+        var myDate = new Date(); //获取系统当前时间
+        const currentDate = myDate.getFullYear() + '-' + (myDate.getMonth() + 1) + '-' + myDate.getDate();
+        this.currentDate = currentDate;
+        const res = await get('/order/getOrderNotice',{})
+        this.noticeList = res.noticeList || [];
+    } catch (e) {
+
+    } finally {
+
+    }
+
   }
 }
 </script>

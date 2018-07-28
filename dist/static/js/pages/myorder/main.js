@@ -206,7 +206,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       staticClass: "order-no"
     }, [_vm._v("\n                    订单号：" + _vm._s(data.orderId) + "\n                ")]), _vm._v(" "), _c('div', {
       staticClass: "order-status"
-    }, [_vm._v("\n                    " + _vm._s(data.orderStatus) + "\n                ")])]), _vm._v(" "), _c('div', {
+    }, [_vm._v("\n                    " + _vm._s(data.orderStatusStr) + "\n                ")])]), _vm._v(" "), _c('div', {
       staticClass: "order-info-center sub-content"
     }, [_c('div', {
       staticClass: "shop-time"

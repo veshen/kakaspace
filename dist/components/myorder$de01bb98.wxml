@@ -12,7 +12,7 @@
         <view class="_div data-v-4af6d59c order-info-box">
           <view class="_div data-v-4af6d59c order-info-top sub-content">
             <view class="_div data-v-4af6d59c order-no"> 订单号：{{data.orderId}} </view>
-            <view class="_div data-v-4af6d59c order-status"> {{data.orderStatus}} </view>
+            <view class="_div data-v-4af6d59c order-status"> {{data.orderStatusStr}} </view>
           </view>
           <view class="_div data-v-4af6d59c order-info-center sub-content">
             <view class="_div data-v-4af6d59c shop-time"> 到店时间：{{data.bookingDay}} </view>

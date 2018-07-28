@@ -3,7 +3,9 @@
       <div class="index-top-box" v-bind:style="{background: 'url('+mainPic+') no-repeat top center',backgroundSize:'100% 100%'}" @click="toPage('../about/main')">
           <div class="title">KIKYO SPACE</div>
           <div class="city-name">上海</div>
-          <div class="description">{{mainDesc}}</div>
+          <div class="description" v-for="(data, index) in mainDescList"
+          wx:key={index}>
+          {{data}}</div>
           <div class="about-button">关于KIKYO</div>
       </div>
       <div class="content">
@@ -42,7 +44,8 @@ export default {
       mainPic:'',
       mainDesc:'',
       userInfo: {},
-      listData : []
+      listData : [],
+      mainDescList : []
     }
   },
 
@@ -79,6 +82,7 @@ export default {
             this.mainPic = pageData.mainPicUrl;
             this.mainDesc = pageData.mainDesc;
             this.listData = pageData.subjectInfoOverViewBeanList;
+            this.mainDescList = pageData.mainDescList || [];
         }catch(e){
             console.log(e);
         }

@@ -5,6 +5,53 @@
   padding-top: 70rpx;
   padding-bottom: 136rpx;
 }
+.main-2 .timer-down-box.data-v-027b0d56 {
+  font-size: 36rpx;
+  color: #FFE631;
+  letter-spacing: 0;
+  text-align: center;
+  line-height: 36rpx;
+  padding: 80rpx 0 109rpx;
+}
+.main-2 .order-info.data-v-027b0d56 {
+  margin-bottom: 176rpx;
+}
+.main-2 .order-info .order-info-line .label.data-v-027b0d56 {
+  font-size: 30rpx;
+  color: #7A7B84;
+  letter-spacing: 0;
+  line-height: 30rpx;
+}
+.main-2 .order-info .order-info-line .content.data-v-027b0d56 {
+  font-size: 30rpx;
+  color: #FFFFFF;
+  letter-spacing: 0;
+  line-height: 30rpx;
+}
+.main-2 .pay-amount.data-v-027b0d56 {
+  font-size: 30rpx;
+  color: #FFE631;
+  letter-spacing: 0;
+  text-align: center;
+  line-height: 36rpx;
+  text-align: right;
+  padding-right: 40rpx;
+}
+.pay-btn.data-v-027b0d56 {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 98rpx;
+  background: #FFE631;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 28rpx;
+  color: #100F0F;
+  letter-spacing: 0;
+  text-align: center;
+}
 .main.data-v-027b0d56 {
   width: 610rpx;
   margin: 0 auto;
@@ -73,13 +120,16 @@
   height: 300rpx;
   margin: 0 auto 57rpx;
 }
-.qrcode-box .image.data-v-027b0d56 {
-  width: 100%;
-  height: 100%;
-}
 .tips.data-v-027b0d56 {
   font-size: 24rpx;
   color: #B6B7BE;
   letter-spacing: 0;
   text-align: center;
+}
+.main-2.data-v-027b0d56 {
+  width: 650rpx;
+  height: 814rpx;
+  background: url('https://resource.sa-green.cn/image/jpg/%E8%AE%A2%E5%8D%95%E8%83%8C%E6%99%AF.png') no-repeat 0 0;
+  background-size: 100%;
+  margin: 0 auto;
 }

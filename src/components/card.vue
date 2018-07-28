@@ -10,11 +10,11 @@
            <img class="nav-icon" v-show="text==='depth'" src="http://static.sa-green.cn/image/jpg/kaka/tab_%E6%B7%B1%E5%BA%A6_on.svg" alt="">
          <div class="nav-text" v-bind:class="[text==='depth' ? 'active' : '']">深度</div>
        </div>
-       <div class="nav-item" @click="toPage('../find/main')">
+       <!-- <div class="nav-item" @click="toPage('../find/main')">
            <img class="nav-icon" v-show="text!=='find'" src="http://static.sa-green.cn/image/jpg/kaka/tab_%E5%8F%91%E7%8E%B0_off.svg" alt="">
            <img class="nav-icon" v-show="text==='find'" src="http://static.sa-green.cn/image/jpg/kaka/tab_%E5%8F%91%E7%8E%B0_on.svg" alt="">
          <div class="nav-text" v-bind:class="[text==='find' ? 'active' : '']">发现</div>
-       </div>
+       </div> -->
        <div class="nav-item" @click="toPage('../my/main')">
            <img class="nav-icon" v-show="text!=='my'" src="http://static.sa-green.cn/image/jpg/kaka/tab_%E6%88%91%E7%9A%84_off.svg" alt="">
            <img class="nav-icon" v-show="text==='my'" src="http://static.sa-green.cn/image/jpg/kaka/tab_%E6%88%91%E7%9A%84_on.svg" alt="">

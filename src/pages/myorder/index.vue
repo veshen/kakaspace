@@ -18,7 +18,7 @@
                     订单号：{{data.orderId}}
                 </div>
                 <div class="order-status">
-                    {{data.orderStatus}}
+                    {{data.orderStatusStr}}
                 </div>
             </div>
             <div class="order-info-center sub-content">

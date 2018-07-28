@@ -11,11 +11,6 @@
       <view class="_div data-v-09cd22eb nav-text {{[text === 'depth' ? 'active' : '']}}">深度</view>
     </view>
     <view class="_div data-v-09cd22eb nav-item" bindtap="handleProxy" data-eventid="{{'2'}}" data-comkey="{{$k}}">
-      <image class="_img data-v-09cd22eb nav-icon" hidden="{{!(text!=='find')}}" src="http://static.sa-green.cn/image/jpg/kaka/tab_%E5%8F%91%E7%8E%B0_off.svg" alt></image>
-      <image class="_img data-v-09cd22eb nav-icon" hidden="{{!(text==='find')}}" src="http://static.sa-green.cn/image/jpg/kaka/tab_%E5%8F%91%E7%8E%B0_on.svg" alt></image>
-      <view class="_div data-v-09cd22eb nav-text {{[text === 'find' ? 'active' : '']}}">发现</view>
-    </view>
-    <view class="_div data-v-09cd22eb nav-item" bindtap="handleProxy" data-eventid="{{'3'}}" data-comkey="{{$k}}">
       <image class="_img data-v-09cd22eb nav-icon" hidden="{{!(text!=='my')}}" src="http://static.sa-green.cn/image/jpg/kaka/tab_%E6%88%91%E7%9A%84_off.svg" alt></image>
       <image class="_img data-v-09cd22eb nav-icon" hidden="{{!(text==='my')}}" src="http://static.sa-green.cn/image/jpg/kaka/tab_%E6%88%91%E7%9A%84_on.svg" alt></image>
       <view class="_div data-v-09cd22eb nav-text {{[text === 'my' ? 'active' : '']}}">我的</view>

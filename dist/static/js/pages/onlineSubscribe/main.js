@@ -165,21 +165,6 @@ if (false) {(function () {
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -194,7 +179,8 @@ if (false) {(function () {
         nickName: ''
       },
       userMobile: '',
-      needPayAmountOffLine: 0
+      needPayAmountOffLine: 0,
+      noticeList: []
     };
   },
 
@@ -236,7 +222,8 @@ if (false) {(function () {
       var _this = this;
 
       return __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee() {
-        var bookingDay, peerNumber, mobile, token, res, url;
+        var bookingDay, peerNumber, mobile, token, res, _res$prePayResultDto, nonceStr, paySign, prePay_package, signType, timestamp;
+
         return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
@@ -257,11 +244,32 @@ if (false) {(function () {
 
               case 8:
                 res = _context.sent;
-                url = '../orderInfo/main?orderId=' + res.orderId;
 
-                wx.navigateTo({
-                  url: url
-                });
+                console.log(res);
+                if (res.needPay) {
+                  _res$prePayResultDto = res.prePayResultDto, nonceStr = _res$prePayResultDto.nonceStr, paySign = _res$prePayResultDto.paySign, prePay_package = _res$prePayResultDto.prePay_package, signType = _res$prePayResultDto.signType, timestamp = _res$prePayResultDto.timestamp;
+
+                  wx.requestPayment({
+                    timeStamp: timestamp,
+                    nonceStr: nonceStr,
+                    package: prePay_package,
+                    signType: signType,
+                    paySign: paySign,
+                    success: function success() {
+                      console.log('成功');
+                    },
+                    fail: function fail() {
+                      console.log('失败');
+                    },
+                    complete: function complete() {
+                      console.log('调用结束');
+                      var url = '../orderInfo/main?orderId=' + res.orderId;
+                      wx.navigateTo({
+                        url: url
+                      });
+                    }
+                  });
+                }
 
               case 11:
                 _context.next = 16;
@@ -307,7 +315,7 @@ if (false) {(function () {
                 res = _context2.sent;
 
                 console.log(res);
-                _this2.needPayAmountOffLine = res.needPayAmountOffLine;
+                _this2.needPayAmountOffLine = res.needPayAmountOnLine;
                 _context2.next = 13;
                 break;
 
@@ -343,10 +351,46 @@ if (false) {(function () {
     // this.userMobile = userMobile;
   },
   created: function created() {
-    var dateFormat = 'YYYY/MM/DD';
-    var myDate = new Date(); //获取系统当前时间
-    var currentDate = myDate.getFullYear() + '-' + (myDate.getMonth() + 1) + '-' + myDate.getDate();
-    this.currentDate = currentDate;
+    var _this3 = this;
+
+    return __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee3() {
+      var dateFormat, myDate, currentDate, res;
+      return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee3$(_context3) {
+        while (1) {
+          switch (_context3.prev = _context3.next) {
+            case 0:
+              _context3.prev = 0;
+              dateFormat = 'YYYY/MM/DD';
+              myDate = new Date(); //获取系统当前时间
+
+              currentDate = myDate.getFullYear() + '-' + (myDate.getMonth() + 1) + '-' + myDate.getDate();
+
+              _this3.currentDate = currentDate;
+              _context3.next = 7;
+              return Object(__WEBPACK_IMPORTED_MODULE_3__utils_index__["b" /* get */])('/order/getOrderNotice', {});
+
+            case 7:
+              res = _context3.sent;
+
+              _this3.noticeList = res.noticeList || [];
+              _context3.next = 13;
+              break;
+
+            case 11:
+              _context3.prev = 11;
+              _context3.t0 = _context3['catch'](0);
+
+            case 13:
+              _context3.prev = 13;
+              return _context3.finish(13);
+
+            case 15:
+            case 'end':
+              return _context3.stop();
+          }
+        }
+      }, _callee3, _this3, [[0, 11, 13, 15]]);
+    }))();
   }
 });
 
@@ -541,7 +585,18 @@ if (false) {
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
     staticClass: "container online-subscribe-container"
-  }, [_vm._m(0), _vm._v(" "), _c('div', {
+  }, [_c('div', {
+    staticClass: "top-box"
+  }, [_c('div', {
+    staticClass: "title"
+  }, [_vm._v("\n      购票须知：\n    ")]), _vm._v(" "), _vm._l((_vm.noticeList), function(data, index) {
+    return _c('div', {
+      staticClass: "desc",
+      attrs: {
+        "wx:key": "{index}"
+      }
+    }, [_vm._v("\n      " + _vm._s(data) + "\n    ")])
+  })], 2), _vm._v(" "), _c('div', {
     staticClass: "main"
   }, [_c('picker', {
     attrs: {
@@ -622,7 +677,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       expression: "needPayAmountOffLine!==0"
     }],
     staticClass: "left-price"
-  }, [_vm._v("\n        需到店支付   ¥ "), _c('span', {
+  }, [_vm._v("\n        需支付   ¥ "), _c('span', {
     staticClass: "price-box"
   }, [_vm._v(_vm._s(_vm.needPayAmountOffLine))])]), _vm._v(" "), _c('div', {
     directives: [{
@@ -642,25 +697,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }
   }, [_vm._v("\n      立即预约\n    ")])])])
 }
-var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    staticClass: "top-box"
-  }, [_c('div', {
-    staticClass: "title"
-  }, [_vm._v("\n      购票须知：\n    ")]), _vm._v(" "), _c('div', {
-    staticClass: "desc"
-  }, [_vm._v("\n      1. 票价：99元/人\n    ")]), _vm._v(" "), _c('div', {
-    staticClass: "desc"
-  }, [_vm._v("\n      2. 场馆开放时间：10:00-21:00\n    ")]), _vm._v(" "), _c('div', {
-    staticClass: "desc"
-  }, [_vm._v("\n      3. 场馆凭预约电子票入场，出馆后需再次购票才能入馆\n    ")]), _vm._v(" "), _c('div', {
-    staticClass: "desc"
-  }, [_vm._v("\n      4. 门票一经售出，概不退款\n    ")]), _vm._v(" "), _c('div', {
-    staticClass: "desc"
-  }, [_vm._v("\n      5. 请勿携带宠物及危险物品，尊重公共秩序\n    ")]), _vm._v(" "), _c('div', {
-    staticClass: "desc"
-  }, [_vm._v("\n      6. 图片仅供参考\n    ")])])
-}]
+var staticRenderFns = []
 render._withStripped = true
 var esExports = { render: render, staticRenderFns: staticRenderFns }
 /* harmony default export */ __webpack_exports__["a"] = (esExports);

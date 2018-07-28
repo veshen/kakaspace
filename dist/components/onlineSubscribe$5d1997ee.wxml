@@ -2,12 +2,7 @@
   <view class="_div data-v-8c56011e container online-subscribe-container">
     <view class="_div data-v-8c56011e top-box">
       <view class="_div data-v-8c56011e title"> 购票须知： </view>
-      <view class="_div data-v-8c56011e desc"> 1. 票价：99元/人 </view>
-      <view class="_div data-v-8c56011e desc"> 2. 场馆开放时间：10:00-21:00 </view>
-      <view class="_div data-v-8c56011e desc"> 3. 场馆凭预约电子票入场，出馆后需再次购票才能入馆 </view>
-      <view class="_div data-v-8c56011e desc"> 4. 门票一经售出，概不退款 </view>
-      <view class="_div data-v-8c56011e desc"> 5. 请勿携带宠物及危险物品，尊重公共秩序 </view>
-      <view class="_div data-v-8c56011e desc"> 6. 图片仅供参考 </view>
+      <view class="_div data-v-8c56011e desc" wx:key="{index}" wx:for="{{noticeList}}" wx:for-index="index" wx:for-item="data"> {{data}} </view>
     </view>
     <view class="_div data-v-8c56011e main">
       <picker bindchange="handleProxy" value="{{0}}" range="{{array}}" data-eventid="{{'0'}}" data-comkey="{{$k}}" class="_picker data-v-8c56011e">
@@ -40,7 +35,7 @@
       </view>
     </view>
     <view class="_div data-v-8c56011e bottom-bar">
-      <view class="_div data-v-8c56011e left-price" hidden="{{!(needPayAmountOffLine!==0)}}"> 需到店支付 ¥
+      <view class="_div data-v-8c56011e left-price" hidden="{{!(needPayAmountOffLine!==0)}}"> 需支付 ¥
         <label class="_span data-v-8c56011e price-box">{{needPayAmountOffLine}}</label>
       </view>
       <view hidden="{{!(needPayAmountOffLine===0)}}" class="_div data-v-8c56011e"></view>

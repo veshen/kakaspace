@@ -176,21 +176,22 @@ if (false) {(function () {
                 _this.mainPicUrl = res.mainPicUrl;
                 _this.deepList = res.deepList;
                 _this.title = res.title;
-                _context.next = 12;
+                _this.subTitleList = res.subTitleList;
+                _context.next = 13;
                 break;
 
-              case 9:
-                _context.prev = 9;
+              case 10:
+                _context.prev = 10;
                 _context.t0 = _context['catch'](0);
 
                 console.log('6666', _context.t0);
 
-              case 12:
+              case 13:
               case 'end':
                 return _context.stop();
             }
           }
-        }, _callee, _this, [[0, 9]]);
+        }, _callee, _this, [[0, 10]]);
       }))();
     }
   },

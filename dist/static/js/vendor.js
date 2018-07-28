@@ -5740,6 +5740,7 @@ if (typeof __g == 'number') __g = global; // eslint-disable-line no-undef
 /* unused harmony export post */
 /* harmony export (immutable) */ __webpack_exports__["c"] = showModal;
 /* harmony export (immutable) */ __webpack_exports__["d"] = showSuccess;
+/* harmony export (immutable) */ __webpack_exports__["e"] = timerDown;
 /* unused harmony export formatNumber */
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return formatTime; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_promise__ = __webpack_require__(29);
@@ -5797,6 +5798,38 @@ function showSuccess(text) {
     title: text,
     icon: 'success'
   });
+}
+
+function timerDown(val, format) {
+  var now = Date.parse(new Date()) / 1000;
+  var interval = val - now;
+  var day = Math.floor(interval / (60 * 60 * 24)) + '';
+  var hour = Math.floor((interval - day * 24 * 60 * 60) / 3600) + '';
+  var minute = Math.floor((interval - day * 24 * 60 * 60 - hour * 3600) / 60) + '';
+  var second = Math.floor(interval - day * 24 * 60 * 60 - hour * 3600 - minute * 60) + '';
+
+  if (day.length == 1) {
+    day = '0' + day;
+  }
+  if (hour.length == 1) {
+    hour = '0' + hour;
+  }
+  if (minute.length == 1) {
+    minute = '0' + minute;
+  }
+  if (second.length == 1) {
+    second = '0' + second;
+  }
+
+  format = format.replace('d', day);
+  format = format.replace('h', hour);
+  format = format.replace('m', minute);
+  format = format.replace('s', second);
+  if (interval <= 0) {
+    return 'timeOut';
+  } else {
+    return format;
+  }
 }
 
 var formatNumber = function formatNumber(n) {
@@ -8433,6 +8466,7 @@ $export($export.S, 'Promise', { 'try': function (callbackfn) {
 // 配置项
 
 var host = 'https://kk.sa-green.cn';
+// const host = 'https://kt.sa-green.cn'
 
 var config = {
   host: host
@@ -8595,43 +8629,6 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticClass: "nav-item",
     attrs: {
       "eventid": '2'
-    },
-    on: {
-      "click": function($event) {
-        _vm.toPage('../find/main')
-      }
-    }
-  }, [_c('img', {
-    directives: [{
-      name: "show",
-      rawName: "v-show",
-      value: (_vm.text !== 'find'),
-      expression: "text!=='find'"
-    }],
-    staticClass: "nav-icon",
-    attrs: {
-      "src": "http://static.sa-green.cn/image/jpg/kaka/tab_%E5%8F%91%E7%8E%B0_off.svg",
-      "alt": ""
-    }
-  }), _vm._v(" "), _c('img', {
-    directives: [{
-      name: "show",
-      rawName: "v-show",
-      value: (_vm.text === 'find'),
-      expression: "text==='find'"
-    }],
-    staticClass: "nav-icon",
-    attrs: {
-      "src": "http://static.sa-green.cn/image/jpg/kaka/tab_%E5%8F%91%E7%8E%B0_on.svg",
-      "alt": ""
-    }
-  }), _vm._v(" "), _c('div', {
-    staticClass: "nav-text",
-    class: [_vm.text === 'find' ? 'active' : '']
-  }, [_vm._v("发现")])]), _vm._v(" "), _c('div', {
-    staticClass: "nav-item",
-    attrs: {
-      "eventid": '3'
     },
     on: {
       "click": function($event) {

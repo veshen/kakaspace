@@ -67,6 +67,7 @@ export default {
         this.mainPicUrl = res.mainPicUrl;
         this.deepList = res.deepList;
         this.title = res.title;
+        this.subTitleList = res.subTitleList;
       } catch (e) {
         console.log('6666', e);
       }

@@ -17,7 +17,7 @@
         <view class="_div data-v-3d262215 list-item" bindtap="handleProxy" wx:key="{item.id}" data-eventid="{{'1-'+index}}" data-comkey="{{$k}}" wx:for="{{arrData}}" wx:for-index="index" wx:for-item="item">
           <view class="_div data-v-3d262215 like-box"> {{item.id}}
             <label class="_span data-v-3d262215 like"></label>
-            <image class="_img data-v-3d262215 icon-white-heart" src="https://resource.sa-green.cn/image/jpg/kaka/%E5%BF%83_%E7%99%BD.svg" alt></image>
+            <image class="_img data-v-3d262215 icon-white-heart" src="https://resource.sa-green.cn/image/jpg/%E5%BF%83_%E9%BB%84.svg" alt></image>
           </view>
         </view>
       </view>

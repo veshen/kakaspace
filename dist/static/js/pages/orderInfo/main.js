@@ -1,4 +1,4 @@
-global.webpackJsonp([10],{
+global.webpackJsonp([3],{
 
 /***/ 157:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -26,7 +26,7 @@ app.$mount();
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_lib_selector_type_script_index_0_index_vue__ = __webpack_require__(160);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_lib_template_compiler_index_id_data_v_027b0d56_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_mpvue_loader_lib_selector_type_template_index_0_index_vue__ = __webpack_require__(161);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_lib_template_compiler_index_id_data_v_027b0d56_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_mpvue_loader_lib_selector_type_template_index_0_index_vue__ = __webpack_require__(162);
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
@@ -86,7 +86,122 @@ if (false) {(function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__utils_index__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__utils_index__ = __webpack_require__(3);
+
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -161,128 +276,163 @@ if (false) {(function () {
 
 // import QRCode from 'qrcode';
 
-var QRCode = __webpack_require__(218);
+var QRCode = __webpack_require__(161);
 /* harmony default export */ __webpack_exports__["a"] = ({
     data: function data() {
         return {
             orderInfo: {},
-            imgUrl: 'https://ss0.bdstatic.com/94oJfD_bAAcT8t7mm9GUKT-xh_/timg?image&quality=100&size=b4000_4000&sec=1531328531&di=6f578a310aacfc611b3ce4e41b661f95&src=http://img1.ph.126.net/KCG0wwnes5Oh8nzyGYp_Dg==/1564156445598554981.jpg'
+            timer: '',
+            orderStatus: 1, //1 => 待支付
+            countDownTimer: null
         };
     },
 
 
     components: {},
 
-    methods: {},
+    methods: {
+        cancelOrder: function cancelOrder() {
+            var _this = this;
+
+            return __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee() {
+                var token, orderId;
+                return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
+                    while (1) {
+                        switch (_context.prev = _context.next) {
+                            case 0:
+                                try {
+                                    token = wx.getStorageSync('token');
+                                    orderId = _this.orderInfo.orderId;
+
+                                    Object(__WEBPACK_IMPORTED_MODULE_2__utils_index__["b" /* get */])('/order/cacel', { token: token, orderId: orderId, cancelType: 2 }).then(function (res) {
+                                        console.log(res);
+                                        var url = '../orderInfo/main?orderId=' + orderId;
+                                        wx.navigateTo({
+                                            url: url
+                                        });
+                                    }).catch(function (e) {
+                                        console.log(e);
+                                    });
+                                } catch (e) {
+                                    console.log(e);
+                                } finally {
+                                    clearInterval(_this.countDownTimer);
+                                }
+
+                            case 1:
+                            case 'end':
+                                return _context.stop();
+                        }
+                    }
+                }, _callee, _this);
+            }))();
+        },
+        payOrder: function payOrder() {
+            var _this2 = this;
+
+            return __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee2() {
+                var token, orderId;
+                return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee2$(_context2) {
+                    while (1) {
+                        switch (_context2.prev = _context2.next) {
+                            case 0:
+                                try {
+                                    token = wx.getStorageSync('token');
+                                    orderId = _this2.orderInfo.orderId;
+                                    // const orderId = '1021431355252146176';
+
+                                    Object(__WEBPACK_IMPORTED_MODULE_2__utils_index__["b" /* get */])('/order/queryPrePayInfo', { token: token, orderId: orderId }).then(function (res) {
+                                        console.log(res);
+                                        var nonceStr = res.nonceStr,
+                                            paySign = res.paySign,
+                                            prePay_package = res.prePay_package,
+                                            signType = res.signType,
+                                            timestamp = res.timestamp;
+
+                                        wx.requestPayment({
+                                            timeStamp: timestamp,
+                                            nonceStr: nonceStr,
+                                            package: prePay_package,
+                                            signType: signType,
+                                            paySign: paySign,
+                                            success: function success() {
+                                                console.log('成功');
+                                            },
+                                            fail: function fail() {
+                                                console.log('失败');
+                                            },
+                                            complete: function complete() {
+                                                console.log('调用结束');
+                                                var url = '../orderInfo/main?orderId=' + orderId;
+                                                wx.navigateTo({
+                                                    url: url
+                                                });
+                                            }
+                                        });
+                                    }).catch(function (e) {
+                                        console.log(e);
+                                    });
+                                } catch (e) {
+                                    console.log(e);
+                                }
+
+                            case 1:
+                            case 'end':
+                                return _context2.stop();
+                        }
+                    }
+                }, _callee2, _this2);
+            }))();
+        }
+    },
     created: function created() {},
     onLoad: function onLoad(option) {
-        var _this = this;
+        var _this3 = this;
 
         var token = wx.getStorageSync('token');
         var orderId = option.orderId;
-        Object(__WEBPACK_IMPORTED_MODULE_0__utils_index__["b" /* get */])('/order/orderDetail', { token: token, orderId: orderId }).then(function (res) {
+        // const orderId = '1021431355252146176';
+        Object(__WEBPACK_IMPORTED_MODULE_2__utils_index__["b" /* get */])('/order/orderDetail', { token: token, orderId: orderId }).then(function (res) {
             console.log(res);
-            _this.orderInfo = res;
-            var qrcode = new QRCode('canvas', {
-                // usingIn: this,
-                text: "http://www.sa-green.cn",
-                width: 150,
-                height: 150,
-                colorDark: "#000000",
-                colorLight: "#ffffff",
-                correctLevel: QRCode.CorrectLevel.H
-            });
+            _this3.orderInfo = res;
+            if (res.orderStatus === 1) {
+                var experialTime = res.experialTime;
+
+                if (Object(__WEBPACK_IMPORTED_MODULE_2__utils_index__["e" /* timerDown */])(res.experialTime / 1000, 'm:s') === 'timeOut') {
+                    _this3.cancelOrder(orderId);
+                } else {
+                    _this3.timer = Object(__WEBPACK_IMPORTED_MODULE_2__utils_index__["e" /* timerDown */])(res.experialTime / 1000, 'm:s');
+                    _this3.countDownTimer = setInterval(function () {
+                        if (_this3.timer === 'timeOut') {
+                            _this3.cancelOrder(orderId);
+                        }
+                        _this3.timer = Object(__WEBPACK_IMPORTED_MODULE_2__utils_index__["e" /* timerDown */])(res.experialTime / 1000, 'm:s');
+                    }, 1000);
+                }
+            }
+            if (res.orderStatus === 2) {
+                var qrcode = new QRCode('canvas', {
+                    // usingIn: this,
+                    text: 'https://kk.sa-green.cn/order/kakaqrcode.html?orderId=' + res.orderId,
+                    width: 150,
+                    height: 150,
+                    colorDark: "#000000",
+                    colorLight: "#ffffff",
+                    correctLevel: QRCode.CorrectLevel.H
+                });
+            }
         }).catch(function (e) {
             console.log(e);
         });
+    },
+    onUnload: function onUnload() {
+        clearInterval(this.countDownTimer);
     }
 });
 
 /***/ }),
 
 /***/ 161:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    staticClass: "container order-info-container"
-  }, [_c('div', {
-    staticClass: "main"
-  }, [_c('div', {
-    staticClass: "line-box"
-  }), _vm._v(" "), _c('div', {
-    staticClass: "order-info"
-  }, [_c('div', {
-    staticClass: "order-info-line"
-  }, [_c('div', {
-    staticClass: "label"
-  }, [_vm._v("\n                    订单号\n                ")]), _vm._v(" "), _c('div', {
-    staticClass: "content"
-  }, [_vm._v("\n                      " + _vm._s(_vm.orderInfo.orderId) + "\n                ")])]), _vm._v(" "), _c('div', {
-    staticClass: "order-info-line"
-  }, [_c('div', {
-    staticClass: "label"
-  }, [_vm._v("\n                    下单时间\n                ")]), _vm._v(" "), _c('div', {
-    staticClass: "content"
-  }, [_vm._v("\n                      " + _vm._s(_vm.orderInfo.createOrderTime) + "\n                ")])]), _vm._v(" "), _c('div', {
-    staticClass: "order-info-line"
-  }, [_c('div', {
-    staticClass: "label"
-  }, [_vm._v("\n                    人数\n                ")]), _vm._v(" "), _c('div', {
-    staticClass: "content"
-  }, [_vm._v("\n                      " + _vm._s(_vm.orderInfo.peerNumber) + "\n                ")])]), _vm._v(" "), _c('div', {
-    staticClass: "order-info-line"
-  }, [_c('div', {
-    staticClass: "label"
-  }, [_vm._v("\n                    到店时间\n                ")]), _vm._v(" "), _c('div', {
-    staticClass: "content"
-  }, [_vm._v("\n                      " + _vm._s(_vm.orderInfo.bookDay) + "\n                ")])]), _vm._v(" "), _c('div', {
-    staticClass: "order-info-line"
-  }, [_c('div', {
-    staticClass: "label"
-  }, [_vm._v("\n                    订单状态\n                ")]), _vm._v(" "), _c('div', {
-    staticClass: "content"
-  }, [_vm._v("\n                      " + _vm._s(_vm.orderInfo.orderStatusDesc) + "\n                ")])]), _vm._v(" "), _c('div', {
-    staticClass: "order-info-line"
-  }, [_c('div', {
-    staticClass: "label"
-  }, [_vm._v("\n                    支付金额\n                ")]), _vm._v(" "), _c('div', {
-    staticClass: "content"
-  }, [_vm._v("\n                  ￥\n                  "), _c('span', {
-    staticClass: "price"
-  }, [_vm._v(_vm._s(_vm.orderInfo.payAmount))])])])]), _vm._v(" "), _c('div', {
-    staticClass: "no"
-  }, [_vm._v("\n            票号 "), _c('span', {
-    staticClass: "number"
-  }, [_vm._v(_vm._s(_vm.orderInfo.voucherNo))])]), _vm._v(" "), _vm._m(0), _vm._v(" "), _c('div', {
-    staticClass: "tips"
-  }, [_vm._v("\n            · 请到店后出示并验证入场 ·\n        ")])])])
-}
-var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    staticClass: "qrcode-box"
-  }, [_c('canvas', {
-    staticClass: "canvas image",
-    attrs: {
-      "canvas-id": "canvas",
-      "bindlongtap": "save"
-    }
-  })])
-}]
-render._withStripped = true
-var esExports = { render: render, staticRenderFns: staticRenderFns }
-/* harmony default export */ __webpack_exports__["a"] = (esExports);
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-     require("vue-hot-reload-api").rerender("data-v-027b0d56", esExports)
-  }
-}
-
-/***/ }),
-
-/***/ 218:
 /***/ (function(module, exports) {
 
 //Core code comes from https://github.com/davidshimjs/qrcodejs
@@ -941,6 +1091,198 @@ var QRCode;
 })();
 
 module.exports = QRCode;
+
+/***/ }),
+
+/***/ 162:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "container order-info-container"
+  }, [_c('div', {
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: (_vm.orderInfo.orderStatus === 2 || _vm.orderInfo.orderStatus === 3),
+      expression: "orderInfo.orderStatus===2||orderInfo.orderStatus===3"
+    }],
+    staticClass: "main"
+  }, [_c('div', {
+    staticClass: "line-box"
+  }), _vm._v(" "), _c('div', {
+    staticClass: "order-info"
+  }, [_c('div', {
+    staticClass: "order-info-line"
+  }, [_c('div', {
+    staticClass: "label"
+  }, [_vm._v("\n                    订单号\n                ")]), _vm._v(" "), _c('div', {
+    staticClass: "content"
+  }, [_vm._v("\n                      " + _vm._s(_vm.orderInfo.orderId) + "\n                ")])]), _vm._v(" "), _c('div', {
+    staticClass: "order-info-line"
+  }, [_c('div', {
+    staticClass: "label"
+  }, [_vm._v("\n                    下单时间\n                ")]), _vm._v(" "), _c('div', {
+    staticClass: "content"
+  }, [_vm._v("\n                      " + _vm._s(_vm.orderInfo.createOrderTime) + "\n                ")])]), _vm._v(" "), _c('div', {
+    staticClass: "order-info-line"
+  }, [_c('div', {
+    staticClass: "label"
+  }, [_vm._v("\n                    人数\n                ")]), _vm._v(" "), _c('div', {
+    staticClass: "content"
+  }, [_vm._v("\n                      " + _vm._s(_vm.orderInfo.peerNumber) + "\n                ")])]), _vm._v(" "), _c('div', {
+    staticClass: "order-info-line"
+  }, [_c('div', {
+    staticClass: "label"
+  }, [_vm._v("\n                    到店时间\n                ")]), _vm._v(" "), _c('div', {
+    staticClass: "content"
+  }, [_vm._v("\n                      " + _vm._s(_vm.orderInfo.bookDay) + "\n                ")])]), _vm._v(" "), _c('div', {
+    staticClass: "order-info-line"
+  }, [_c('div', {
+    staticClass: "label"
+  }, [_vm._v("\n                    订单状态\n                ")]), _vm._v(" "), _c('div', {
+    staticClass: "content"
+  }, [_vm._v("\n                      " + _vm._s(_vm.orderInfo.orderStatusDesc) + "\n                ")])]), _vm._v(" "), _c('div', {
+    staticClass: "order-info-line"
+  }, [_c('div', {
+    staticClass: "label"
+  }, [_vm._v("\n                    支付金额\n                ")]), _vm._v(" "), _c('div', {
+    staticClass: "content"
+  }, [_vm._v("\n                  ￥\n                  "), _c('span', {
+    staticClass: "price"
+  }, [_vm._v(_vm._s(_vm.orderInfo.payAmount))])])])]), _vm._v(" "), _c('div', {
+    staticClass: "no"
+  }, [_vm._v("\n            票号 "), _c('span', {
+    staticClass: "number"
+  }, [_vm._v(_vm._s(_vm.orderInfo.voucherNo))])]), _vm._v(" "), _vm._m(0), _vm._v(" "), _c('div', {
+    staticClass: "tips"
+  }, [_vm._v("\n            · 请到店后出示并验证入场 ·\n        ")])]), _vm._v(" "), _c('div', {
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: (_vm.orderInfo.orderStatus === 4 || _vm.orderInfo.orderStatus === 5 || _vm.orderInfo.orderStatus === 6 || _vm.orderInfo.orderStatus === 7),
+      expression: "orderInfo.orderStatus===4||orderInfo.orderStatus===5||orderInfo.orderStatus===6||orderInfo.orderStatus===7"
+    }],
+    staticClass: "main"
+  }, [_c('div', {
+    staticClass: "line-box"
+  }), _vm._v(" "), _c('div', {
+    staticClass: "order-info"
+  }, [_c('div', {
+    staticClass: "order-info-line"
+  }, [_c('div', {
+    staticClass: "label"
+  }, [_vm._v("\n                    订单号\n                ")]), _vm._v(" "), _c('div', {
+    staticClass: "content"
+  }, [_vm._v("\n                      " + _vm._s(_vm.orderInfo.orderId) + "\n                ")])]), _vm._v(" "), _c('div', {
+    staticClass: "order-info-line"
+  }, [_c('div', {
+    staticClass: "label"
+  }, [_vm._v("\n                    下单时间\n                ")]), _vm._v(" "), _c('div', {
+    staticClass: "content"
+  }, [_vm._v("\n                      " + _vm._s(_vm.orderInfo.createOrderTime) + "\n                ")])]), _vm._v(" "), _c('div', {
+    staticClass: "order-info-line"
+  }, [_c('div', {
+    staticClass: "label"
+  }, [_vm._v("\n                    人数\n                ")]), _vm._v(" "), _c('div', {
+    staticClass: "content"
+  }, [_vm._v("\n                      " + _vm._s(_vm.orderInfo.peerNumber) + "\n                ")])]), _vm._v(" "), _c('div', {
+    staticClass: "order-info-line"
+  }, [_c('div', {
+    staticClass: "label"
+  }, [_vm._v("\n                    到店时间\n                ")]), _vm._v(" "), _c('div', {
+    staticClass: "content"
+  }, [_vm._v("\n                      " + _vm._s(_vm.orderInfo.bookDay) + "\n                ")])]), _vm._v(" "), _c('div', {
+    staticClass: "order-info-line"
+  }, [_c('div', {
+    staticClass: "label"
+  }, [_vm._v("\n                    订单状态\n                ")]), _vm._v(" "), _c('div', {
+    staticClass: "content"
+  }, [_vm._v("\n                      " + _vm._s(_vm.orderInfo.orderStatusDesc) + "\n                ")])]), _vm._v(" "), _c('div', {
+    staticClass: "order-info-line"
+  }, [_c('div', {
+    staticClass: "label"
+  }, [_vm._v("\n                    支付金额\n                ")]), _vm._v(" "), _c('div', {
+    staticClass: "content"
+  }, [_vm._v("\n                  ￥\n                  "), _c('span', {
+    staticClass: "price"
+  }, [_vm._v(_vm._s(_vm.orderInfo.payAmount))])])])])]), _vm._v(" "), _c('div', {
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: (_vm.orderInfo.orderStatus === 1),
+      expression: "orderInfo.orderStatus===1"
+    }],
+    staticClass: "main-2"
+  }, [_c('div', {
+    staticClass: "timer-down-box"
+  }, [_vm._v("\n            支付剩余时间 " + _vm._s(_vm.timer) + "\n        ")]), _vm._v(" "), _c('div', {
+    staticClass: "order-info"
+  }, [_c('div', {
+    staticClass: "order-info-line"
+  }, [_c('div', {
+    staticClass: "label"
+  }, [_vm._v("\n                    订单号\n                ")]), _vm._v(" "), _c('div', {
+    staticClass: "content"
+  }, [_vm._v("\n                      " + _vm._s(_vm.orderInfo.orderId) + "\n                ")])]), _vm._v(" "), _c('div', {
+    staticClass: "order-info-line"
+  }, [_c('div', {
+    staticClass: "label"
+  }, [_vm._v("\n                    下单时间\n                ")]), _vm._v(" "), _c('div', {
+    staticClass: "content"
+  }, [_vm._v("\n                      " + _vm._s(_vm.orderInfo.createOrderTime) + "\n                ")])]), _vm._v(" "), _c('div', {
+    staticClass: "order-info-line"
+  }, [_c('div', {
+    staticClass: "label"
+  }, [_vm._v("\n                    人数\n                ")]), _vm._v(" "), _c('div', {
+    staticClass: "content"
+  }, [_vm._v("\n                      " + _vm._s(_vm.orderInfo.peerNumber) + "\n                ")])]), _vm._v(" "), _c('div', {
+    staticClass: "order-info-line"
+  }, [_c('div', {
+    staticClass: "label"
+  }, [_vm._v("\n                    到店时间\n                ")]), _vm._v(" "), _c('div', {
+    staticClass: "content"
+  }, [_vm._v("\n                      " + _vm._s(_vm.orderInfo.bookDay) + "\n                ")])]), _vm._v(" "), _c('div', {
+    staticClass: "order-info-line"
+  }, [_c('div', {
+    staticClass: "label"
+  }, [_vm._v("\n                    订单状态\n                ")]), _vm._v(" "), _c('div', {
+    staticClass: "content"
+  }, [_vm._v("\n                      " + _vm._s(_vm.orderInfo.orderStatusDesc) + "\n                ")])])]), _vm._v(" "), _c('div', {
+    staticClass: "pay-amount"
+  }, [_vm._v("\n            支付金额 ¥ " + _vm._s(_vm.orderInfo.payAmount) + "\n        ")]), _vm._v(" "), _c('div', {
+    staticClass: "pay-btn",
+    attrs: {
+      "eventid": '0'
+    },
+    on: {
+      "click": _vm.payOrder
+    }
+  }, [_vm._v("\n            立即支付\n        ")])])])
+}
+var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "qrcode-box"
+  }, [_c('canvas', {
+    staticClass: "canva",
+    attrs: {
+      "width": "300",
+      "height": "300",
+      "canvas-id": "canvas",
+      "bindlongtap": "save"
+    }
+  })])
+}]
+render._withStripped = true
+var esExports = { render: render, staticRenderFns: staticRenderFns }
+/* harmony default export */ __webpack_exports__["a"] = (esExports);
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-hot-reload-api").rerender("data-v-027b0d56", esExports)
+  }
+}
 
 /***/ })
 
