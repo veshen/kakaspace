@@ -86,12 +86,13 @@ if (false) {(function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_bindPhoneNumber__ = __webpack_require__(152);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__utils_index__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_rotateLoading__ = __webpack_require__(219);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__utils_index__ = __webpack_require__(3);
 
 
 //
@@ -165,6 +166,10 @@ if (false) {(function () {
 //
 //
 //
+//
+//
+
+
 
 
 
@@ -180,13 +185,14 @@ if (false) {(function () {
       },
       userMobile: '',
       needPayAmountOffLine: 0,
-      noticeList: []
+      noticeList: [],
+      isFetching: false
     };
   },
 
 
   components: {
-    bindPhoneNumber: __WEBPACK_IMPORTED_MODULE_2__components_bindPhoneNumber__["a" /* default */]
+    bindPhoneNumber: __WEBPACK_IMPORTED_MODULE_2__components_bindPhoneNumber__["a" /* default */], rotateLoading: __WEBPACK_IMPORTED_MODULE_3__components_rotateLoading__["a" /* default */]
   },
 
   methods: {
@@ -231,21 +237,23 @@ if (false) {(function () {
                 _context.prev = 0;
 
                 if (!(_this.index > 0 && _this.date !== '请选择 >' && _this.userMobile.length === 11)) {
-                  _context.next = 11;
+                  _context.next = 13;
                   break;
                 }
 
+                _this.isFetching = true;
                 bookingDay = _this.date;
                 peerNumber = _this.index;
                 mobile = _this.userMobile;
                 token = wx.getStorageSync('token');
-                _context.next = 8;
-                return Object(__WEBPACK_IMPORTED_MODULE_3__utils_index__["b" /* get */])('/order/create', { bookingDay: bookingDay, peerNumber: peerNumber, mobile: mobile, token: token });
+                _context.next = 9;
+                return Object(__WEBPACK_IMPORTED_MODULE_4__utils_index__["b" /* get */])('/order/create', { bookingDay: bookingDay, peerNumber: peerNumber, mobile: mobile, token: token });
 
-              case 8:
+              case 9:
                 res = _context.sent;
 
                 console.log(res);
+                _this.isFetching = false;
                 if (res.needPay) {
                   _res$prePayResultDto = res.prePayResultDto, nonceStr = _res$prePayResultDto.nonceStr, paySign = _res$prePayResultDto.paySign, prePay_package = _res$prePayResultDto.prePay_package, signType = _res$prePayResultDto.signType, timestamp = _res$prePayResultDto.timestamp;
 
@@ -271,26 +279,26 @@ if (false) {(function () {
                   });
                 }
 
-              case 11:
-                _context.next = 16;
+              case 13:
+                _context.next = 18;
                 break;
 
-              case 13:
-                _context.prev = 13;
+              case 15:
+                _context.prev = 15;
                 _context.t0 = _context['catch'](0);
 
                 console.log(_context.t0);
 
-              case 16:
-                _context.prev = 16;
-                return _context.finish(16);
-
               case 18:
+                _context.prev = 18;
+                return _context.finish(18);
+
+              case 20:
               case 'end':
                 return _context.stop();
             }
           }
-        }, _callee, _this, [[0, 13, 16, 18]]);
+        }, _callee, _this, [[0, 15, 18, 20]]);
       }))();
     },
     computyed: function computyed() {
@@ -306,7 +314,7 @@ if (false) {(function () {
                 bookingDay = _this2.date;
                 peerNumber = _this2.index;
                 _context2.next = 5;
-                return Object(__WEBPACK_IMPORTED_MODULE_3__utils_index__["b" /* get */])('/order/checkOrder', {
+                return Object(__WEBPACK_IMPORTED_MODULE_4__utils_index__["b" /* get */])('/order/checkOrder', {
                   bookingDay: bookingDay, peerNumber: peerNumber
 
                 });
@@ -367,7 +375,7 @@ if (false) {(function () {
 
               _this3.currentDate = currentDate;
               _context3.next = 7;
-              return Object(__WEBPACK_IMPORTED_MODULE_3__utils_index__["b" /* get */])('/order/getOrderNotice', {});
+              return Object(__WEBPACK_IMPORTED_MODULE_4__utils_index__["b" /* get */])('/order/getOrderNotice', {});
 
             case 7:
               res = _context3.sent;
@@ -381,15 +389,11 @@ if (false) {(function () {
               _context3.t0 = _context3['catch'](0);
 
             case 13:
-              _context3.prev = 13;
-              return _context3.finish(13);
-
-            case 15:
             case 'end':
               return _context3.stop();
           }
         }
-      }, _callee3, _this3, [[0, 11, 13, 15]]);
+      }, _callee3, _this3, [[0, 11]]);
     }))();
   }
 });
@@ -695,7 +699,18 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     on: {
       "click": _vm.createOrder
     }
-  }, [_vm._v("\n      立即预约\n    ")])])])
+  }, [_vm._v("\n      立即预约\n    ")])]), _vm._v(" "), _c('div', {
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: (_vm.isFetching),
+      expression: "isFetching"
+    }]
+  }, [_c('rotateLoading', {
+    attrs: {
+      "mpcomid": '0'
+    }
+  })], 1)])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -705,6 +720,110 @@ if (false) {
   module.hot.accept()
   if (module.hot.data) {
      require("vue-hot-reload-api").rerender("data-v-8c56011e", esExports)
+  }
+}
+
+/***/ }),
+
+/***/ 219:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_lib_selector_type_script_index_0_rotateLoading_vue__ = __webpack_require__(221);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_lib_template_compiler_index_id_data_v_685e4796_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_mpvue_loader_lib_selector_type_template_index_0_rotateLoading_vue__ = __webpack_require__(222);
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(220)
+}
+var normalizeComponent = __webpack_require__(0)
+/* script */
+
+/* template */
+
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = "data-v-685e4796"
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_lib_selector_type_script_index_0_rotateLoading_vue__["a" /* default */],
+  __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_lib_template_compiler_index_id_data_v_685e4796_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_mpvue_loader_lib_selector_type_template_index_0_rotateLoading_vue__["a" /* default */],
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "src/components/rotateLoading.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
+if (Component.options.functional) {console.error("[vue-loader] rotateLoading.vue: functional components are not supported with templates, they should use render functions.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-685e4796", Component.options)
+  } else {
+    hotAPI.reload("data-v-685e4796", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+/* harmony default export */ __webpack_exports__["a"] = (Component.exports);
+
+
+/***/ }),
+
+/***/ 220:
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ 221:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["a"] = ({});
+
+/***/ }),
+
+/***/ 222:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _vm._m(0)
+}
+var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "rotateLoading-inner"
+  }, [_c('div', {
+    staticClass: "load-container load6"
+  }, [_c('div', {
+    staticClass: "loader"
+  }, [_vm._v("Loading...")])])])
+}]
+render._withStripped = true
+var esExports = { render: render, staticRenderFns: staticRenderFns }
+/* harmony default export */ __webpack_exports__["a"] = (esExports);
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-hot-reload-api").rerender("data-v-685e4796", esExports)
   }
 }
 

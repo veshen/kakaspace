@@ -174,7 +174,6 @@
               立即支付
           </div>
       </div>
-
   </div>
 </template>
 
@@ -276,7 +275,7 @@ export default {
               }
 
           }
-          if (res.orderStatus===2) {
+          if (res.orderStatus===2||res.orderStatus===3) {
               var qrcode = new QRCode('canvas', {
                   // usingIn: this,
                   text: `https://kk.sa-green.cn/order/kakaqrcode.html?orderId=${res.orderId}`,
@@ -439,4 +438,5 @@ export default {
     background-size: 100%;
     margin: 0 auto;
 }
+
 </style>

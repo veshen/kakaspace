@@ -1,0 +1,7 @@
+<template name="rotateLoading$5b0619fe">
+  <view class="_div data-v-685e4796 rotateLoading-inner">
+    <view class="_div data-v-685e4796 load-container load6">
+      <view class="_div data-v-685e4796 loader">Loading...</view>
+    </view>
+  </view>
+</template>

@@ -65,12 +65,16 @@
     </div>
     <!-- <button class="submit-btn" v-show="!userMobile" v-bind:class="[index>0&&date!== '请选择 >'? 'active' : '']" open-type="getPhoneNumber" @getphonenumber="bindgetphonenumber">立即预约</button> -->
   </div>
-  <!-- <bindPhoneNumber/> -->
+  <div v-show="isFetching">
+      <rotateLoading/>
+  </div>
 </div>
 </template>
 
 <script>
 import bindPhoneNumber from '@/components/bindPhoneNumber';
+import rotateLoading from '@/components/rotateLoading'
+
 import {
   get,
   showModal
@@ -87,12 +91,13 @@ export default {
       },
       userMobile: '',
       needPayAmountOffLine : 0,
-      noticeList : []
+      noticeList : [],
+      isFetching : false
     }
   },
 
   components: {
-    bindPhoneNumber
+    bindPhoneNumber, rotateLoading
   },
 
   methods: {
@@ -127,12 +132,14 @@ export default {
     async createOrder(){
         try {
             if (this.index > 0 && this.date !== '请选择 >'&&this.userMobile.length===11) {
+                this.isFetching = true;
                 const bookingDay = this.date;
                 const peerNumber = this.index;
                 const mobile = this.userMobile;
                 const token = wx.getStorageSync('token')
                 const res = await get('/order/create',{bookingDay, peerNumber, mobile, token});
                 console.log(res);
+                this.isFetching = false;
                 if (res.needPay) {
                     const {nonceStr, paySign, prePay_package, signType, timestamp} = res.prePayResultDto;
                     wx.requestPayment({
@@ -207,10 +214,7 @@ export default {
         this.noticeList = res.noticeList || [];
     } catch (e) {
 
-    } finally {
-
     }
-
   }
 }
 </script>
