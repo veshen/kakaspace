@@ -1,0 +1,90 @@
+@import "/static/css/vendor.wxss";
+
+.order-ticket-container.data-v-79459c05 {
+  background: #000;
+  padding-top: 91rpx;
+}
+.tips-box.data-v-79459c05 {
+  width: 650rpx;
+  height: 288rpx;
+  background: #1B1B1B;
+  border-radius: 10rpx;
+  margin: 0 auto 60rpx;
+  overflow: hidden;
+  border: 2rpx solid #434343;
+}
+.tips-box .title-box.data-v-79459c05 {
+  height: 30rpx;
+  border-left: 10rpx solid #FFE631;
+  padding-left: 20rpx;
+  font-size: 30rpx;
+  color: #FFE631;
+  letter-spacing: 0;
+  line-height: 30rpx;
+  margin: 40rpx 0 45rpx;
+}
+.tips-box .tips-content.data-v-79459c05 {
+  margin: 0 30rpx;
+  font-size: 30rpx;
+  color: #B6B7BE;
+  letter-spacing: 0;
+}
+.select-scope.data-v-79459c05 {
+  width: 650rpx;
+  height: 180rpx;
+  background: #1B1B1B;
+  border-radius: 10rpx;
+  margin: 0 auto;
+  border: 2rpx solid #434343;
+}
+.select-scope .title.data-v-79459c05 {
+  text-align: center;
+  padding-top: 50rpx;
+  margin-bottom: 20rpx;
+  font-size: 36rpx;
+  color: #FFE631;
+  letter-spacing: 0;
+  text-align: center;
+  line-height: 36rpx;
+}
+.select-scope .picker.data-v-79459c05 {
+  font-size: 28rpx;
+  color: #7A7B84;
+  letter-spacing: 0;
+  text-align: center;
+  line-height: 24rpx;
+}
+.pay-bottom.data-v-79459c05 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 98rpx;
+  background: #1B1B1B;
+}
+.price-box.data-v-79459c05 {
+  font-size: 30rpx;
+  color: #FFE631;
+  letter-spacing: 0;
+  margin-left: 30rpx;
+}
+.ticket-changes-btn.data-v-79459c05 {
+  width: 190rpx;
+  height: 50rpx;
+  border-radius: 25rpx;
+  background: #ccc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 28rpx;
+  color: #100F0F;
+  letter-spacing: 0;
+  text-align: center;
+  margin-right: 30rpx;
+}
+.active.data-v-79459c05 {
+  background: #FFE631 !important;
+}

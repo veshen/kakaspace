@@ -174,6 +174,9 @@
               立即支付
           </div>
       </div>
+      <div v-bind:class="[orderInfo.canAlter? 'ticket-changes-btn' : 'hide']"  @click="toPage(`../orderTicketChanges/main?orderId=${orderInfo.orderId}`)">
+          订单改签
+      </div>
   </div>
 </template>
 
@@ -184,7 +187,9 @@ var QRCode = require('./../../utils/weapp-qrcode.js')
 export default {
   data () {
     return {
-        orderInfo : {},
+        orderInfo : {
+            canAlter : false
+        },
         timer : '',
         orderStatus : 1, //1 => 待支付
         countDownTimer : null
@@ -195,6 +200,11 @@ export default {
   },
 
   methods: {
+      toPage(url) {
+        wx.navigateTo({
+          url
+        })
+      },
       async cancelOrder(){
           try {
               const token = wx.getStorageSync('token');
@@ -438,5 +448,19 @@ export default {
     background-size: 100%;
     margin: 0 auto;
 }
-
+.ticket-changes-btn{
+    width: 210rpx;
+    height: 50rpx;
+    background: #585858;
+    border: 1rpx solid #FFE631;
+    border-radius:25rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 28rpx;
+    color: #FFFFFF;
+    letter-spacing: 0;
+    text-align: center;
+    margin: 36rpx auto 0;
+}
 </style>

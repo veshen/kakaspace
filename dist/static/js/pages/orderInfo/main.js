@@ -1,13 +1,13 @@
 global.webpackJsonp([3],{
 
-/***/ 157:
+/***/ 161:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__index__ = __webpack_require__(158);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__index__ = __webpack_require__(162);
 
 
 
@@ -21,16 +21,16 @@ app.$mount();
 
 /***/ }),
 
-/***/ 158:
+/***/ 162:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_lib_selector_type_script_index_0_index_vue__ = __webpack_require__(160);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_lib_template_compiler_index_id_data_v_027b0d56_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_mpvue_loader_lib_selector_type_template_index_0_index_vue__ = __webpack_require__(162);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_lib_selector_type_script_index_0_index_vue__ = __webpack_require__(164);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_lib_template_compiler_index_id_data_v_027b0d56_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_mpvue_loader_lib_selector_type_template_index_0_index_vue__ = __webpack_require__(166);
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(159)
+  __webpack_require__(163)
 }
 var normalizeComponent = __webpack_require__(0)
 /* script */
@@ -75,24 +75,27 @@ if (false) {(function () {
 
 /***/ }),
 
-/***/ 159:
+/***/ 163:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
 
-/***/ 160:
+/***/ 164:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__utils_index__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__utils_index__ = __webpack_require__(2);
 
 
+//
+//
+//
 //
 //
 //
@@ -275,11 +278,13 @@ if (false) {(function () {
 
 // import QRCode from 'qrcode';
 
-var QRCode = __webpack_require__(161);
+var QRCode = __webpack_require__(165);
 /* harmony default export */ __webpack_exports__["a"] = ({
     data: function data() {
         return {
-            orderInfo: {},
+            orderInfo: {
+                canAlter: false
+            },
             timer: '',
             orderStatus: 1, //1 => 待支付
             countDownTimer: null
@@ -290,6 +295,11 @@ var QRCode = __webpack_require__(161);
     components: {},
 
     methods: {
+        toPage: function toPage(url) {
+            wx.navigateTo({
+                url: url
+            });
+        },
         cancelOrder: function cancelOrder() {
             var _this = this;
 
@@ -431,7 +441,7 @@ var QRCode = __webpack_require__(161);
 
 /***/ }),
 
-/***/ 161:
+/***/ 165:
 /***/ (function(module, exports) {
 
 //Core code comes from https://github.com/davidshimjs/qrcodejs
@@ -1093,7 +1103,7 @@ module.exports = QRCode;
 
 /***/ }),
 
-/***/ 162:
+/***/ 166:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1258,7 +1268,17 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     on: {
       "click": _vm.payOrder
     }
-  }, [_vm._v("\n            立即支付\n        ")])])])
+  }, [_vm._v("\n            立即支付\n        ")])]), _vm._v(" "), _c('div', {
+    class: [_vm.orderInfo.canAlter ? 'ticket-changes-btn' : 'hide'],
+    attrs: {
+      "eventid": '1'
+    },
+    on: {
+      "click": function($event) {
+        _vm.toPage(("../orderTicketChanges/main?orderId=" + (_vm.orderInfo.orderId)))
+      }
+    }
+  }, [_vm._v("\n        订单改签\n    ")])])
 }
 var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
@@ -1285,5 +1305,5 @@ if (false) {
 
 /***/ })
 
-},[157]);
+},[161]);
 //# sourceMappingURL=main.js.map

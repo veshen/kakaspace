@@ -26,6 +26,7 @@ export default {
       'pages/onlineSubscribe/main',
       'pages/orderInfo/main',
       'pages/orderPay/main',
+      'pages/orderTicketChanges/main',
       ],
     'window': {
       backgroundTextStyle: 'light',

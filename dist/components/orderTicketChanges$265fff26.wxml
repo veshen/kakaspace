@@ -1,0 +1,31 @@
+<import src="rotateLoading$5b0619fe" />
+<template name="orderTicketChanges$265fff26">
+  <view class="_div data-v-79459c05 container order-ticket-container">
+    <view class="_div data-v-79459c05 tips-box">
+      <view class="_div data-v-79459c05 title-box"> 改签须知 </view>
+      <view class="_div data-v-79459c05 tips-content">
+        <view class="_div data-v-79459c05"> 1.订单只可改签一次 </view>
+        <view class="_div data-v-79459c05"> 2.订单改签暂时仅支持变更日期 </view>
+        <view class="_div data-v-79459c05"> 3.因订单修改日期，可能会涉及补款和退款，烦请谨慎操作 </view>
+      </view>
+    </view>
+    <picker bindchange="handleProxy" value="{{0}}" mode="date" start="{{currentDate}}" data-eventid="{{'0'}}" data-comkey="{{$k}}" class="_picker data-v-79459c05">
+      <view class="_div data-v-79459c05 select-scope">
+        <view class="_div data-v-79459c05 tips-text">
+          <view class="_div data-v-79459c05 title"> 改签日期 </view>
+          <view class="_div data-v-79459c05 subTitle">
+            <view class="_view data-v-79459c05 picker"> {{date}} </view>
+          </view>
+        </view>
+      </view>
+    </picker>
+    <view class="_div data-v-79459c05 pay-bottom">
+      <view class="_div data-v-79459c05 price-box" hidden="{{!(payType!==2)}}"> 需支付{{amount}}¥ </view>
+      <view class="_div data-v-79459c05 price-box" hidden="{{!(payType===2)}}"> 可退款{{amount}}¥ </view>
+      <view bindtap="handleProxy" data-eventid="{{'1'}}" data-comkey="{{$k}}" class="_div data-v-79459c05 {{[couldAlter ? 'ticket-changes-btn active' : 'ticket-changes-btn']}}"> 确认改签 </view>
+    </view>
+    <view hidden="{{!(isFetching)}}" class="_div data-v-79459c05">
+      <template data="{{...$root[$kk+'0'], $root}}" is="rotateLoading$5b0619fe"></template>
+    </view>
+  </view>
+</template>

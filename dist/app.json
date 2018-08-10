@@ -13,6 +13,7 @@
     "pages/onlineSubscribe/main",
     "pages/orderInfo/main",
     "pages/orderPay/main",
+    "pages/orderTicketChanges/main",
     "pages/photobrowse/main",
     "pages/photoinfo/main",
     "pages/test/main",

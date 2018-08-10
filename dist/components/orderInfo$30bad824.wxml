@@ -96,5 +96,6 @@
       <view class="_div data-v-027b0d56 pay-amount"> 支付金额 ¥ {{orderInfo.payAmount}} </view>
       <view class="_div data-v-027b0d56 pay-btn" bindtap="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}"> 立即支付 </view>
     </view>
+    <view bindtap="handleProxy" data-eventid="{{'1'}}" data-comkey="{{$k}}" class="_div data-v-027b0d56 {{[orderInfo.canAlter ? 'ticket-changes-btn' : 'hide']}}"> 订单改签 </view>
   </view>
 </template>
