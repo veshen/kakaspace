@@ -1,0 +1,23 @@
+<import src="rotateLoading$5b0619fe" />
+<template name="feedback$c869326e">
+  <view class="_div data-v-20ca2061 container feedback feedback-container">
+    <view class="_h3 data-v-20ca2061 page-title">Hi，您可以</view>
+    <view class="_div data-v-20ca2061 main-box">
+      <view class="_div data-v-20ca2061 title-box">
+        <view class="_p data-v-20ca2061">告诉我们您想拍...</view>
+      </view>
+      <textarea class="_textarea data-v-20ca2061 text-input" value="{{content}}" bindinput="handleProxy" placeholder="请简单描述您想拍的主题或您的疑问" data-eventid="{{'0'}}" data-comkey="{{$k}}" />
+      <view class="_div data-v-20ca2061 submit-btn" bindtap="handleProxy" data-eventid="{{'1'}}" data-comkey="{{$k}}"> 提交 </view>
+    </view>
+    <view class="_div data-v-20ca2061 main-box" hidden="{{!(false)}}">
+      <view class="_div data-v-20ca2061 title-box">
+        <view class="_p data-v-20ca2061">电话沟通</view>
+      </view>
+      <view class="_div data-v-20ca2061 content"> 您可以拨打我们的客服电话进行咨询和反馈 </view>
+      <view class="_div data-v-20ca2061 submit-btn" bindtap="handleProxy" data-eventid="{{'2'}}" data-comkey="{{$k}}"> 一键拨号 </view>
+    </view>
+    <view hidden="{{!(isFetching)}}" class="_div data-v-20ca2061">
+      <template data="{{...$root[$kk+'0'], $root}}" is="rotateLoading$5b0619fe"></template>
+    </view>
+  </view>
+</template>

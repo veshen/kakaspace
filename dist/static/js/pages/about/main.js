@@ -1,4 +1,4 @@
-global.webpackJsonp([19],{
+global.webpackJsonp([21],{
 
 /***/ 87:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -87,7 +87,7 @@ if (false) {(function () {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_card__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_moreInfo__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_moreInfo__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__utils_index__ = __webpack_require__(2);
 //
 //

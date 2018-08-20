@@ -177,6 +177,18 @@
       <div v-bind:class="[orderInfo.canAlter? 'ticket-changes-btn' : 'hide']"  @click="toPage(`../orderTicketChanges/main?orderId=${orderInfo.orderId}`)">
           订单改签
       </div>
+      <div v-bind:class="[orderInfo.invoiceStatus===1? 'ticket-changes-btn' : 'hide']"  @click="toPage(`../invoice/main?orderId=${orderInfo.orderId}&payAmount=${orderInfo.payAmount}`)">
+          开票
+      </div>
+      <div v-bind:class="[orderInfo.invoiceStatus===2? 'ticket-changes-btn-low' : 'hide']">
+          开票中
+      </div>
+      <div v-bind:class="[orderInfo.invoiceStatus===3? 'ticket-changes-btn-low' : 'hide']">
+          开票完成
+      </div>
+      <div v-bind:class="[orderInfo.invoiceStatus===4? 'ticket-changes-btn-low' : 'hide']">
+          开票失败
+      </div>
   </div>
 </template>
 
@@ -265,8 +277,8 @@ export default {
   },
   onLoad(option){
       const token = wx.getStorageSync('token');
-      const orderId = option.orderId;
-      // const orderId = '1021431355252146176';
+      // const orderId = option.orderId;
+      const orderId = '1027808446436605952';
       get('/order/orderDetail',{token,orderId}).then((res)=>{
           console.log(res);
           this.orderInfo = res;
@@ -462,5 +474,18 @@ export default {
     letter-spacing: 0;
     text-align: center;
     margin: 36rpx auto 0;
+}
+.ticket-changes-btn-low{
+    width: 210rpx;
+    height: 50rpx;
+    background: #1B1B1B;
+    border-radius: 25rpx;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 28rpx;
+    color: rgba(255,255,255,.7);
+    letter-spacing: 0;
 }
 </style>

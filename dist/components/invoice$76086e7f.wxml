@@ -1,0 +1,42 @@
+<import src="rotateLoading$5b0619fe" />
+<template name="invoice$76086e7f">
+  <view class="_div data-v-300021e7 container invoice invoice-container">
+    <view class="_div data-v-300021e7 main">
+      <view class="_div data-v-300021e7 line-box">
+        <view class="_div data-v-300021e7 label"> 抬头类型 </view>
+        <view class="_div data-v-300021e7 content radio-group">
+          <view bindtap="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}" class="_div data-v-300021e7 {{[invoiceType === 2 ? 'radio-item active' : 'radio-item']}}"> 公司 </view>
+          <view bindtap="handleProxy" data-eventid="{{'1'}}" data-comkey="{{$k}}" class="_div data-v-300021e7 {{[invoiceType === 1 ? 'radio-item active' : 'radio-item']}}"> 个人 </view>
+        </view>
+      </view>
+      <view class="_div data-v-300021e7 line-box">
+        <view class="_div data-v-300021e7 label"> 手机号码 </view>
+        <view class="_div data-v-300021e7 content">
+          <input class="_input data-v-300021e7 in-text" type="text" value="{{mobile}}" bindinput="handleProxy" placeholder="请填写" data-eventid="{{'2'}}" data-comkey="{{$k}}" />
+        </view>
+      </view>
+      <view class="_div data-v-300021e7 line-box">
+        <view class="_div data-v-300021e7 label"> 收件地址 </view>
+        <view class="_div data-v-300021e7 content">
+          <input class="_input data-v-300021e7 in-text" type="text" value="{{address}}" bindinput="handleProxy" placeholder="请填写" data-eventid="{{'3'}}" data-comkey="{{$k}}" />
+        </view>
+      </view>
+      <view class="_div data-v-300021e7 line-box" wx:if="{{invoiceType===2}}">
+        <view class="_div data-v-300021e7 label"> 发票抬头 </view>
+        <view class="_div data-v-300021e7 content">
+          <input class="_input data-v-300021e7 in-text" type="text" value="{{invoiceTitle}}" bindinput="handleProxy" placeholder="请填写" data-eventid="{{'4'}}" data-comkey="{{$k}}" />
+        </view>
+      </view>
+      <view class="_div data-v-300021e7 line-box" wx:if="{{invoiceType===2}}">
+        <view class="_div data-v-300021e7 label"> 公司税号 </view>
+        <view class="_div data-v-300021e7 content">
+          <input class="_input data-v-300021e7 in-text" type="text" value="{{taxNo}}" bindinput="handleProxy" placeholder="请填写" data-eventid="{{'5'}}" data-comkey="{{$k}}" />
+        </view>
+      </view>
+    </view>
+    <view class="_div data-v-300021e7 submit-btn" bindtap="handleProxy" data-eventid="{{'6'}}" data-comkey="{{$k}}"> 提交 </view>
+    <view hidden="{{!(isFetching)}}" class="_div data-v-300021e7">
+      <template data="{{...$root[$kk+'0'], $root}}" is="rotateLoading$5b0619fe"></template>
+    </view>
+  </view>
+</template>

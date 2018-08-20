@@ -1,13 +1,13 @@
 global.webpackJsonp([3],{
 
-/***/ 161:
+/***/ 171:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__index__ = __webpack_require__(162);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__index__ = __webpack_require__(172);
 
 
 
@@ -21,16 +21,16 @@ app.$mount();
 
 /***/ }),
 
-/***/ 162:
+/***/ 172:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_lib_selector_type_script_index_0_index_vue__ = __webpack_require__(164);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_lib_template_compiler_index_id_data_v_027b0d56_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_mpvue_loader_lib_selector_type_template_index_0_index_vue__ = __webpack_require__(166);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_lib_selector_type_script_index_0_index_vue__ = __webpack_require__(174);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_mpvue_loader_lib_template_compiler_index_id_data_v_027b0d56_hasScoped_true_transformToRequire_video_src_source_src_img_src_image_xlink_href_node_modules_mpvue_loader_lib_selector_type_template_index_0_index_vue__ = __webpack_require__(176);
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(163)
+  __webpack_require__(173)
 }
 var normalizeComponent = __webpack_require__(0)
 /* script */
@@ -75,20 +75,20 @@ if (false) {(function () {
 
 /***/ }),
 
-/***/ 163:
+/***/ 173:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
 
-/***/ 164:
+/***/ 174:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__ = __webpack_require__(6);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__utils_index__ = __webpack_require__(2);
 
@@ -275,10 +275,22 @@ if (false) {(function () {
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 // import QRCode from 'qrcode';
 
-var QRCode = __webpack_require__(165);
+var QRCode = __webpack_require__(175);
 /* harmony default export */ __webpack_exports__["a"] = ({
     data: function data() {
         return {
@@ -399,23 +411,23 @@ var QRCode = __webpack_require__(165);
         var _this3 = this;
 
         var token = wx.getStorageSync('token');
-        var orderId = option.orderId;
-        // const orderId = '1021431355252146176';
+        // const orderId = option.orderId;
+        var orderId = '1027808446436605952';
         Object(__WEBPACK_IMPORTED_MODULE_2__utils_index__["b" /* get */])('/order/orderDetail', { token: token, orderId: orderId }).then(function (res) {
             console.log(res);
             _this3.orderInfo = res;
             if (res.orderStatus === 1) {
                 var experialTime = res.experialTime;
 
-                if (Object(__WEBPACK_IMPORTED_MODULE_2__utils_index__["e" /* timerDown */])(res.experialTime / 1000, 'm:s') === 'timeOut') {
+                if (Object(__WEBPACK_IMPORTED_MODULE_2__utils_index__["f" /* timerDown */])(res.experialTime / 1000, 'm:s') === 'timeOut') {
                     _this3.cancelOrder(orderId);
                 } else {
-                    _this3.timer = Object(__WEBPACK_IMPORTED_MODULE_2__utils_index__["e" /* timerDown */])(res.experialTime / 1000, 'm:s');
+                    _this3.timer = Object(__WEBPACK_IMPORTED_MODULE_2__utils_index__["f" /* timerDown */])(res.experialTime / 1000, 'm:s');
                     _this3.countDownTimer = setInterval(function () {
                         if (_this3.timer === 'timeOut') {
                             _this3.cancelOrder(orderId);
                         }
-                        _this3.timer = Object(__WEBPACK_IMPORTED_MODULE_2__utils_index__["e" /* timerDown */])(res.experialTime / 1000, 'm:s');
+                        _this3.timer = Object(__WEBPACK_IMPORTED_MODULE_2__utils_index__["f" /* timerDown */])(res.experialTime / 1000, 'm:s');
                     }, 1000);
                 }
             }
@@ -441,7 +453,7 @@ var QRCode = __webpack_require__(165);
 
 /***/ }),
 
-/***/ 165:
+/***/ 175:
 /***/ (function(module, exports) {
 
 //Core code comes from https://github.com/davidshimjs/qrcodejs
@@ -1103,7 +1115,7 @@ module.exports = QRCode;
 
 /***/ }),
 
-/***/ 166:
+/***/ 176:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1278,7 +1290,23 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
         _vm.toPage(("../orderTicketChanges/main?orderId=" + (_vm.orderInfo.orderId)))
       }
     }
-  }, [_vm._v("\n        订单改签\n    ")])])
+  }, [_vm._v("\n        订单改签\n    ")]), _vm._v(" "), _c('div', {
+    class: [_vm.orderInfo.invoiceStatus === 1 ? 'ticket-changes-btn' : 'hide'],
+    attrs: {
+      "eventid": '2'
+    },
+    on: {
+      "click": function($event) {
+        _vm.toPage(("../invoice/main?orderId=" + (_vm.orderInfo.orderId) + "&payAmount=" + (_vm.orderInfo.payAmount)))
+      }
+    }
+  }, [_vm._v("\n        开票\n    ")]), _vm._v(" "), _c('div', {
+    class: [_vm.orderInfo.invoiceStatus === 2 ? 'ticket-changes-btn-low' : 'hide']
+  }, [_vm._v("\n        开票中\n    ")]), _vm._v(" "), _c('div', {
+    class: [_vm.orderInfo.invoiceStatus === 3 ? 'ticket-changes-btn-low' : 'hide']
+  }, [_vm._v("\n        开票完成\n    ")]), _vm._v(" "), _c('div', {
+    class: [_vm.orderInfo.invoiceStatus === 4 ? 'ticket-changes-btn-low' : 'hide']
+  }, [_vm._v("\n        开票失败\n    ")])])
 }
 var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
@@ -1305,5 +1333,5 @@ if (false) {
 
 /***/ })
 
-},[161]);
+},[171]);
 //# sourceMappingURL=main.js.map

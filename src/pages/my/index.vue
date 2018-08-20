@@ -15,6 +15,11 @@
                   <div class="content-text">订单</div>
                   <img class="left-right" src="http://static.sa-green.cn/image/jpg/kaka/%E7%AE%AD%E5%A4%B4%E5%8F%B3.svg" alt="">
               </div>
+              <div class="list-item" @click="toPage('../feedback/main')">
+                  <img class="left-icon" src="http://static.sa-green.cn/image/jpg/kaka/%E5%8F%8D%E9%A6%88.svg" alt="">
+                  <div class="content-text">反馈</div>
+                  <img class="left-right" src="http://static.sa-green.cn/image/jpg/kaka/%E7%AE%AD%E5%A4%B4%E5%8F%B3.svg" alt="">
+              </div>
               <!-- <div class="list-item">
                   <img class="left-icon" src="http://static.sa-green.cn/image/jpg/kaka/%E5%96%9C%E6%AC%A2.svg" alt="">
                   <div class="content-text">喜欢</div>
@@ -25,11 +30,7 @@
                   <div class="content-text">相册</div>
                   <img class="left-right" src="http://static.sa-green.cn/image/jpg/kaka/%E7%AE%AD%E5%A4%B4%E5%8F%B3.svg" alt="">
               </div>
-              <div class="list-item">
-                  <img class="left-icon" src="http://static.sa-green.cn/image/jpg/kaka/%E5%8F%8D%E9%A6%88.svg" alt="">
-                  <div class="content-text">反馈</div>
-                  <img class="left-right" src="http://static.sa-green.cn/image/jpg/kaka/%E7%AE%AD%E5%A4%B4%E5%8F%B3.svg" alt="">
-              </div> -->
+               -->
 
           </div>
           <div class="login-out-btn" v-bind:class="[userInfo.nickName===''? 'hide' : '']" @click="loginOut">
